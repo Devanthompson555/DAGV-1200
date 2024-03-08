@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
-//Name: Fishbowl.ma
-//Last modified: Thu, Mar 07, 2024 08:11:06 PM
+//Name: Fishbowlwithdecoration.ma
+//Last modified: Thu, Mar 07, 2024 08:13:25 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "D63A70C7-4CFE-3436-682D-7F98B28275B5";
+fileInfo "UUID" "242646B4-480B-D6FD-C8C7-C2B7E2CFA01D";
 createNode transform -s -n "persp";
 	rename -uid "4621DCBE-4004-556F-F031-BAAF88D70688";
 	setAttr ".v" no;
@@ -50009,20 +50009,20 @@ createNode mesh -n "GreekBuilding:polySurfaceShape1" -p "GreekBuilding:GreekBuil
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "2A1EF6A1-4A07-43E8-9A05-F9A742E3F63D";
+	rename -uid "5BD65332-4148-9AE1-708E-079464456DA4";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "04A2AE93-48B2-5496-EC6C-CC953EBDFC70";
+	rename -uid "4D33CD02-4170-EC01-AA73-D993192A1EA9";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "1F853F5C-474E-753B-4206-AFA92DD0627B";
+	rename -uid "232DCCB4-46F4-8B64-68EF-58AAC7B25151";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "E2E5AB84-45A6-77CB-4896-DAA4C2DFA728";
+	rename -uid "BF3FB119-44AD-BE93-494B-F0BE52B4054A";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "43B07823-4931-ABD4-FD24-E1821D38F970";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "D6ED3BE1-42B3-0845-DA23-749467CC6838";
+	rename -uid "A168B013-4433-DAC4-7A55-08BE6FD1701B";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "10BE55F6-4D6C-415D-BA02-31B4E17B591C";
 	setAttr ".g" yes;
@@ -50448,7 +50448,7 @@ createNode nodeGraphEditorInfo -n "GreekBuilding:hyperShadePrimaryNodeEditorSave
 	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -617.85711830570688 ;
 	setAttr ".tgi[0].vh" -type "double2" 604.76188073082676 44.047617297323995 ;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "13BD51EB-4238-AC1B-01F3-D28222D0819F";
+	rename -uid "AFA51242-4517-2643-DA28-F896001C0478";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -50740,4 +50740,4 @@ connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Fish_MeshShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "FishBowlShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "GreekBuilding:groupId27.msg" ":initialShadingGroup.gn" -na;
-// End of Fishbowl.ma
+// End of Fishbowlwithdecoration.ma
