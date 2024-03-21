@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
-//Name: Fishbowlwithdecoration.ma
-//Last modified: Wed, Mar 20, 2024 09:00:10 PM
+//Name: FishbowlUVMapped.ma
+//Last modified: Wed, Mar 20, 2024 11:26:55 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,19 +11,19 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "7CBECDD4-4623-886C-11D8-00BFDE6A3C58";
+fileInfo "UUID" "494EECDC-408D-5DD8-5DA5-E1994C13C84F";
 createNode transform -s -n "persp";
 	rename -uid "4621DCBE-4004-556F-F031-BAAF88D70688";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 14.969243035221465 10.072852599865872 5.0826017601930475 ;
-	setAttr ".r" -type "double3" 380.06164666110993 -4714.199999993536 1.92275987379424e-15 ;
-	setAttr ".rp" -type "double3" -8.8817841970012523e-16 -8.8817841970012523e-16 1.6653345369377348e-16 ;
-	setAttr ".rpt" -type "double3" 3.3229893274721237e-15 -2.7149158667414454e-16 -1.6025350879638539e-15 ;
+	setAttr ".t" -type "double3" 11.215360846792883 46.730784701394718 28.568775663787576 ;
+	setAttr ".r" -type "double3" 310.46164659268089 -2138.599999999788 0 ;
+	setAttr ".rp" -type "double3" 1.7763568394002505e-15 0 -1.7763568394002505e-15 ;
+	setAttr ".rpt" -type "double3" 3.9123298327962936e-15 -1.8222623589592005e-16 -6.5279574083772596e-18 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "5685AC0B-40F3-7712-82F6-28A131A85649";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 5.3956934284112288;
+	setAttr ".coi" 47.281455332201773;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -83,7 +83,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "Fish_Mesh";
 	rename -uid "EF637175-4823-2CCE-122E-328DFDC4E893";
-	setAttr ".t" -type "double3" 0 0.0363808403254815 0 ;
+	setAttr ".t" -type "double3" -0.3006289462476559 0.0363808403254815 0 ;
 	setAttr ".rp" -type "double3" 17.753045566202246 7.9136605929406301 1.3950838441609115 ;
 	setAttr ".sp" -type "double3" 17.753045566202246 7.9136605929406301 1.3950838441609115 ;
 createNode mesh -n "Fish_MeshShape" -p "Fish_Mesh";
@@ -91,11 +91,13 @@ createNode mesh -n "Fish_MeshShape" -p "Fish_Mesh";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.49593806266784668 0.5001755952835083 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr ".bw" 3;
 createNode mesh -n "polySurfaceShape2" -p "Fish_Mesh";
 	rename -uid "EEEE16B2-48AD-92DE-B2DD-4F85487D680E";
 	setAttr -k off ".v";
@@ -1659,8 +1661,7 @@ createNode mesh -n "polySurfaceShape2" -p "Fish_Mesh";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 17 ".pt";
-	setAttr ".pt[3562]" -type "float3" -0.0080089569 0.075219154 0.0015773773 ;
+	setAttr ".pt[3562]" -type "float3"  -0.0080089569 0.075219154 0.0015773773;
 	setAttr -s 4984 ".vt";
 	setAttr ".vt[0:165]"  18.16664314 12.20723534 3.82687092 17.75304604 12.25908089 3.86261845
 		 17.75304604 11.94845676 4.26864433 18.15591812 11.85689926 4.21756077 17.35017395 11.85689926 4.21756029
@@ -14701,6 +14702,7 @@ createNode mesh -n "polySurfaceShape2" -p "Fish_Mesh";
 	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+	setAttr ".bw" 3;
 createNode transform -n "FishBowl";
 	rename -uid "962B7316-47AA-6396-58E1-4EA134C0B30D";
 createNode mesh -n "FishBowlShape" -p "FishBowl";
@@ -50289,20 +50291,20 @@ createNode mesh -n "GreekBuilding:polySurfaceShape1" -p "GreekBuilding:GreekBuil
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "A706ED74-438D-6064-0097-95B9FA04A5C1";
-	setAttr -s 4 ".lnk";
-	setAttr -s 4 ".slnk";
+	rename -uid "A9C97A08-4C9B-76BF-AFCF-CA885DE4DDEB";
+	setAttr -s 5 ".lnk";
+	setAttr -s 5 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "1434A4CF-42A6-05B2-7473-E5ADFD8B7651";
+	rename -uid "CCAF1EB7-4BC8-1FEE-6C83-AB8A60D7033B";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "632743AB-4936-133A-E0C5-EF84AB725755";
+	rename -uid "15828AC0-448F-DD50-6339-B3B175F8E0D8";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "FD6D5402-4549-0B89-55F6-0DABB777BBC9";
+	rename -uid "EDBF91A5-4450-FB6A-CE36-09B314BF758D";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "43B07823-4931-ABD4-FD24-E1821D38F970";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "57D33ACC-4D91-DB31-DFC9-4592C197932E";
+	rename -uid "7C6B4C91-47AB-C725-E237-7FB5F1F6C4E9";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "10BE55F6-4D6C-415D-BA02-31B4E17B591C";
 	setAttr ".g" yes;
@@ -50325,17 +50327,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1117\n            -height 557\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
 		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n"
-		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1116\n            -height 556\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
+		+ "            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n"
 		+ "            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n"
 		+ "            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n"
-		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1117\n            -height 556\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n"
-		+ "        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 1\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
+		+ "            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n"
+		+ "            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 1\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n"
 		+ "            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n"
-		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2240\n            -height 1158\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
+		+ "            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 938\n            -height 1158\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n"
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -autoExpandAllAnimatedShapes 1\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n"
 		+ "            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -showUfeItems 1\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n"
 		+ "            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n"
@@ -50358,8 +50360,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2240\\n    -height 1158\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 2240\\n    -height 1158\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 938\\n    -height 1158\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -bluePencil 1\\n    -greasePencils 0\\n    -excludeObjectPreset \\\"All\\\" \\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 938\\n    -height 1158\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -50737,2071 +50739,6 @@ createNode shadingEngine -n "lambert2SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "BE9D3D17-4801-B1CA-4C97-22B73CA3F1F0";
-createNode polyFlipUV -n "polyFlipUV1";
-	rename -uid "21EC4667-422A-6E6C-7764-BA8169CB41B1";
-	setAttr ".uopa" yes;
-	setAttr ".ics" -type "componentList" 2 "f[0:4718]" "f[9438:9509]";
-	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
-	setAttr ".up" yes;
-	setAttr ".pu" 0.5;
-	setAttr ".pv" 0.5;
-createNode polyTweakUV -n "polyTweakUV1";
-	rename -uid "E824CCD0-4027-EC64-1D7C-A89925C6B347";
-	setAttr ".uopa" yes;
-	setAttr -s 12212 ".uvtk";
-	setAttr ".uvtk[0:249]" -type "float2" 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609;
-	setAttr ".uvtk[250:499]" 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609;
-	setAttr ".uvtk[500:749]" 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077731609
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[750:999]" 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417;
-	setAttr ".uvtk[1000:1249]" 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[1250:1499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[1500:1749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[1750:1999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[2000:2249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225;
-	setAttr ".uvtk[2250:2499]" 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077729225 0 1.0077729225;
-	setAttr ".uvtk[2500:2749]" 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
-		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417
-		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
-		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[2750:2999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[3000:3249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[3250:3499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[3500:3749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[3750:3999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[4000:4249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[4250:4499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[4500:4749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[4750:4999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[5000:5249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[5250:5499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[5500:5749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[5750:5999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
-	setAttr ".uvtk[6000:6249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[6250:6499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[6500:6749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[6750:6999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[7000:7249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[7250:7499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[7500:7749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[7750:7999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[8000:8249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[8250:8499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[8500:8749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[8750:8999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[9000:9249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[9250:9499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[9500:9749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[9750:9999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[10000:10249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[10250:10499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[10500:10749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[10750:10999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[11000:11249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[11250:11499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[11500:11749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[11750:11999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
-	setAttr ".uvtk[12000:12211]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
-		 0 1.0033178329 0 1.0033178329 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077731609
-		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
-		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
 createNode polyTweakUV -n "polyTweakUV2";
 	rename -uid "0E60DBDD-4410-1629-7A78-978E40058DEE";
 	setAttr ".uopa" yes;
@@ -57999,7 +55936,7 @@ createNode polyAppendVertex -n "polyAppendVertex4";
 createNode polyTweakUV -n "polyTweakUV5";
 	rename -uid "514634B2-496C-E15E-816A-BDA19695A41E";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[2930]" -type "float2" -9.0643734e-05 2.0512511e-05 ;
 	setAttr ".uvtk[5296]" -type "float2" 7.1128874e-05 3.9149504e-06 ;
 	setAttr ".uvtk[5304]" -type "float2" 9.5968644e-05 -1.549521e-05 ;
@@ -58012,12 +55949,11 @@ createNode polyMergeVert -n "polyMergeVert2";
 createNode polyTweak -n "polyTweak2";
 	rename -uid "192A44EE-44BB-1134-A59B-CB89C1BE73D8";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[4986]" -type "float3" -0.012983322 0.012961388 0.00036419928 ;
+	setAttr ".tk[4986]" -type "float3"  -0.012983322 0.012961388 0.00036419928;
 createNode polyTweakUV -n "polyTweakUV6";
 	rename -uid "A5C4E7AF-4788-EB20-D2CC-4194F7687536";
 	setAttr ".uopa" yes;
-	setAttr -s 9 ".uvtk";
+	setAttr -s 8 ".uvtk";
 	setAttr ".uvtk[3194]" -type "float2" 6.4466432e-05 4.0290495e-05 ;
 	setAttr ".uvtk[5301]" -type "float2" 8.2945597e-05 -5.792742e-05 ;
 	setAttr ".uvtk[5307]" -type "float2" -7.3886964e-05 9.2271388e-05 ;
@@ -58034,13 +55970,12 @@ createNode polyMergeVert -n "polyMergeVert3";
 createNode polyTweak -n "polyTweak3";
 	rename -uid "B8C993D1-41F0-3503-8F0C-E29FB668CA51";
 	setAttr ".uopa" yes;
-	setAttr -s 8 ".tk";
-	setAttr ".tk[4983]" -type "float3" 0.043038368 0.029267311 -0.026504666 ;
-	setAttr ".tk[4984]" -type "float3" 0.012090683 -0.0014162064 -0.09407717 ;
+	setAttr -s 2 ".tk[4983:4984]" -type "float3"  0.043038368 0.029267311 -0.026504666
+		 0.012090683 -0.0014162064 -0.09407717;
 createNode polyTweakUV -n "polyTweakUV7";
 	rename -uid "4121D30F-48F3-C63A-0302-C8A5C7E05B5E";
 	setAttr ".uopa" yes;
-	setAttr -s 6 ".uvtk";
+	setAttr -s 5 ".uvtk";
 	setAttr ".uvtk[5302]" -type "float2" -4.3534856e-05 3.5483074e-05 ;
 	setAttr ".uvtk[5324]" -type "float2" 0.0018780263 -0.00085364463 ;
 	setAttr ".uvtk[6109]" -type "float2" 1.6744114e-05 -2.8161276e-05 ;
@@ -58054,12 +55989,11 @@ createNode polyMergeVert -n "polyMergeVert4";
 createNode polyTweak -n "polyTweak4";
 	rename -uid "70363A3C-476A-21A4-B284-448A63973ED2";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[545]" -type "float3" -0.010382652 0.057192802 -0.059498012 ;
+	setAttr ".tk[545]" -type "float3"  -0.010382652 0.057192802 -0.059498012;
 createNode polyTweakUV -n "polyTweakUV8";
 	rename -uid "6FEF70F3-40CB-AFF1-8057-C492C708714A";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".uvtk";
+	setAttr -s 3 ".uvtk";
 	setAttr ".uvtk[6110]" -type "float2" 4.5423869e-05 -2.4535696e-06 ;
 	setAttr ".uvtk[6133]" -type "float2" 0.73094743 0.20684862 ;
 	setAttr ".uvtk[6138]" -type "float2" 0.79853362 0.67539442 ;
@@ -58071,8 +56005,7 @@ createNode polyMergeVert -n "polyMergeVert5";
 createNode polyTweak -n "polyTweak5";
 	rename -uid "8122D424-407B-C3BA-F279-B9B2DA4A77F8";
 	setAttr ".uopa" yes;
-	setAttr -s 3 ".tk";
-	setAttr ".tk[4982]" -type "float3" -0.088291168 -0.07006073 -0.095594466 ;
+	setAttr ".tk[4982]" -type "float3"  -0.088291168 -0.07006073 -0.095594466;
 createNode polySplit -n "polySplit1";
 	rename -uid "B6B88516-4848-E258-5AD2-84882B9F4DFE";
 	setAttr -s 2 ".e[0:1]"  0 0;
@@ -58094,7 +56027,7 @@ createNode polySplit -n "polySplit3";
 createNode polyTweakUV -n "polyTweakUV9";
 	rename -uid "0ED05A83-4270-0DF9-6B33-778BFADC7B75";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[1434]" -type "float2" 5.6642915e-07 -4.6362644e-07 ;
 	setAttr ".uvtk[3085]" -type "float2" 0.017007122 -0.01240719 ;
 	setAttr ".uvtk[5508]" -type "float2" 0.70835501 -0.047621321 ;
@@ -58107,13 +56040,13 @@ createNode polyMergeVert -n "polyMergeVert6";
 createNode polyTweak -n "polyTweak6";
 	rename -uid "197E4FC6-4A89-C00A-2003-DCA306149EB4";
 	setAttr ".uopa" yes;
-	setAttr -s 3 ".tk";
+	setAttr -s 2 ".tk";
 	setAttr ".tk[3561]" -type "float3" 0.076860428 0.27186108 0.19625711 ;
 	setAttr ".tk[4982]" -type "float3" -0.00057220459 -0.0025529861 -0.029534817 ;
 createNode polyTweakUV -n "polyTweakUV10";
 	rename -uid "5A2DBBEE-4578-523C-386D-18BCD65A26D6";
 	setAttr ".uopa" yes;
-	setAttr -s 5 ".uvtk";
+	setAttr -s 4 ".uvtk";
 	setAttr ".uvtk[1434]" -type "float2" -0.0021295021 -0.002916025 ;
 	setAttr ".uvtk[3068]" -type "float2" 5.4365603e-07 1.1522299e-06 ;
 	setAttr ".uvtk[3085]" -type "float2" -0.0021026118 0.0030283628 ;
@@ -58126,8 +56059,7 @@ createNode polyMergeVert -n "polyMergeVert7";
 createNode polyTweak -n "polyTweak7";
 	rename -uid "AB92981A-4DE6-0E7F-A0F4-31B1B304B3E1";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[3542]" -type "float3" -0.076480865 -0.033946037 -0.046349049 ;
+	setAttr ".tk[3542]" -type "float3"  -0.076480865 -0.033946037 -0.046349049;
 createNode polySplit -n "polySplit4";
 	rename -uid "9E88ABD8-4CE2-BE23-5025-1E946FDF6774";
 	setAttr -s 2 ".e[0:1]"  0 0.215408;
@@ -58155,7 +56087,7 @@ createNode polySplit -n "polySplit6";
 createNode polyTweakUV -n "polyTweakUV11";
 	rename -uid "DE699107-45FD-6FD7-417A-A49D2DB45686";
 	setAttr ".uopa" yes;
-	setAttr -s 3 ".uvtk";
+	setAttr -s 2 ".uvtk";
 	setAttr ".uvtk[3079]" -type "float2" 0.065214865 -0.055073176 ;
 	setAttr ".uvtk[6140]" -type "float2" -0.0058333124 -0.0070425244 ;
 createNode polyMergeVert -n "polyMergeVert8";
@@ -58166,8 +56098,7 @@ createNode polyMergeVert -n "polyMergeVert8";
 createNode polyTweak -n "polyTweak8";
 	rename -uid "FF562FC6-40E5-3AD8-58B1-7EB08D95D12C";
 	setAttr ".uopa" yes;
-	setAttr -s 3 ".tk";
-	setAttr ".tk[4981]" -type "float3" 0.010660172 -0.093604088 0.11268997 ;
+	setAttr ".tk[4981]" -type "float3"  0.010660172 -0.093604088 0.11268997;
 createNode polySplit -n "polySplit7";
 	rename -uid "FA9FC616-4747-94DA-5755-99B6DBD77E9B";
 	setAttr -s 2 ".e[0:1]"  0 0.35409001;
@@ -59907,7 +57838,7 @@ createNode polyMapCut -n "polyMapCut2";
 createNode polyTweakUV -n "polyTweakUV13";
 	rename -uid "527DA544-44C8-6BFA-080F-21BA03CD66AA";
 	setAttr ".uopa" yes;
-	setAttr -s 257 ".uvtk";
+	setAttr -s 256 ".uvtk";
 	setAttr ".uvtk[1556]" -type "float2" 0.61230248 0.14530826 ;
 	setAttr ".uvtk[1557]" -type "float2" 0.61328 0.14573815 ;
 	setAttr ".uvtk[1561]" -type "float2" 0.61403102 0.1459074 ;
@@ -60171,7 +58102,7 @@ createNode polyMapSewMove -n "polyMapSewMove1";
 createNode polyTweakUV -n "polyTweakUV14";
 	rename -uid "82D6C606-4B35-2452-7EAF-B984C0E7C6BD";
 	setAttr ".uopa" yes;
-	setAttr -s 734 ".uvtk";
+	setAttr -s 733 ".uvtk";
 	setAttr ".uvtk[1556]" -type "float2" 0 0.57994664 ;
 	setAttr ".uvtk[1557]" -type "float2" 0 0.57994664 ;
 	setAttr ".uvtk[1561]" -type "float2" 0 0.57994652 ;
@@ -60912,7 +58843,7 @@ createNode polyMapCut -n "polyMapCut3";
 createNode polyTweakUV -n "polyTweakUV15";
 	rename -uid "77E22EC5-4FF1-7D67-3203-A19F836E4209";
 	setAttr ".uopa" yes;
-	setAttr -s 305 ".uvtk";
+	setAttr -s 304 ".uvtk";
 	setAttr ".uvtk[1556]" -type "float2" -0.13089168 0 ;
 	setAttr ".uvtk[1557]" -type "float2" -0.13089168 0 ;
 	setAttr ".uvtk[1561]" -type "float2" -0.13089162 0 ;
@@ -61250,8 +59181,7 @@ createNode polyMergeVert -n "polyMergeVert9";
 createNode polyTweak -n "polyTweak9";
 	rename -uid "4DC02A75-4324-F732-C030-5D8E8CCC6021";
 	setAttr ".uopa" yes;
-	setAttr -s 35 ".tk";
-	setAttr ".tk[5192]" -type "float3" -0.0090770721 0.0067014694 0.0074996948 ;
+	setAttr ".tk[5192]" -type "float3"  -0.0090770721 0.0067014694 0.0074996948;
 createNode polySplit -n "polySplit9";
 	rename -uid "22A9C666-4114-FD7A-2465-298079516F15";
 	setAttr ".e[0]"  0.621889;
@@ -61269,12 +59199,11 @@ createNode polyMergeVert -n "polyMergeVert10";
 createNode polyTweak -n "polyTweak10";
 	rename -uid "3C7E4540-4D20-C5C1-81CE-BAA1D7879BAA";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
-	setAttr ".tk[5193]" -type "float3" -0.026992798 -0.038579941 -0.046960354 ;
+	setAttr ".tk[5193]" -type "float3"  -0.026992798 -0.038579941 -0.046960354;
 createNode polyTweak -n "polyTweak11";
 	rename -uid "C446890B-4978-F337-27DD-66B11D352DF9";
 	setAttr ".uopa" yes;
-	setAttr -s 29 ".tk";
+	setAttr -s 24 ".tk";
 	setAttr ".tk[153]" -type "float3" 0 0.040427402 0 ;
 	setAttr ".tk[315]" -type "float3" 0 0.025113015 0 ;
 	setAttr ".tk[363]" -type "float3" 0 0.040427402 0 ;
@@ -61313,8 +59242,7 @@ createNode polyMergeVert -n "polyMergeVert11";
 createNode polyTweak -n "polyTweak12";
 	rename -uid "6353F3BD-4166-55FC-AF75-6EA8B60C79BA";
 	setAttr ".uopa" yes;
-	setAttr -s 4 ".tk";
-	setAttr ".tk[1621]" -type "float3" -0.035856247 0.0014820099 -0.011837006 ;
+	setAttr ".tk[1621]" -type "float3"  -0.035856247 0.0014820099 -0.011837006;
 createNode polyTweakUV -n "polyTweakUV19";
 	rename -uid "8B447E31-4082-868B-EFEF-D8B3F8769C95";
 	setAttr ".uopa" yes;
@@ -61326,8 +59254,7 @@ createNode polyMergeVert -n "polyMergeVert12";
 createNode polyTweak -n "polyTweak13";
 	rename -uid "542EBFF5-4344-A970-0B70-4A96C646E007";
 	setAttr ".uopa" yes;
-	setAttr -s 2 ".tk";
-	setAttr ".tk[1618]" -type "float3" -0.0029239655 -0.029244423 -0.048104763 ;
+	setAttr ".tk[1618]" -type "float3"  -0.0029239655 -0.029244423 -0.048104763;
 createNode deleteComponent -n "deleteComponent5";
 	rename -uid "8A5C3D25-4D26-73B0-70A2-8B9547593B3A";
 	setAttr ".dc" -type "componentList" 1 "vtx[213]";
@@ -61342,7 +59269,7 @@ createNode polyMergeVert -n "polyMergeVert13";
 createNode polyTweak -n "polyTweak14";
 	rename -uid "26E0D9AD-411C-8D99-5AC1-3EA9C52B43F9";
 	setAttr ".uopa" yes;
-	setAttr -s 11 ".tk";
+	setAttr -s 7 ".tk";
 	setAttr ".tk[213]" -type "float3" -9.3132257e-10 2.3283064e-10 4.6566129e-09 ;
 	setAttr ".tk[1789]" -type "float3" 0 0 -0.029566765 ;
 	setAttr ".tk[3954]" -type "float3" 0 0 -0.029566765 ;
@@ -61365,9 +59292,4778 @@ createNode polyTweak -n "polyTweak15";
 createNode polyCloseBorder -n "polyCloseBorder2";
 	rename -uid "EFB47654-4D75-C355-784F-0D908BEC637D";
 	setAttr ".ics" -type "componentList" 1 "e[*]";
-createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "E91C6649-49E4-2A42-5963-19A044DF64F0";
+createNode deleteComponent -n "deleteComponent7";
+	rename -uid "5C59863D-42B7-DB1F-66F5-52BE52E4ABE9";
+	setAttr ".dc" -type "componentList" 1 "f[4986]";
+createNode deleteComponent -n "deleteComponent8";
+	rename -uid "89CF9BEA-4106-D62D-6AE6-15AAC2B39283";
+	setAttr ".dc" -type "componentList" 1 "f[4987]";
+createNode deleteComponent -n "deleteComponent9";
+	rename -uid "5F591F31-44B0-CDD3-A495-539463FBFBAA";
+	setAttr ".dc" -type "componentList" 1 "f[4988]";
+createNode deleteComponent -n "deleteComponent10";
+	rename -uid "3056F6B8-4070-D534-F061-1FB1A2EC360F";
+	setAttr ".dc" -type "componentList" 1 "f[3896]";
+createNode deleteComponent -n "deleteComponent11";
+	rename -uid "250B0539-4BB0-C6A5-873F-22AE43F45829";
+	setAttr ".dc" -type "componentList" 1 "f[3895]";
+createNode deleteComponent -n "deleteComponent12";
+	rename -uid "7BE3F108-4890-F175-FBC3-72A8DF816E34";
+	setAttr ".dc" -type "componentList" 1 "f[3896]";
+createNode deleteComponent -n "deleteComponent13";
+	rename -uid "02447A0B-46BB-C133-A4A7-2CBBE91E744F";
+	setAttr ".dc" -type "componentList" 1 "f[5013]";
+createNode deleteComponent -n "deleteComponent14";
+	rename -uid "D0385AAF-4E9A-6CE1-4585-A3A8311CBE6B";
+	setAttr ".dc" -type "componentList" 1 "f[5012]";
+createNode deleteComponent -n "deleteComponent15";
+	rename -uid "D056C591-4901-389D-4516-D482B629605E";
+	setAttr ".dc" -type "componentList" 1 "f[3710]";
+createNode deleteComponent -n "deleteComponent16";
+	rename -uid "FA3F0E4E-4558-191E-0889-7388C37E56A6";
+	setAttr ".dc" -type "componentList" 1 "f[3707]";
+createNode deleteComponent -n "deleteComponent17";
+	rename -uid "791CA885-4591-FDB0-85AE-AC8EAE283972";
+	setAttr ".dc" -type "componentList" 1 "f[3938]";
+createNode deleteComponent -n "deleteComponent18";
+	rename -uid "FA456F02-403F-87CD-F176-7E80FC0982DB";
+	setAttr ".dc" -type "componentList" 1 "f[3938]";
+createNode deleteComponent -n "deleteComponent19";
+	rename -uid "3208C55B-420A-5281-AE71-C1A66DA6D74A";
+	setAttr ".dc" -type "componentList" 1 "f[3939]";
+createNode deleteComponent -n "deleteComponent20";
+	rename -uid "AEC0E97D-49CA-D641-681F-39A01129239D";
+	setAttr ".dc" -type "componentList" 1 "f[5009]";
+createNode deleteComponent -n "deleteComponent21";
+	rename -uid "6B41889B-444E-7E22-B8F2-51AF77D65D67";
+	setAttr ".dc" -type "componentList" 1 "f[5008]";
+createNode deleteComponent -n "deleteComponent22";
+	rename -uid "0D98F0EB-4586-1DFC-7448-EABDC195E242";
+	setAttr ".dc" -type "componentList" 1 "f[3706]";
+createNode deleteComponent -n "deleteComponent23";
+	rename -uid "A36E22D0-4E29-8703-D474-1B99AE88DD5B";
+	setAttr ".dc" -type "componentList" 1 "f[2122]";
+createNode deleteComponent -n "deleteComponent24";
+	rename -uid "D77D3DAC-4690-03CD-AF4C-FDB3A2B6D579";
+	setAttr ".dc" -type "componentList" 1 "f[5001]";
+createNode deleteComponent -n "deleteComponent25";
+	rename -uid "84BAB9A2-4E3D-E452-BF32-918A763CDFFB";
+	setAttr ".dc" -type "componentList" 1 "f[5003]";
+createNode deleteComponent -n "deleteComponent26";
+	rename -uid "1CD41252-4AA5-46ED-C24B-7C8B66B77EDC";
+	setAttr ".dc" -type "componentList" 1 "f[5004]";
+createNode deleteComponent -n "deleteComponent27";
+	rename -uid "876FB705-45B5-06EC-8370-C8BEC3AF3636";
+	setAttr ".dc" -type "componentList" 1 "f[3944]";
+createNode deleteComponent -n "deleteComponent28";
+	rename -uid "FC085836-4466-9123-A896-88AE9221B1DF";
+	setAttr ".dc" -type "componentList" 1 "f[3941]";
+createNode deleteComponent -n "deleteComponent29";
+	rename -uid "E562974C-4A59-7B25-A0AF-049DAC62ACB9";
+	setAttr ".dc" -type "componentList" 1 "f[5007]";
+createNode deleteComponent -n "deleteComponent30";
+	rename -uid "BC5BBB18-4F5E-A3C3-9591-1B8B1FBEFF85";
+	setAttr ".dc" -type "componentList" 1 "f[3706]";
+createNode deleteComponent -n "deleteComponent31";
+	rename -uid "CE09BBC4-4150-50AC-85CD-47AF39B73191";
+	setAttr ".dc" -type "componentList" 1 "f[3705]";
+createNode deleteComponent -n "deleteComponent32";
+	rename -uid "289086B3-4151-884B-F234-77B3C9198419";
+	setAttr ".dc" -type "componentList" 1 "f[5002]";
+createNode deleteComponent -n "deleteComponent33";
+	rename -uid "75E6DFE3-4AB7-A0AF-82A9-BA974B757C7A";
+	setAttr ".dc" -type "componentList" 1 "f[4997]";
+createNode deleteComponent -n "deleteComponent34";
+	rename -uid "FC919E29-4CE9-40E5-1697-57A5791A9E22";
+	setAttr ".dc" -type "componentList" 1 "f[4997]";
+createNode deleteComponent -n "deleteComponent35";
+	rename -uid "06832B4D-49A1-242F-50CE-CE9D68E05D6E";
+	setAttr ".dc" -type "componentList" 1 "f[3940]";
+createNode deleteComponent -n "deleteComponent36";
+	rename -uid "759DB53B-435B-F2FE-ABA1-B0BC9BBAE44C";
+	setAttr ".dc" -type "componentList" 1 "f[3939]";
+createNode deleteComponent -n "deleteComponent37";
+	rename -uid "1D18AAAF-46D4-4F3C-A7D1-C39DAD9237C2";
+	setAttr ".dc" -type "componentList" 1 "f[4998]";
+createNode deleteComponent -n "deleteComponent38";
+	rename -uid "71D8B153-4C7A-3317-D784-4BA50C738B3E";
+	setAttr ".dc" -type "componentList" 1 "f[4998]";
+createNode deleteComponent -n "deleteComponent39";
+	rename -uid "601FE342-472B-D44F-BB44-75AF3EE45D3D";
+	setAttr ".dc" -type "componentList" 1 "f[3889]";
+createNode deleteComponent -n "deleteComponent40";
+	rename -uid "32441A31-46C8-23C6-E12B-D983952C7F6D";
+	setAttr ".dc" -type "componentList" 1 "f[4994]";
+createNode deleteComponent -n "deleteComponent41";
+	rename -uid "C67E01A7-4BA7-6300-F8AF-F384296D0B1D";
+	setAttr ".dc" -type "componentList" 1 "f[4995]";
+createNode deleteComponent -n "deleteComponent42";
+	rename -uid "E48D1418-4F1A-D191-587A-EF9A36584592";
+	setAttr ".dc" -type "componentList" 1 "f[3933]";
+createNode deleteComponent -n "deleteComponent43";
+	rename -uid "00457714-48FC-C687-82EF-E59EE4CCD4D3";
+	setAttr ".dc" -type "componentList" 1 "f[4993]";
+createNode deleteComponent -n "deleteComponent44";
+	rename -uid "70FF5641-485D-3820-B4ED-B9B11C0561AC";
+	setAttr ".dc" -type "componentList" 1 "f[2104]";
+createNode deleteComponent -n "deleteComponent45";
+	rename -uid "96AC493C-411D-1651-91AC-6596066773EC";
+	setAttr ".dc" -type "componentList" 1 "f[2104]";
+createNode deleteComponent -n "deleteComponent46";
+	rename -uid "6D6987F4-42DD-1C0F-F71D-95A40B43217B";
+	setAttr ".dc" -type "componentList" 1 "f[4989]";
+createNode deleteComponent -n "deleteComponent47";
+	rename -uid "CEB093D1-4747-3467-06C0-10BE0D502C30";
+	setAttr ".dc" -type "componentList" 1 "f[4989]";
+createNode deleteComponent -n "deleteComponent48";
+	rename -uid "AC5C9CD5-4977-C936-69B4-D58A4AD9BC44";
+	setAttr ".dc" -type "componentList" 1 "f[2103]";
+createNode deleteComponent -n "deleteComponent49";
+	rename -uid "247F3CA3-4520-5593-373B-EFAF21C61F81";
+	setAttr ".dc" -type "componentList" 1 "f[2102]";
+createNode deleteComponent -n "deleteComponent50";
+	rename -uid "74D6F618-485C-82C8-EFF0-A392A2EB6167";
+	setAttr ".dc" -type "componentList" 1 "f[1846]";
+createNode deleteComponent -n "deleteComponent51";
+	rename -uid "2894B649-4C4D-9C36-636A-E08EB0948847";
+	setAttr ".dc" -type "componentList" 1 "f[4984]";
+createNode deleteComponent -n "deleteComponent52";
+	rename -uid "FF1B9EBA-4574-848F-698E-24A6FE44EBEB";
+	setAttr ".dc" -type "componentList" 1 "f[4983]";
+createNode deleteComponent -n "deleteComponent53";
+	rename -uid "5CB06457-41FF-E8DE-E87B-36BFD24F10B0";
+	setAttr ".dc" -type "componentList" 1 "f[1845]";
+createNode deleteComponent -n "deleteComponent54";
+	rename -uid "D6777809-45E9-9B26-5FFD-B8B695410FD8";
+	setAttr ".dc" -type "componentList" 1 "f[1882]";
+createNode deleteComponent -n "deleteComponent55";
+	rename -uid "093EF1B8-4250-3F10-F257-D6AC52484819";
+	setAttr ".dc" -type "componentList" 1 "f[1842]";
+createNode deleteComponent -n "deleteComponent56";
+	rename -uid "9EC745AB-459F-20A4-30FD-ACA6B30FC3B2";
+	setAttr ".dc" -type "componentList" 1 "f[4976]";
+createNode deleteComponent -n "deleteComponent57";
+	rename -uid "A198ABB7-417F-07EA-D7DA-249D7ABB3E7A";
+	setAttr ".dc" -type "componentList" 1 "f[4979]";
+createNode deleteComponent -n "deleteComponent58";
+	rename -uid "BA493063-4737-64E7-96EC-DAAAF8569CFF";
+	setAttr ".dc" -type "componentList" 1 "f[1843]";
+createNode deleteComponent -n "deleteComponent59";
+	rename -uid "F83FC26D-4423-23C7-EE08-39866ADA7815";
+	setAttr ".dc" -type "componentList" 1 "f[1842]";
+createNode deleteComponent -n "deleteComponent60";
+	rename -uid "8A534633-4F37-21C4-C402-A3961D6D614A";
+	setAttr ".dc" -type "componentList" 1 "f[4975]";
+createNode deleteComponent -n "deleteComponent61";
+	rename -uid "03821415-4E17-C86E-304A-FA9DA436D030";
+	setAttr ".dc" -type "componentList" 1 "f[4974]";
+createNode deleteComponent -n "deleteComponent62";
+	rename -uid "CB018FDE-4EE8-5568-B545-43899E98C99B";
+	setAttr ".dc" -type "componentList" 1 "f[4974]";
+createNode deleteComponent -n "deleteComponent63";
+	rename -uid "2C3418E7-4529-D266-2B2D-748CA29839FE";
+	setAttr ".dc" -type "componentList" 1 "f[2009]";
+createNode deleteComponent -n "deleteComponent64";
+	rename -uid "E6E65C92-4CB9-5B0E-5563-33A57BBA6790";
+	setAttr ".dc" -type "componentList" 1 "f[4958]";
+createNode deleteComponent -n "deleteComponent65";
+	rename -uid "3074A29E-45F3-07A6-490F-57B94D4D4259";
+	setAttr ".dc" -type "componentList" 1 "f[2009]";
+createNode deleteComponent -n "deleteComponent66";
+	rename -uid "DEB4136B-476F-E242-7198-1BA677EDC680";
+	setAttr ".dc" -type "componentList" 1 "f[2009]";
+createNode deleteComponent -n "deleteComponent67";
+	rename -uid "987309A7-49D6-73D8-99F2-57889B2BCFA6";
+	setAttr ".dc" -type "componentList" 1 "f[4574]";
+createNode deleteComponent -n "deleteComponent68";
+	rename -uid "7BF36394-426A-41DE-1807-599ACF05BFB0";
+	setAttr ".dc" -type "componentList" 1 "f[4943]";
+createNode deleteComponent -n "deleteComponent69";
+	rename -uid "CAADD720-4F60-8060-797E-47A94184FF5C";
+	setAttr ".dc" -type "componentList" 1 "f[4968]";
+createNode deleteComponent -n "deleteComponent70";
+	rename -uid "94253C7F-410C-7519-A4A2-3EB3E8BCC42D";
+	setAttr ".dc" -type "componentList" 1 "f[4955]";
+createNode deleteComponent -n "deleteComponent71";
+	rename -uid "F10EEE94-4830-9AE1-D2CB-40A1D0D2AAA7";
+	setAttr ".dc" -type "componentList" 1 "f[4574]";
+createNode deleteComponent -n "deleteComponent72";
+	rename -uid "BEE09C1D-4664-55F5-627E-4091455D791E";
+	setAttr ".dc" -type "componentList" 1 "f[4968]";
+createNode deleteComponent -n "deleteComponent73";
+	rename -uid "E0F20FB9-4192-DC5B-069C-6397B5D6DA8E";
+	setAttr ".dc" -type "componentList" 1 "f[4796]";
+createNode deleteComponent -n "deleteComponent74";
+	rename -uid "92B2625C-40A4-0CC9-28F3-ECB1234AB24B";
+	setAttr ".dc" -type "componentList" 1 "f[4792]";
+createNode deleteComponent -n "deleteComponent75";
+	rename -uid "869C8A19-4FBB-4CD1-B5BE-BFA6BFC1506A";
+	setAttr ".dc" -type "componentList" 1 "f[4965]";
+createNode deleteComponent -n "deleteComponent76";
+	rename -uid "94F747D8-41B8-41C9-A8DE-79B832DCFEE8";
+	setAttr ".dc" -type "componentList" 1 "f[4964]";
+createNode polyTweakUV -n "polyTweakUV21";
+	rename -uid "4BEB03B8-49D4-B7DB-BEE5-31B92F09A917";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert15";
+	rename -uid "54AB69D7-4259-0114-D7E0-E08EC1EB8FEE";
+	setAttr ".ics" -type "componentList" 1 "vtx[4940:4941]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak16";
+	rename -uid "1D0C07D9-41D2-7E8A-6935-8388200901BD";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4941]" -type "float3"  0.024963379 0.017623901 0.00872159;
+createNode polyTweakUV -n "polyTweakUV22";
+	rename -uid "6813C1CB-4D16-1C6F-B5A1-99A856E56F88";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert16";
+	rename -uid "4293C7DE-4571-F27F-A777-FF8C34BB5CDD";
+	setAttr ".ics" -type "componentList" 2 "vtx[3530]" "vtx[4973]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak17";
+	rename -uid "5021E80A-4B02-809E-ED27-7AA6FEB035D7";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[3530]" -type "float3" 0.16746192 0 0 ;
+	setAttr ".tk[4973]" -type "float3" 0.1674614 0 0 ;
+createNode polyTweakUV -n "polyTweakUV23";
+	rename -uid "4D5C3751-4F24-F0C5-1985-01B7701E9CCE";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert17";
+	rename -uid "BCB97C70-45EC-283F-1AB5-67A4C2C82706";
+	setAttr ".ics" -type "componentList" 2 "vtx[3530]" "vtx[4973]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak18";
+	rename -uid "67F4226B-4EF7-47F4-AFE4-44A234AC8357";
+	setAttr ".uopa" yes;
+	setAttr ".tk[3530]" -type "float3"  -0.1674614 0 0;
+createNode polyTweakUV -n "polyTweakUV24";
+	rename -uid "F3738515-40E7-B3BC-F639-90B730713BF5";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert18";
+	rename -uid "E7C29896-47BE-BF2C-0C55-79AB92FDED0E";
+	setAttr ".ics" -type "componentList" 2 "vtx[3530]" "vtx[4973]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak19";
+	rename -uid "9C8B4AAF-49F6-7D02-EED8-44BF19B23F03";
+	setAttr ".uopa" yes;
+	setAttr ".tk[3530]" -type "float3"  0.10258917 1.8626451e-07 -4.0512532e-08;
+createNode deleteComponent -n "deleteComponent77";
+	rename -uid "68D5B1A3-4DAA-B991-5031-439B3D50E90D";
+	setAttr ".dc" -type "componentList" 1 "f[4793]";
+createNode deleteComponent -n "deleteComponent78";
+	rename -uid "9E634B5B-4E7F-0593-BD48-A598066B78EA";
+	setAttr ".dc" -type "componentList" 1 "f[4950]";
+createNode deleteComponent -n "deleteComponent79";
+	rename -uid "7632F77A-4D88-8AD3-094F-6995B7F0FB4F";
+	setAttr ".dc" -type "componentList" 1 "f[4791]";
+createNode deleteComponent -n "deleteComponent80";
+	rename -uid "E7BC372E-4059-2C4D-60EB-06A5E0303F3A";
+	setAttr ".dc" -type "componentList" 1 "f[4532]";
+createNode deleteComponent -n "deleteComponent81";
+	rename -uid "8856ADDF-4EED-9679-A29E-64B1712A6F49";
+	setAttr ".dc" -type "componentList" 1 "f[4532]";
+createNode polyAppendVertex -n "polyAppendVertex5";
+	rename -uid "62822D04-4934-AE79-CDE4-8EB6775566FD";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  3590 4896 3655 1190;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak20";
+	rename -uid "F2082739-4EA3-5EE2-56CE-E9ADC7DF3647";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[3655]" -type "float3" -0.0026556749 -0.015191074 -0.048804395 ;
+	setAttr ".tk[4896]" -type "float3" 0 0 0.025725005 ;
+createNode polyAppendVertex -n "polyAppendVertex6";
+	rename -uid "19A21E34-4D9E-ED53-2AC2-1683ED53CD4C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4896 4940 4895 3655;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex7";
+	rename -uid "681798B0-48F5-8904-1661-44AB92D1395C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  3510 1145 3530 4829;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak21";
+	rename -uid "F609CCAF-42C3-55D2-EE6C-0A91C607838C";
+	setAttr ".uopa" yes;
+	setAttr ".tk[3655]" -type "float3"  -0.019767761 -0.023838997 -0.089077711;
+createNode polyAppendVertex -n "polyAppendVertex8";
+	rename -uid "5D09FEF1-4102-2005-0082-F3B10984B6DA";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1145 3509 4828 3530;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex9";
+	rename -uid "41949DEB-4161-A2E0-F715-6CA4E64E7416";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  571 2218 4224 2336;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak22";
+	rename -uid "B226631B-44FF-6933-ECD5-B5B539CD52C7";
+	setAttr ".uopa" yes;
+	setAttr ".tk[1145]" -type "float3"  -0.0077877045 0.0012760162 -0.022437334;
+createNode polyAppendVertex -n "polyAppendVertex10";
+	rename -uid "3ED05DBE-46F7-28FC-9D02-9E802AFEA403";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  513 2334 4166 2225;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex11";
+	rename -uid "8BABA641-45B3-F36E-0D1F-D6AFB04D61E4";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4618 3119 1003 3220;
+	setAttr ".tx" 2;
+createNode polyTweakUV -n "polyTweakUV25";
+	rename -uid "3A152B7E-4FDD-4563-19AB-04B2D274C24E";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert19";
+	rename -uid "49074C02-4FEA-562E-4D24-3B9D8411EF93";
+	setAttr ".ics" -type "componentList" 1 "vtx[5003:5004]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweakUV -n "polyTweakUV26";
+	rename -uid "620530D1-415E-587D-11A5-27A08D4B58DD";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert20";
+	rename -uid "4A0A8E47-43B7-1C88-1A21-4586401ED7E4";
+	setAttr ".ics" -type "componentList" 1 "vtx[5006:5007]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweakUV -n "polyTweakUV27";
+	rename -uid "9E5DA55E-4085-70ED-6016-E983C658E46D";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert21";
+	rename -uid "97A48396-444B-6245-62DE-44BCDCB04C00";
+	setAttr ".ics" -type "componentList" 1 "vtx[4981:4982]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak23";
+	rename -uid "BC6EC792-4A27-A94B-E85E-D0A61341661B";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".tk";
+	setAttr ".tk[4981]" -type "float3" 0 0.023414372 0 ;
+	setAttr ".tk[4982]" -type "float3" 0 0.023414612 0 ;
+	setAttr ".tk[5006]" -type "float3" 0 0 0.048017867 ;
+createNode polyTweakUV -n "polyTweakUV28";
+	rename -uid "CE479C7C-4A5E-8BA6-0EED-548E0F16226D";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert22";
+	rename -uid "FBC867AD-4C6D-5FFB-C5B8-31BD059F6C20";
+	setAttr ".ics" -type "componentList" 1 "vtx[4981:4982]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak24";
+	rename -uid "A88F4077-4004-D690-A6C8-819516F4FA22";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4982]" -type "float3"  0 0.023414612 0;
+createNode polyAppendVertex -n "polyAppendVertex12";
+	rename -uid "1DBC554A-43E3-120B-A55A-66A577619D37";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  17.675947 8.625021 0.126707;
+	setAttr -s 4 ".d[0:3]"  4981 5004 -1 3227;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex13";
+	rename -uid "F6E5751B-4D61-F630-9B4C-AABA11E5BA56";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  17.677589 8.6470909 -0.108449;
+	setAttr -s 4 ".d[0:3]"  -1 1010 3227 5052;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex14";
+	rename -uid "3C0A61EC-425F-DF67-CC9D-D4BA64100E61";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  17.684095 8.7260742 -0.424465;
+	setAttr -s 4 ".d[0:3]"  1010 5053 -1 3229;
+	setAttr ".tx" 2;
+createNode polyTweakUV -n "polyTweakUV29";
+	rename -uid "B91D52C3-4D6F-4B3B-F29A-748FA1179284";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert23";
+	rename -uid "104F8764-4D38-C5ED-0267-85812F3E827A";
+	setAttr ".ics" -type "componentList" 2 "vtx[4959]" "vtx[4962]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyAppendVertex -n "polyAppendVertex15";
+	rename -uid "6B04822A-4CA1-4E60-0288-238DA7786A3C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  5053 5000 4961 3229;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak25";
+	rename -uid "B0764C89-4637-A83A-C4DF-4C930D9D2FF8";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk[5052:5053]" -type "float3"  -0.0089855194 0.026545525
+		 -0.00039669126 0.011993408 0.045630455 -0.024161249;
+createNode polyTweakUV -n "polyTweakUV30";
+	rename -uid "29DF36BA-40AC-E18D-15CE-7F8C19FCD87D";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert24";
+	rename -uid "564ED75E-4C62-274A-A42F-83B7071B8848";
+	setAttr ".ics" -type "componentList" 2 "vtx[939]" "vtx[4957]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweakUV -n "polyTweakUV31";
+	rename -uid "16145961-4919-FE99-4E88-7CB4DD5423F2";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert25";
+	rename -uid "2E1168C1-49A1-B383-80E8-1C91F5477BAF";
+	setAttr ".ics" -type "componentList" 1 "vtx[5000:5001]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweakUV -n "polyTweakUV32";
+	rename -uid "41298B98-48D6-4D2D-260A-C6BE90653E68";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert26";
+	rename -uid "3FA93D0F-4437-7CA8-9286-B1BA1EC99D89";
+	setAttr ".ics" -type "componentList" 2 "vtx[939]" "vtx[4957]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak26";
+	rename -uid "D125F0F3-411C-97FB-1829-99B423E556BB";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[4999]" -type "float3" -0.011053085 -0.0014543533 -0.018466651 ;
+	setAttr ".tk[5051]" -type "float3" 0.01089859 -0.006942749 0.0098715425 ;
+createNode polyMergeVert -n "polyMergeVert27";
+	rename -uid "A6A5951D-483F-F567-00DB-88937F2327DB";
+	setAttr ".ics" -type "componentList" 1 "vtx[*]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".am" yes;
+createNode polyAppendVertex -n "polyAppendVertex16";
+	rename -uid "9661D1FA-42F7-BAE2-D91F-8380215D49AC";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  939 4953 4964 4954;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex17";
+	rename -uid "FC0DC47D-4187-C0DC-2CB1-9AAFA38009D4";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4963 4949 4954 4964;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex18";
+	rename -uid "BF41DA81-4B64-5A3C-76A3-D0A6EB13F5AA";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4949 4963 4962 4956;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex19";
+	rename -uid "1727C3E3-4C74-C66A-37D3-47BB53AA297C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4956 4962 4955 958;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex20";
+	rename -uid "AD4AC194-4D99-607F-C362-6CB16811836C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4952 4947 4951 4934;
+	setAttr ".tx" 2;
+createNode polyNormal -n "polyNormal2";
+	rename -uid "A1B66521-4A7E-2BEA-42BA-EBB54667B568";
+	setAttr ".ics" -type "componentList" 8 "f[1030:1032]" "f[1067]" "f[1081:1082]" "f[1092]" "f[1098]" "f[1134]" "f[1141:1142]" "f[4950:4951]";
+	setAttr ".unm" no;
+createNode deleteComponent -n "deleteComponent82";
+	rename -uid "73C38238-443E-BAE0-5BAE-248AD35AACDA";
+	setAttr ".dc" -type "componentList" 1 "f[1081]";
+createNode deleteComponent -n "deleteComponent83";
+	rename -uid "6F51777F-43DF-4E9B-BEAC-2899745BF595";
+	setAttr ".dc" -type "componentList" 1 "f[1032]";
+createNode deleteComponent -n "deleteComponent84";
+	rename -uid "BBE61666-4CAF-8C69-A711-EEB12438F35A";
+	setAttr ".dc" -type "componentList" 1 "f[1031]";
+createNode deleteComponent -n "deleteComponent85";
+	rename -uid "61175C32-4AA2-A85A-B898-56B5249C2629";
+	setAttr ".dc" -type "componentList" 1 "f[1081]";
+createNode deleteComponent -n "deleteComponent86";
+	rename -uid "1E7EF1DD-435E-263F-4E11-CEB535C0C1DB";
+	setAttr ".dc" -type "componentList" 1 "f[1080]";
+createNode deleteComponent -n "deleteComponent87";
+	rename -uid "D1B46400-4892-E100-123C-01A54BACA1D0";
+	setAttr ".dc" -type "componentList" 1 "f[4941]";
+createNode deleteComponent -n "deleteComponent88";
+	rename -uid "DC114B04-4C04-DAB5-C9F8-B3AF69A78699";
+	setAttr ".dc" -type "componentList" 1 "f[4942]";
+createNode deleteComponent -n "deleteComponent89";
+	rename -uid "50DB072E-49CE-B02B-24F7-13BFFCB558D4";
+	setAttr ".dc" -type "componentList" 1 "f[4946]";
+createNode deleteComponent -n "deleteComponent90";
+	rename -uid "BCF8BC7B-4030-D04B-3A5E-2593509E6E9C";
+	setAttr ".dc" -type "componentList" 1 "f[4942]";
+createNode deleteComponent -n "deleteComponent91";
+	rename -uid "3B7F67B7-4132-0897-C6D1-5B855291CEF3";
+	setAttr ".dc" -type "componentList" 1 "f[1136]";
+createNode deleteComponent -n "deleteComponent92";
+	rename -uid "0235F847-4A70-6B54-7F65-A7AC9B4AB596";
+	setAttr ".dc" -type "componentList" 1 "f[1136]";
+createNode deleteComponent -n "deleteComponent93";
+	rename -uid "9606FB75-4F02-121F-EBD5-2384745C1D1B";
+	setAttr ".dc" -type "componentList" 1 "f[4946]";
+createNode deleteComponent -n "deleteComponent94";
+	rename -uid "81A118DE-4957-1BCA-513C-D9950D284D87";
+	setAttr ".dc" -type "componentList" 1 "f[1129]";
+createNode deleteComponent -n "deleteComponent95";
+	rename -uid "5FD1A532-4D9D-9237-4D0A-FFB9714A444B";
+	setAttr ".dc" -type "componentList" 1 "f[4945]";
+createNode deleteComponent -n "deleteComponent96";
+	rename -uid "25E5D382-4A0C-0642-F164-2CADF3475B89";
+	setAttr ".dc" -type "componentList" 1 "f[4944]";
+createNode deleteComponent -n "deleteComponent97";
+	rename -uid "1D2A4090-4AF9-0E1D-FB4A-DABE29787B11";
+	setAttr ".dc" -type "componentList" 1 "f[1087]";
+createNode deleteComponent -n "deleteComponent98";
+	rename -uid "DD6559AF-4A42-46C1-0649-0A88721333B8";
+	setAttr ".dc" -type "componentList" 1 "f[1092]";
+createNode deleteComponent -n "deleteComponent99";
+	rename -uid "18BD0855-4B17-2018-4C18-899582ADD387";
+	setAttr ".dc" -type "componentList" 1 "f[4940]";
+createNode deleteComponent -n "deleteComponent100";
+	rename -uid "473C5B6D-4920-6E8B-657E-0FB3A7207689";
+	setAttr ".dc" -type "componentList" 1 "f[4940]";
+createNode deleteComponent -n "deleteComponent101";
+	rename -uid "644C76B4-440A-2BCD-6DAB-71A66859301D";
+	setAttr ".dc" -type "componentList" 1 "f[1028]";
+createNode deleteComponent -n "deleteComponent102";
+	rename -uid "CD4E4726-4E4D-362E-002B-D4BCADD22189";
+	setAttr ".dc" -type "componentList" 1 "f[4938]";
+createNode polyAppendVertex -n "polyAppendVertex21";
+	rename -uid "F65CC699-4BC3-193D-8BCD-05A68B8CF45F";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1625 4942 1624 3873;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak27";
+	rename -uid "299B5E41-45F0-4960-DF56-76B0B02FBD83";
+	setAttr ".uopa" yes;
+	setAttr -s 23 ".tk[4942:4964]" -type "float3"  0 0.0070855329 -0.018762961
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+createNode polyAppendVertex -n "polyAppendVertex22";
+	rename -uid "5A35C641-48A9-39C4-EBA4-C0A24FA638A0";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  16.442413 10.649667 3.420336;
+	setAttr -s 4 ".d[0:3]"  3969 1834 -1 1833;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex23";
+	rename -uid "BA618F93-4EF0-A1C3-EE26-18BAC4FE0E3D";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1834 3971 4950 4963;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex24";
+	rename -uid "9F78362C-4D03-C29E-D47F-FAA247676F9B";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1844 325 4958 3980;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex25";
+	rename -uid "C9D21401-4442-C7E0-919F-86BACAB2BF0D";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  325 1833 3982 4958;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex26";
+	rename -uid "ABBFC8C5-43F2-2C45-45BB-46B4B0B42B04";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1833 4963 4945 3982;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak28";
+	rename -uid "2454DA28-4D7C-C06F-4E48-2FA5B536E15A";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".tk";
+	setAttr ".tk[4935]" -type "float3" 0.0047607422 -0.014687538 -0.0086314678 ;
+	setAttr ".tk[4936]" -type "float3" 0.009103775 0.010172844 0.011821508 ;
+	setAttr ".tk[4942]" -type "float3" -0.0012969971 0.0088367462 0.0027074814 ;
+	setAttr ".tk[4945]" -type "float3" 0.0019874573 0.0014009476 0.002229929 ;
+	setAttr ".tk[4950]" -type "float3" 0.0014705658 0.012966156 0.00047254562 ;
+	setAttr ".tk[4957]" -type "float3" 0 0.021166718 0 ;
+createNode deleteComponent -n "deleteComponent103";
+	rename -uid "00C983C9-468F-2D78-A469-61A9E19638E7";
+	setAttr ".dc" -type "componentList" 1 "f[1064]";
+createNode polyAppendVertex -n "polyAppendVertex27";
+	rename -uid "2C1F412A-409E-AE6A-4299-EA9FCD5A901F";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1826 3964 1687 248;
+	setAttr ".tx" 2;
+createNode groupId -n "Fishbowl:GreekBuilding:groupId27";
+	rename -uid "B0E4B2D2-45AF-56C0-58BF-AAAEC65242C0";
+	setAttr ".ihi" 0;
+createNode lambert -n "Fishbowl:GreekBuilding:lambert2";
+	rename -uid "17CF57E0-49AA-6876-400C-43900923C6AF";
+	setAttr ".c" -type "float3" 0.2071 0.20299999 0.20299999 ;
+createNode shadingEngine -n "Fishbowl:GreekBuilding:lambert2SG";
+	rename -uid "1AF5A0A5-449A-5390-C3B4-C192CBA172C8";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "Fishbowl:GreekBuilding:materialInfo1";
+	rename -uid "DB970EA9-460C-482E-67A6-57B593FC979F";
+createNode nodeGraphEditorInfo -n "Fishbowl:GreekBuilding:hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "A793A11A-4D8F-6EDB-025B-F9AD07B83B6F";
+	setAttr ".def" no;
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -617.85711830570688 ;
+	setAttr ".tgi[0].vh" -type "double2" 604.76188073082676 44.047617297323995 ;
+createNode mayaUsdLayerManager -n "Fishbowl:mayaUsdLayerManager1";
+	rename -uid "066829AD-45EE-C678-4EE2-84AB11B81119";
 	setAttr ".sst" -type "string" "";
+createNode polyFlipUV -n "polyFlipUV1";
+	rename -uid "21EC4667-422A-6E6C-7764-BA8169CB41B1";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 2 "f[0:4718]" "f[9438:9509]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
+	setAttr ".up" yes;
+	setAttr ".pu" 0.5;
+	setAttr ".pv" 0.5;
+createNode polyTweakUV -n "polyTweakUV1";
+	rename -uid "E824CCD0-4027-EC64-1D7C-A89925C6B347";
+	setAttr ".uopa" yes;
+	setAttr -s 12212 ".uvtk";
+	setAttr ".uvtk[0:249]" -type "float2" 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609;
+	setAttr ".uvtk[250:499]" 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609;
+	setAttr ".uvtk[500:749]" 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077731609
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[750:999]" 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417;
+	setAttr ".uvtk[1000:1249]" 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[1250:1499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[1500:1749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[1750:1999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[2000:2249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225;
+	setAttr ".uvtk[2250:2499]" 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077729225 0 1.0077729225;
+	setAttr ".uvtk[2500:2749]" 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077729225 0 1.0077729225
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077729225 0 1.0077729225 0 1.0077729225 0 1.0077731609 0 1.0077731609 0 1.0077731609
+		 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077731609 0 1.0077730417
+		 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077729225
+		 0 1.0077729225 0 1.0077730417 0 1.0077729225 0 1.0077729225 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[2750:2999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[3000:3249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[3250:3499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[3500:3749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[3750:3999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[4000:4249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[4250:4499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[4500:4749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[4750:4999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[5000:5249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[5250:5499]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[5500:5749]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[5750:5999]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+	setAttr ".uvtk[6000:6249]" 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[6250:6499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[6500:6749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[6750:6999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[7000:7249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[7250:7499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[7500:7749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[7750:7999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[8000:8249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[8250:8499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[8500:8749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[8750:8999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[9000:9249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[9250:9499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[9500:9749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[9750:9999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[10000:10249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[10250:10499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[10500:10749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[10750:10999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[11000:11249]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[11250:11499]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[11500:11749]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[11750:11999]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329;
+	setAttr ".uvtk[12000:12211]" 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329 0 1.0033178329
+		 0 1.0033178329 0 1.0033178329 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077731609 0 1.0077730417 0 1.0077730417 0 1.0077731609
+		 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077731609
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077729225 0 1.0077730417 0 1.0077731609 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417
+		 0 1.0077730417 0 1.0077730417 0 1.0077730417 0 1.0077730417;
+createNode polyTweak -n "polyTweak29";
+	rename -uid "554AACF7-4BE3-E338-5565-03890896C95B";
+	setAttr ".uopa" yes;
+	setAttr -s 355 ".tk";
+	setAttr ".tk[214]" -type "float3" 0 0 3.7252903e-09 ;
+	setAttr ".tk[1625]" -type "float3" -0.0062084198 -0.0031862259 -0.01473546 ;
+	setAttr ".tk[1627]" -type "float3" 0 0 3.7252903e-09 ;
+	setAttr ".tk[3957]" -type "float3" 0 0 3.7252903e-09 ;
+	setAttr ".tk[4933]" -type "float3" 0 -5.9604645e-08 0 ;
+	setAttr ".tk[4935]" -type "float3" 0 -5.9604645e-08 0 ;
+	setAttr ".tk[4936]" -type "float3" 0.0060768127 0.0011034012 0.010881905 ;
+	setAttr ".tk[4950]" -type "float3" 0 -0.0045073032 0 ;
+	setAttr ".tk[4957]" -type "float3" 0.011222839 0.0010314705 -0.009814024 ;
+	setAttr ".tk[4963]" -type "float3" 0 7.4505806e-09 0 ;
+createNode deleteComponent -n "deleteComponent104";
+	rename -uid "63D23886-4EEE-5DC8-BDE4-C4B6C40DEA0E";
+	setAttr ".dc" -type "componentList" 1 "f[4955]";
+createNode polyAppendVertex -n "polyAppendVertex28";
+	rename -uid "F497E9EC-44DA-39AC-B1BE-4F9CC90670B9";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1834 3971 4950 4963;
+	setAttr ".tx" 2;
+createNode deleteComponent -n "deleteComponent105";
+	rename -uid "0C705210-474F-7A82-7047-0B839CAE4B11";
+	setAttr ".dc" -type "componentList" 1 "f[1029]";
+createNode deleteComponent -n "deleteComponent106";
+	rename -uid "4CA4AE98-4946-2B5A-1FF9-2090445DF257";
+	setAttr ".dc" -type "componentList" 1 "f[1076]";
+createNode deleteComponent -n "deleteComponent107";
+	rename -uid "BC601BCD-4C7C-5401-A91E-02B4C37D9D40";
+	setAttr ".dc" -type "componentList" 1 "f[4933]";
+createNode deleteComponent -n "deleteComponent108";
+	rename -uid "876CD2E0-4D1D-DB91-45B4-10A86AA8BE57";
+	setAttr ".dc" -type "componentList" 1 "f[4933]";
+createNode polyAppendVertex -n "polyAppendVertex29";
+	rename -uid "42C4A847-4F36-1255-58C9-B49762836504";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  16.621181 10.580517 3.5295761;
+	setAttr -s 4 ".d[0:3]"  4950 4933 4935 -1;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex30";
+	rename -uid "A3A98663-4650-31F7-3768-4CABD77898EE";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4963 4935 214 4936;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex31";
+	rename -uid "2DE09F01-4314-AB8E-D391-E6AD4626991D";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4945 4963 4936 4942;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex32";
+	rename -uid "A65B5B09-4D8D-E7C1-2CA1-A28F2692DEA5";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4962 4950 4963 4945;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak30";
+	rename -uid "0F25FDF7-40FF-BB35-DA78-16968B861876";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4963]" -type "float3"  -0.014213562 -0.0026702881 -0.0099887848;
+createNode deleteComponent -n "deleteComponent109";
+	rename -uid "F2EABA08-4B2D-59BF-7C04-E09C79B838A0";
+	setAttr ".dc" -type "componentList" 1 "f[4885]";
+createNode deleteComponent -n "deleteComponent110";
+	rename -uid "A35FD963-47B8-CFF5-7B3C-D3B998382FE2";
+	setAttr ".dc" -type "componentList" 1 "f[4885]";
+createNode polyTweakUV -n "polyTweakUV33";
+	rename -uid "55602068-459E-63AC-6370-60A251794DFE";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert28";
+	rename -uid "E4D915A5-45E5-E537-EF10-0AAB2208BCAE";
+	setAttr ".ics" -type "componentList" 2 "vtx[1615]" "vtx[1814]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak31";
+	rename -uid "2E90BA5D-46F2-AEF8-DDCB-9F842BD05DCD";
+	setAttr ".uopa" yes;
+	setAttr ".tk[1814]" -type "float3"  0.0057678223 0.0016326904 0.03103447;
+createNode polyTweakUV -n "polyTweakUV34";
+	rename -uid "1151E592-485C-196C-5BE0-CC8F0635DB33";
+	setAttr ".uopa" yes;
+createNode polyMergeVert -n "polyMergeVert29";
+	rename -uid "87EB3CB6-4A05-BE8A-0DAA-40B69B55C3A8";
+	setAttr ".ics" -type "componentList" 2 "vtx[1615]" "vtx[1814]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak32";
+	rename -uid "6E1A7ED6-4560-3A7B-D38A-208FAF008348";
+	setAttr ".uopa" yes;
+	setAttr ".tk[1814]" -type "float3"  -2.43170357 -0.3171339 0.63685131;
+createNode deleteComponent -n "deleteComponent111";
+	rename -uid "5BF05801-4ACF-BAB0-1DE5-01BC2AE29954";
+	setAttr ".dc" -type "componentList" 1 "f[1037:1038]";
+createNode deleteComponent -n "deleteComponent112";
+	rename -uid "0386AE54-44CF-FE70-DD08-4A9C01AA12A0";
+	setAttr ".dc" -type "componentList" 1 "f[1074:1075]";
+createNode deleteComponent -n "deleteComponent113";
+	rename -uid "3E9EC28C-42AB-0420-03DC-118D3CA7D50B";
+	setAttr ".dc" -type "componentList" 1 "f[1074:1075]";
+createNode polyAppendVertex -n "polyAppendVertex33";
+	rename -uid "5B7F8E7D-4340-2EE3-947D-3387E9D01ACA";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.203491 10.867331 3.3614011;
+	setAttr -s 4 ".d[0:3]"  151 1829 -1 1506;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex34";
+	rename -uid "74A5EC78-40AE-B152-A187-DC8681C3CA79";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  1839 4961 1829 321;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex35";
+	rename -uid "FB3660B1-4329-B097-8EEA-D2905E7535C7";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.261761 10.895076 3.2374129;
+	setAttr -s 4 ".d[0:3]"  -1 149 1506 4961;
+	setAttr ".tx" 2;
+createNode deleteComponent -n "deleteComponent114";
+	rename -uid "EBBF459E-4CA8-A7F9-4D10-04BF4EC0FC42";
+	setAttr ".dc" -type "componentList" 1 "e[9816]";
+createNode deleteComponent -n "deleteComponent115";
+	rename -uid "825F3B3C-4EA2-FD94-9789-F1B15797E4C4";
+	setAttr ".dc" -type "componentList" 1 "f[2069]";
+createNode polySplit -n "polySplit10";
+	rename -uid "1E8C1183-46A2-FD0D-0792-BAB8BA8EDF20";
+	setAttr -s 2 ".e[0:1]"  0.58901602 0.49367201;
+	setAttr -s 2 ".d[0:1]"  -2147473773 -2147473830;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polyAppendVertex -n "polyAppendVertex36";
+	rename -uid "ADD1AB19-4AD2-1865-CCC8-ACB046509E6A";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  2181 4931 4963 4216;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex37";
+	rename -uid "943F74E9-49CD-A6A6-23DA-A3B00340A899";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4931 4949 4948 4963;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex38";
+	rename -uid "9F27FDAA-45D4-549E-D1CC-AFB6FF8DC4DD";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.384886 9.9479847 1.115018;
+	setAttr -s 4 ".d[0:3]"  -1 4948 4949 4944;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex39";
+	rename -uid "76976B98-46B5-93C2-918F-7BAC08194747";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.428635 9.9556313 0.98312998;
+	setAttr -s 4 ".d[0:3]"  -1 568 4948 4965;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex40";
+	rename -uid "1DAC3B2A-45FD-BAE3-7C3C-F7BA0514A683";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.347641 9.904892 1.105135;
+	setAttr -s 4 ".d[0:3]"  -1 4965 4944 2201;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex41";
+	rename -uid "6502086A-49DE-9C93-2483-ADB00535FE8F";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.397442 9.8976822 0.98335701;
+	setAttr -s 4 ".d[0:3]"  -1 4966 4965 4967;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex42";
+	rename -uid "56F72A71-47A9-E3E5-241E-51B47C411711";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.320717 9.862793 1.089986;
+	setAttr -s 4 ".d[0:3]"  -1 4967 2201 499;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex43";
+	rename -uid "3EF3ED0A-4714-E1C6-8F2B-42B363079B96";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.378672 9.8682871 0.98420101;
+	setAttr -s 4 ".d[0:3]"  -1 4968 4967 4969;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak33";
+	rename -uid "A012F8A7-4F2F-7F1A-1BD2-C9A43EADE737";
+	setAttr ".uopa" yes;
+	setAttr -s 276 ".tk";
+	setAttr ".tk[2346]" -type "float3" -0.00019264221 0 0.0036693811 ;
+	setAttr ".tk[4228]" -type "float3" -0.00019264221 0 0.0036693811 ;
+createNode polyAppendVertex -n "polyAppendVertex44";
+	rename -uid "FAB78E76-486C-1C5A-D523-54B3FA82713C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4969 499 2193 4970;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex45";
+	rename -uid "5DD49587-4630-C8BA-DAED-93894ECA3EE5";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.449421 9.9437237 0.90590203;
+	setAttr -s 4 ".d[0:3]"  568 4966 -1 4943;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak34";
+	rename -uid "9C5E0FA7-4D44-9969-31CA-B480D2999B91";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[4943]" -type "float3" 0.0080375671 0.0141325 0.00042122602 ;
+	setAttr ".tk[4966]" -type "float3" -0.0010547638 -0.0016775131 0.0018773079 ;
+createNode polyAppendVertex -n "polyAppendVertex46";
+	rename -uid "4C6F895D-40ED-CCCF-57AC-4190D9D5F598";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.423676 9.897336 0.915537;
+	setAttr -s 4 ".d[0:3]"  -1 4971 4966 4968;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex47";
+	rename -uid "A9264D00-49FF-8511-6DAC-4BBCE6746BBE";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4968 4970 2193 4972;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex48";
+	rename -uid "7693A95A-4653-DE82-8847-9E9DCA69917F";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.449804 9.8929415 0.846223;
+	setAttr -s 4 ".d[0:3]"  491 4943 4971 -1;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak35";
+	rename -uid "4D791351-421A-41B3-2130-1B951A0787CF";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4973]" -type "float3"  0.00065803528 0.0037746429 -0.043043315;
+createNode deleteComponent -n "deleteComponent116";
+	rename -uid "874B8414-4D5E-BCA8-3075-98AA8089245F";
+	setAttr ".dc" -type "componentList" 1 "f[4966]";
+createNode polyAppendVertex -n "polyAppendVertex49";
+	rename -uid "E14DAA33-47AF-394D-DC90-F3969687C93D";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  19.451508 9.8834658 0.83107299;
+	setAttr -s 4 ".d[0:3]"  -1 491 4943 4971;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak36";
+	rename -uid "F25ABB68-4C39-7229-3C2F-4DA71D2ABF66";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4973]" -type "float3"  -0.010032654 -0.012339592 -0.064447999;
+createNode polySplit -n "polySplit11";
+	rename -uid "59FAC38B-48C0-0558-2FAE-5488105C6E63";
+	setAttr -s 2 ".e[0:1]"  0.326094 0.42679101;
+	setAttr -s 2 ".d[0:1]"  -2147473834 -2147473935;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polyAppendVertex -n "polyAppendVertex50";
+	rename -uid "EB22845A-4598-C01E-D0D7-F99E2C3B22B2";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  2193 4974 4971 4972;
+	setAttr ".tx" 2;
+createNode polyTweakUV -n "polyTweakUV35";
+	rename -uid "437D2AC5-463A-2094-E1D0-85BE345334AE";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".uvtk";
+	setAttr ".uvtk[165]" -type "float2" -0.22018707 -0.20366976 ;
+	setAttr ".uvtk[170]" -type "float2" -0.00068961771 0.00015682925 ;
+createNode polyMergeVert -n "polyMergeVert30";
+	rename -uid "91ADDE02-472F-1E56-CEDE-D6A4E0C52138";
+	setAttr ".ics" -type "componentList" 1 "vtx[4973:4974]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak37";
+	rename -uid "508B5B5E-414C-7ABB-98A2-CE9473FDC57A";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk[4973:4974]" -type "float3"  0.022918701 -0.014010429 0.0021649003
+		 0 0 0;
+createNode polyTweak -n "polyTweak38";
+	rename -uid "273B2B50-4FE0-59C5-D3D4-FF8A25972B9C";
+	setAttr ".uopa" yes;
+	setAttr -s 6 ".tk";
+	setAttr ".tk[4944]" -type "float3" -0.046620335 0 0 ;
+	setAttr ".tk[4965]" -type "float3" 0.039087981 0 0 ;
+	setAttr ".tk[4967]" -type "float3" 0.055532139 0 0 ;
+	setAttr ".tk[4968]" -type "float3" 0.01289461 0.012904499 0 ;
+	setAttr ".tk[4969]" -type "float3" 0.018131942 -0.030905589 0 ;
+	setAttr ".tk[4970]" -type "float3" -0.031468198 0 0 ;
+createNode deleteComponent -n "deleteComponent117";
+	rename -uid "3C08733A-4D5D-B584-A987-B5BEB3585AA7";
+	setAttr ".dc" -type "componentList" 1 "f[4962]";
+createNode deleteComponent -n "deleteComponent118";
+	rename -uid "B5FFCD08-47D6-3CEC-F8E9-368DB481A009";
+	setAttr ".dc" -type "componentList" 1 "f[4960]";
+createNode deleteComponent -n "deleteComponent119";
+	rename -uid "A9FE4092-4A7D-96F3-A6E5-7684095F34DD";
+	setAttr ".dc" -type "componentList" 1 "f[4960]";
+createNode deleteComponent -n "deleteComponent120";
+	rename -uid "1138F89F-4AC1-206C-9AF0-E8A193FE8D4D";
+	setAttr ".dc" -type "componentList" 1 "f[4962]";
+createNode polySplit -n "polySplit12";
+	rename -uid "F4572CE5-4A38-F588-EEF9-14A23B068694";
+	setAttr -s 2 ".e[0:1]"  0.504668 0.80536503;
+	setAttr -s 2 ".d[0:1]"  -2147481745 -2147473937;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit13";
+	rename -uid "E2FA5342-48F8-354B-4D74-A6BFE776A09D";
+	setAttr -s 2 ".e[0:1]"  0.32944599 0.58566701;
+	setAttr -s 2 ".d[0:1]"  -2147481745 -2147473937;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polyAppendVertex -n "polyAppendVertex51";
+	rename -uid "FE0E5489-4C37-41E7-94CD-6C85A1C9CA89";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  2201 499 4973 4967;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak39";
+	rename -uid "64B3FF38-4B2D-F77A-D814-30AC72A49E68";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4967]" -type "float3"  0 -0.015325138 0;
+createNode polyAppendVertex -n "polyAppendVertex52";
+	rename -uid "ABEB2330-411A-88A4-8D17-C2A7EE45C38C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4967 4973 4975 4968;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex53";
+	rename -uid "6A38EDA5-47C9-C529-13A8-B7BD06A74A3D";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4968 4975 2193 4970;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex54";
+	rename -uid "84CF41DC-45E7-7CE8-5F94-87AED707CD0E";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4961 1839 322 4962;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex55";
+	rename -uid "517B0212-47E7-EEF2-CB0D-AD93C7F47729";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4962 322 1840 3956;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex56";
+	rename -uid "60FBC2A6-4C51-047E-6F52-7A94BEBB1828";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  149 4962 3956 1502;
+	setAttr ".tx" 2;
+createNode polySoftEdge -n "polySoftEdge1";
+	rename -uid "6D099847-44DD-91E7-3A7B-21ACB2D27645";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 19 "e[754]" "e[759]" "e[772]" "e[775:776]" "e[783]" "e[853]" "e[5683]" "e[5685:5686]" "e[5707]" "e[5709]" "e[5934:5936]" "e[5985]" "e[9812]" "e[9822]" "e[9846:9850]" "e[9863:9864]" "e[9872:9873]" "e[9902]" "e[9906:9911]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".a" 180;
+createNode polySoftEdge -n "polySoftEdge2";
+	rename -uid "AB4F6200-4C8A-428C-B9E9-EF8BFD79E0E4";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[*]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".a" 180;
+createNode polyAppendVertex -n "polyAppendVertex57";
+	rename -uid "28A9EFDE-4D5E-DAD3-22DE-20B82C79D550";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4892 4937 4836 3543;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak40";
+	rename -uid "8E55DA06-407D-D146-4A5E-AC8B70F9E2DA";
+	setAttr ".uopa" yes;
+	setAttr -s 3 ".tk";
+	setAttr ".tk[3544]" -type "float3" 0.023609161 0.017113686 -0.010688066 ;
+	setAttr ".tk[4892]" -type "float3" 0.02355957 -0.033350945 -0.057160616 ;
+	setAttr ".tk[4937]" -type "float3" -0.030225754 0.020048141 0.0010113716 ;
+createNode polyAppendVertex -n "polyAppendVertex58";
+	rename -uid "DBE85474-41EE-EBA7-1ECA-71A34E5CC2BF";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  3544 1153 3516 4836;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak41";
+	rename -uid "45CB34D0-425D-9320-2880-EE8ED2DE62B4";
+	setAttr ".uopa" yes;
+	setAttr -s 5 ".tk";
+	setAttr ".tk[3543]" -type "float3" 0.00026321411 -0.00025939941 0.00041246414 ;
+	setAttr ".tk[3544]" -type "float3" -0.021499634 -0.0023860931 0.0052478313 ;
+	setAttr ".tk[4836]" -type "float3" 0.00026321411 -0.00025939941 0.00041246414 ;
+	setAttr ".tk[4892]" -type "float3" 0.00026321411 -0.00025939941 0.00041246414 ;
+	setAttr ".tk[4937]" -type "float3" 0.00026321411 -0.00025939941 0.00041246414 ;
+createNode polySplit -n "polySplit14";
+	rename -uid "BC04255D-47D4-2E6F-02BD-F78B21D2254F";
+	setAttr -s 2 ".e[0:1]"  1 0.38957;
+	setAttr -s 2 ".d[0:1]"  -2147474202 -2147473698;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit15";
+	rename -uid "2AF0AB9D-4D6A-6253-EFBD-618DC8805344";
+	setAttr ".e[0]"  0.33416;
+	setAttr ".d[0]"  -2147473696;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polySplit -n "polySplit16";
+	rename -uid "002746C7-45E5-432E-4151-F98AA2F22685";
+	setAttr -s 2 ".e[0:1]"  0.54571402 0.75950497;
+	setAttr -s 2 ".d[0:1]"  -2147473696 -2147473695;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode polyTweakUV -n "polyTweakUV36";
+	rename -uid "0AC3267B-4F77-BC36-B1F0-EB8DF2AF0084";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".uvtk";
+	setAttr ".uvtk[185]" -type "float2" -0.0042375731 0.11452368 ;
+	setAttr ".uvtk[189]" -type "float2" 0.16264756 0.55993384 ;
+createNode polyMergeVert -n "polyMergeVert31";
+	rename -uid "F7E27C76-40DE-A41C-3DCF-18BD297A1246";
+	setAttr ".ics" -type "componentList" 2 "vtx[3544]" "vtx[4978]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".d" 1e-06;
+createNode polyTweak -n "polyTweak42";
+	rename -uid "0F5EE7D1-4D5D-3CA9-E3B6-0FA5A8617EE5";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4978]" -type "float3"  0.01228714 -0.011353493 -0.033926725;
+createNode deleteComponent -n "deleteComponent121";
+	rename -uid "FF0A8D92-428F-EF89-1FB3-B682E15AC1D1";
+	setAttr ".dc" -type "componentList" 1 "f[4973]";
+createNode polyTweak -n "polyTweak43";
+	rename -uid "BDAA28D4-4682-5E16-D3B7-C4ACF850094C";
+	setAttr ".uopa" yes;
+	setAttr ".tk[4977]" -type "float3"  -0.0025822027 0 0;
+createNode deleteComponent -n "deleteComponent122";
+	rename -uid "B8819FAA-4EDD-1EF3-56AE-AEB6500C6EE2";
+	setAttr ".dc" -type "componentList" 1 "vtx[4977]";
+createNode deleteComponent -n "deleteComponent123";
+	rename -uid "C89C5732-419F-BF7B-6B41-43A4D3257735";
+	setAttr ".dc" -type "componentList" 1 "f[4974]";
+createNode deleteComponent -n "deleteComponent124";
+	rename -uid "0011B36B-431C-8F76-F7EE-65BBA3DE8AD4";
+	setAttr ".dc" -type "componentList" 1 "f[4974]";
+createNode deleteComponent -n "deleteComponent125";
+	rename -uid "0959ABC5-467F-415F-4088-EAA29986BE18";
+	setAttr ".dc" -type "componentList" 1 "f[4925]";
+createNode deleteComponent -n "deleteComponent126";
+	rename -uid "A561B6EF-4970-7CAF-E5E5-D2B5C04CDA00";
+	setAttr ".dc" -type "componentList" 1 "f[4767]";
+createNode deleteComponent -n "deleteComponent127";
+	rename -uid "33497C00-47DB-8BAF-C5B8-22B768E0289C";
+	setAttr ".dc" -type "componentList" 1 "f[4767]";
+createNode deleteComponent -n "deleteComponent128";
+	rename -uid "58A5E27F-4CE6-9C3D-44C2-F993F1040F7D";
+	setAttr ".dc" -type "componentList" 1 "f[4550]";
+createNode polyAppendVertex -n "polyAppendVertex59";
+	rename -uid "D2A75EC5-44C9-575D-7FBC-DF823942F5C6";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  17.675764 13.453019 -3.103308;
+	setAttr -s 4 ".d[0:3]"  1218 3652 -1 3650;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak44";
+	rename -uid "A032FC56-44D3-B2C5-1E61-DCA6C1525AD1";
+	setAttr ".uopa" yes;
+	setAttr ".tk[3652]" -type "float3"  0.0053405762 0.0075492859 0.15438175;
+createNode polyAppendVertex -n "polyAppendVertex60";
+	rename -uid "A4A98E70-4BF3-6F72-430C-62BF0DED771C";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4975 3652 4891 4935;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak45";
+	rename -uid "2C196EE8-443E-1067-43B2-BD9CB4E333B6";
+	setAttr ".uopa" yes;
+	setAttr ".tk[3652]" -type "float3"  -0.0011005402 -0.004529953 -0.037846804;
+createNode polyAppendVertex -n "polyAppendVertex61";
+	rename -uid "C0A6AB5C-4DB4-8C38-C535-538A700CC226";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4935 1167 3650 4975;
+	setAttr ".tx" 2;
+createNode polyTweak -n "polyTweak46";
+	rename -uid "7E26D49E-4B25-D2DA-212E-EDBC66283659";
+	setAttr ".uopa" yes;
+	setAttr -s 2 ".tk";
+	setAttr ".tk[1167]" -type "float3" 0.010063171 -0.0046329498 -0.0041968822 ;
+	setAttr ".tk[4935]" -type "float3" 0.010063171 -0.0046329498 -0.0041968822 ;
+createNode polySplit -n "polySplit17";
+	rename -uid "F55CD01C-46F6-36A1-CDB0-9F825E482D9E";
+	setAttr -s 2 ".e[0:1]"  0 0.59629899;
+	setAttr -s 2 ".d[0:1]"  -2147473702 -2147473700;
+	setAttr ".sma" 180;
+	setAttr ".m2015" yes;
+createNode deleteComponent -n "deleteComponent129";
+	rename -uid "1339961B-4A75-67D5-5F71-C0B2EA72362F";
+	setAttr ".dc" -type "componentList" 1 "f[4973]";
+createNode polyAppendVertex -n "polyAppendVertex62";
+	rename -uid "93063E24-43DA-3539-BCA2-78B14ECF2FB1";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  3541 1167 4976 4835;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex63";
+	rename -uid "4ED31526-4A03-AADB-468B-9A85EF24E7F2";
+	setAttr ".uopa" yes;
+	setAttr ".v[0]" -type "float3"  17.700195 13.278482 -3.2597959;
+	setAttr -s 4 ".d[0:3]"  -1 3543 4835 4976;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex64";
+	rename -uid "F59F0017-41D1-28F5-557A-AB8BC1E05F32";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  3543 4977 4935 4836;
+	setAttr ".tx" 2;
+createNode polyAppendVertex -n "polyAppendVertex65";
+	rename -uid "52E8D09B-4A3B-5B27-C75A-3BBA96C92A16";
+	setAttr ".uopa" yes;
+	setAttr -s 4 ".d[0:3]"  4977 4976 4975 4935;
+	setAttr ".tx" 2;
+createNode polySoftEdge -n "polySoftEdge3";
+	rename -uid "B33F484E-40C8-2B90-DDE9-30A40082B515";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[*]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".a" 180;
+createNode polyMapDel -n "polyMapDel5";
+	rename -uid "2E0105B5-45E4-A794-6A7B-D89EB9C1013D";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 4 "f[4921:4948]" "f[4950:4958]" "f[4960]" "f[4963:4976]";
+createNode polyAutoProj -n "polyAutoProj2";
+	rename -uid "1BEE1218-462A-61E6-A6D3-04AA95DA960E";
+	setAttr ".cch" yes;
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "f[0:4976]";
+	setAttr ".ix" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -0.3006289462476559 0.0363808403254815 0 1;
+	setAttr ".s" -type "double3" 10.2647385597229 10.2647385597229 10.2647385597229 ;
+	setAttr ".ps" 0.20000000298023224;
+	setAttr ".dl" yes;
+createNode polyNormal -n "polyNormal3";
+	rename -uid "8AFD1ABE-4342-DF44-5673-D389D16D7606";
+	setAttr ".ics" -type "componentList" 1 "f[0:4976]";
+	setAttr ".nm" 2;
+createNode polySplitEdge -n "polySplitEdge2";
+	rename -uid "0FC3F054-4233-AA42-36EC-FD95902FABC3";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[9883]";
+createNode polySplitVert -n "polySplitVert3";
+	rename -uid "93F7AEFB-4024-C43E-0468-5EA19CC6E055";
+	setAttr ".ics" -type "componentList" 2 "vtx[153]" "vtx[4953]";
+createNode polyMapCut -n "polyMapCut6";
+	rename -uid "3EA059CD-483D-B839-5FDB-31AD2E8F9149";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 4 "e[1118]" "e[1124]" "e[1377]" "e[1398]";
+createNode polyTweakUV -n "polyTweakUV37";
+	rename -uid "F959F82D-4283-8859-8EC8-11B0A1363C5F";
+	setAttr ".uopa" yes;
+	setAttr -s 5939 ".uvtk";
+	setAttr ".uvtk[0:249]" -type "float2" 0.10034609 0.12214382 0.1020302 0.12250216
+		 0.10128379 0.12359007 0.09947136 0.12326476 0.10326926 0.12155494 0.1019904 0.12110558
+		 0.10410874 0.12311204 0.10345508 0.12420286 0.10086326 0.12481102 0.099108577 0.12441376
+		 0.097711802 0.12290034 0.098683685 0.12169351 0.1051192 0.12241444 0.10087702 0.12041023
+		 0.10459606 0.12022826 0.10506509 0.12092486 0.1058715 0.12403156 0.10512492 0.12506725
+		 0.10294126 0.12544778 0.10072273 0.12609918 0.099056453 0.1257322 0.097383082 0.12415601
+		 0.09686771 0.12082733 0.095770493 0.12237146 0.10667582 0.12194833 0.10688323 0.12333241
+		 0.099329233 0.1192688 0.10448314 0.11933336 0.10768951 0.12056467 0.10807468 0.11964616
+		 0.10689612 0.12478782 0.10605854 0.12574652 0.10447972 0.12628958 0.10258493 0.12683345
+		 0.10094728 0.12773634 0.099383533 0.12731154 0.097388342 0.1254607 0.095463544 0.1237997
+		 0.093543306 0.12144114 0.094538867 0.11954211 0.10871832 0.12166771 0.10819905 0.12301466
+		 0.10785156 0.12411739 0.096904159 0.1177355 0.10267401 0.11776605 0.10956421 0.11844684
+		 0.11116897 0.119644 0.11108874 0.12085184 0.10720018 0.12554671 0.10630521 0.12640426
+		 0.10528247 0.12687156 0.10396934 0.12762769 0.10248186 0.12842412 0.10139437 0.12975939
+		 0.10006918 0.12932159 0.097780123 0.12705024 0.09551923 0.12520368 0.093288466 0.12327291
+		 0.091171145 0.11782207 0.090403348 0.12013267 0.11116776 0.12175795 0.10970832 0.12276599
+		 0.10894793 0.12376639 0.10803834 0.12488855 0.093567207 0.11596971 0.099878877 0.11605334
+		 0.10653001 0.11567884 0.11517704 0.12196101 0.10708207 0.12707129 0.10633858 0.12770322
+		 0.10551625 0.12751117 0.10471809 0.12823746 0.10371989 0.12916161 0.10271427 0.13036592
+		 0.10199781 0.13185789 0.10082734 0.13137652 0.098548844 0.12899585 0.095961213 0.12678768
+		 0.09337464 0.12489744 0.090547025 0.12253149 0.087434381 0.11866909 0.087908059 0.11617415
+		 0.11445978 0.12210271 0.11392649 0.12254092 0.11170907 0.1227102 0.11009218 0.12353459
+		 0.10899445 0.12454715 0.10772198 0.12660088 0.090790391 0.11444318 0.097155452 0.11490437
+		 0.10336497 0.11452218 0.10726787 0.12863937 0.10656284 0.1290203 0.10570782 0.12858394
+		 0.10510033 0.12890455 0.10447115 0.12976892 0.10371785 0.13099189 0.10309474 0.13238157
+		 0.102596 0.13368477 0.10157873 0.13313945 0.099457428 0.13097312 0.096777871 0.12874891
+		 0.093849704 0.12659337 0.090799376 0.12446155 0.087539896 0.12141339 0.085873142
+		 0.11507534 0.0841019 0.11751386 0.11813259 0.12261112 0.1176078 0.12325771 0.114402
+		 0.1232352 0.11167799 0.12331149 0.10998274 0.1244593 0.10861391 0.12633021 0.10804175
+		 0.12837699 0.089503542 0.11319738 0.095346406 0.11418962 0.101354 0.11430537 0.10780588
+		 0.12985554 0.10706173 0.12997928 0.10611311 0.12957165 0.10549131 0.12962015 0.10501662
+		 0.1303034 0.10430124 0.13146009 0.10387886 0.13291802 0.10351993 0.13417919 0.10315356
+		 0.13533904 0.1022824 0.13474669 0.10036764 0.13266589 0.097746804 0.13070901 0.094705403
+		 0.12866957 0.091303438 0.12653346 0.087674648 0.12403224 0.083422303 0.1206591 0.081080541
+		 0.11692046 0.084115431 0.11427718 0.11773713 0.123796 0.11414006 0.12361488 0.11151652
+		 0.12405947 0.11008441 0.12622423 0.10876492 0.12777016 0.10898672 0.12986794 0.089735731
+		 0.11209663 0.095131159 0.113602 0.10046235 0.11433809 0.10769191 0.13088247 0.10718669
+		 0.13073799 0.10665432 0.13023952 0.1060148 0.1301876 0.10563949 0.13062574 0.10480425
+		 0.13171722 0.10423978 0.13336636 0.10415421 0.13467897 0.10393764 0.13583191 0.10367976
+		 0.13692184 0.10293934 0.13630761 0.10127981 0.13428535 0.098801658 0.13249232 0.095769063
+		 0.1308396 0.09225221 0.12897094 0.088102192 0.12665926 0.08338432 0.12380408 0.079338804
+		 0.12015371 0.084136263 0.11355235 0.079440951 0.11616769 0.12146528 0.12462015 0.12173146
+		 0.12407018 0.11753947 0.12414004 0.11011179 0.12865713 0.10840666 0.13111433 0.091181219
+		 0.11115088 0.096844435 0.11298542 0.1006484 0.11451577 0.10754426 0.13133229 0.10717179
+		 0.13107426 0.10692459 0.13061902 0.10658209 0.1305916 0.10617359 0.13082626 0.10559344
+		 0.13158204 0.10459185 0.13343193 0.10443348 0.13514657 0.10447465 0.13630028 0.10434979
+		 0.13739122 0.10420057 0.13865985 0.10359429 0.13814767 0.1021214 0.13587047 0.10010588
+		 0.13427944 0.096962139 0.13283534 0.093467459 0.13142492 0.089155391 0.12961163 0.083842993
+		 0.12700938 0.078972831 0.12423475 0.076721847 0.11973359 0.079046279 0.11497407 0.085173577
+		 0.11252832 0.12114325 0.12499572 0.12863716 0.12434176 0.12774816 0.12526138 0.11205882
+		 0.12970838 0.11083972 0.13092145 0.10800064 0.13169554 0.10914624 0.13169155 0.093521997
+		 0.10995948 0.099531665 0.11271998 0.10212861 0.11476418 0.10745485 0.13145311 0.1070921
+		 0.13117833 0.10691872 0.13087592 0.10662767 0.13093975 0.10622229 0.13137318 0.10551077
+		 0.13278802 0.10479809 0.13506193 0.10473675 0.1367255 0.10482828 0.13779016 0.10476911
+		 0.13896944 0.1046738 0.1408474 0.10420749 0.14065976 0.10295559 0.13778175 0.10121571
+		 0.13597162 0.098731905 0.13489015 0.094920516 0.13400443 0.090467274 0.13283922 0.085164443
+		 0.1305054 0.07934548 0.12822616 0.07568346 0.12527622 0.07501784 0.11850434 0.086949274
+		 0.11091282 0.079851508 0.11300715 0.10872434 0.13217208 0.1078877 0.1317782 0.11040296
+		 0.13232401 0.11236987 0.13223232 0.094173566 0.10790225 0.10282278 0.1121194 0.1047615
+		 0.11496624 0.10738523 0.13157721 0.10704437 0.13131495 0.1068565 0.13104536 0.10661152
+		 0.13119707 0.10625933 0.1320184 0.10577373 0.13407417 0.10510056 0.13654239 0.10508814
+		 0.13816477 0.10520951 0.13915695 0.10518499 0.14069445 0.10503151 0.14346744 0.10465232
+		 0.14363505 0.10373987 0.14042677 0.10223109 0.13790156 0.10019898 0.13670905 0.09697333
+		 0.13630189;
+	setAttr ".uvtk[250:499]" 0.093084514 0.13529626 0.086780533 0.13329396 0.081159309
+		 0.13241994 0.075669363 0.13035429 0.071808591 0.12634468 0.073995396 0.11580791 0.081625089
+		 0.11083069 0.088610098 0.10902729 0.10989209 0.13280705 0.10844149 0.13217469 0.10772452
+		 0.1318623 0.095674664 0.10600781 0.1074152 0.13190307 0.1070585 0.13156624 0.10681564
+		 0.13118429 0.10662803 0.13152108 0.10663497 0.13287033 0.1061231 0.13522239 0.10545826
+		 0.13788988 0.10549445 0.13937862 0.10561912 0.14037515 0.10554336 0.14268233 0.10526346
+		 0.14650348 0.10489559 0.14689925 0.1042785 0.14349742 0.10313229 0.14039929 0.1014273
+		 0.13857026 0.098964483 0.13817365 0.095286861 0.13780138 0.089632899 0.13418874 0.091824338
+		 0.13611367 0.087502643 0.13412395 0.083774388 0.13625601 0.078299686 0.13515285 0.072117731
+		 0.13228947 0.068204314 0.12635151 0.075907722 0.11180272 0.089586616 0.10755952 0.083292261
+		 0.10914343 0.10912791 0.13269201 0.10807465 0.13218631 0.10769971 0.13220693 0.095636591
+		 0.10487273 0.10736224 0.13258526 0.10697262 0.1320658 0.10680626 0.13139154 0.10704735
+		 0.13363673 0.1064606 0.13619031 0.10587746 0.13897629 0.10591927 0.14027227 0.1060071
+		 0.14162506 0.10580608 0.14510687 0.10548529 0.14980814 0.10504249 0.15040144 0.10452384
+		 0.14677539 0.10372013 0.14328499 0.10239708 0.14071317 0.10050794 0.13985862 0.097764432
+		 0.13980851 0.094231963 0.13873878 0.090984091 0.13657048 0.089603662 0.13501933 0.088404059
+		 0.13477555 0.086471319 0.13572904 0.081405729 0.13928273 0.075820133 0.13790843 0.067983478
+		 0.1334796 0.078365251 0.10986318 0.084278345 0.10801753 0.089778468 0.10654678 0.10844414
+		 0.13257445 0.11071971 0.13419075 0.10967956 0.1333839 0.10794279 0.13250513 0.10767837
+		 0.13300577 0.095191598 0.10413661 0.10103761 0.10114681 0.10175201 0.10196298 0.1073795
+		 0.13426532 0.10676463 0.13691743 0.10631502 0.13966806 0.10635129 0.14119513 0.1062061
+		 0.14316817 0.10621099 0.1477274 0.1055762 0.15320459 0.10504504 0.15398058 0.10456231
+		 0.1502752 0.10391375 0.14641544 0.10304593 0.14316072 0.10160939 0.14147063 0.099637762
+		 0.14142975 0.096955031 0.141054 0.093497813 0.13933936 0.090209186 0.13693735 0.087880358
+		 0.1357986 0.086151034 0.14009574 0.087791339 0.13841566 0.084603995 0.14254095 0.079244673
+		 0.14222021 0.073080391 0.14061309 0.073535636 0.10775699 0.075723678 0.10571521 0.079810247
+		 0.10847925 0.089340955 0.10625418 0.084304482 0.10762402 0.10881057 0.13305052 0.1081723
+		 0.13282253 0.11005013 0.13417056 0.11106966 0.1353121 0.10791156 0.13338593 0.094411984
+		 0.10384407 0.10017027 0.10058957 0.10590732 0.099062465 0.1050473 0.098186426 0.107621
+		 0.13479884 0.10698174 0.13736965 0.10679246 0.14042039 0.1065858 0.14266397 0.10619238
+		 0.1447276 0.10616328 0.15076432 0.10521741 0.15834513 0.10473149 0.15860787 0.10441209
+		 0.15376881 0.10374054 0.14971831 0.10312468 0.14605841 0.10224821 0.14338125 0.10083254
+		 0.14263228 0.09911488 0.14260277 0.096261278 0.14215985 0.092793941 0.13990858 0.089256078
+		 0.13744846 0.090462938 0.14216897 0.088911265 0.14412531 0.087501362 0.14640971 0.082439393
+		 0.14531018 0.076378807 0.14482303 0.069367588 0.14234982 0.063602015 0.1359989 0.074063137
+		 0.10394593 0.07688649 0.10464131 0.080290183 0.10798677 0.08375302 0.10685574 0.088366166
+		 0.1055442 0.10918254 0.1336427 0.10841988 0.13319887 0.1080927 0.13375124 0.11108018
+		 0.13619353 0.11022872 0.13502772 0.093190253 0.10314452 0.099205449 0.10026553 0.10445116
+		 0.097749829 0.10934971 0.09616404 0.10884932 0.096678011 0.1077835 0.13525309 0.10699309
+		 0.13785233 0.10712329 0.14246215 0.10591991 0.1444995 0.10394827 0.1577107 0.10338487
+		 0.15297636 0.10269976 0.14895967 0.10229829 0.14575669 0.10154614 0.14392802 0.1001633
+		 0.14376488 0.098309979 0.14451388 0.095479012 0.14329341 0.091856375 0.14076796 0.090085864
+		 0.15015383 0.092292055 0.14725377 0.088214263 0.15293188 0.085942224 0.14932157 0.07881467
+		 0.148223 0.072365582 0.14690147 0.074735746 0.10226526 0.077563152 0.10446679 0.080359519
+		 0.10717269 0.087147102 0.10460215 0.083053261 0.10590693 0.1094645 0.13444999 0.10872103
+		 0.13367797 0.10822947 0.13414952 0.091619924 0.10229584 0.097831845 0.099672668 0.10359615
+		 0.097535908 0.11029008 0.096005999 0.10791506 0.13569231 0.10623647 0.14451839 0.10302484
+		 0.16270591 0.10402326 0.16597529 0.10275738 0.15642437 0.1021976 0.1518254 0.10154194
+		 0.14823541 0.10150342 0.14594457 0.10095926 0.14493492 0.099543378 0.14560071 0.097356662
+		 0.14614782 0.094266728 0.14484724 0.092700616 0.15175469 0.089455634 0.15565325 0.086917177
+		 0.15904233 0.08671701 0.15561274 0.081177071 0.15164796 0.073827118 0.15162513 0.07345131
+		 0.10276722 0.074603841 0.10510152 0.075415835 0.10210925 0.078113556 0.1039766 0.080352724
+		 0.10622903 0.08240588 0.10506179 0.086031571 0.103738 0.11057489 0.13608082 0.10976759
+		 0.13544109 0.10908508 0.13441333 0.10843296 0.1345118 0.09025155 0.10154911 0.096140504
+		 0.09909194 0.1022068 0.097122222 0.11096863 0.095233314 0.10793422 0.13632084 0.10700879
+		 0.13857515 0.10176928 0.1603796 0.10247977 0.1726779 0.10136504 0.16823222 0.1014448
+		 0.15480193 0.10108294 0.15057924 0.10051402 0.14802578 0.10079716 0.14651123 0.10022296
+		 0.14624485 0.098442867 0.14741579 0.095655888 0.14830652 0.088993981 0.158857 0.092615724
+		 0.15373231 0.085926175 0.16202042 0.085118309 0.1618686 0.085558787 0.15466496 0.08547534
+		 0.15826049 0.083465472 0.15517232 0.075244159 0.15677455 0.073970318 0.10233679 0.076228023
+		 0.10174542 0.078638554 0.10330322 0.080280617 0.10541802 0.085381553 0.10326742 0.082048208
+		 0.1046029 0.10932158 0.1356183 0.10880752 0.13506863 0.08948046 0.10116761 0.094698519
+		 0.09861695 0.10064192 0.096725643 0.10941787 0.09475293 0.11845243 0.094715707;
+	setAttr ".uvtk[500:749]" 0.12503949 0.092364147 0.10018303 0.16506739 0.10046224
+		 0.15807173 0.099364176 0.17373952 0.10088985 0.1783329 0.10027154 0.15302995 0.10019989
+		 0.14999029 0.099862665 0.14850995 0.10010494 0.14747301 0.099066138 0.14796969 0.096407697
+		 0.14973447 0.083831251 0.16371581 0.08430475 0.16039535 0.08497639 0.15784571 0.084294349
+		 0.15900597 0.080591559 0.15829816 0.072813779 0.10397073 0.072819874 0.10325982 0.074898288
+		 0.1017588 0.077060595 0.10113072 0.07899332 0.10265475 0.080237404 0.10498407 0.081854269
+		 0.10427096 0.084949642 0.10295083 0.10910317 0.13639726 0.11067912 0.1368968 0.11044648
+		 0.13706876 0.10830751 0.13725699 0.088952467 0.10091614 0.093928039 0.098400317 0.099323109
+		 0.096415162 0.1077728 0.094435565 0.12226126 0.091610745 0.13232049 0.093059495 0.12410694
+		 0.094259374 0.097868472 0.1704153 0.09898521 0.16209747 0.099208146 0.15566942 0.098709419
+		 0.18470791 0.096857399 0.17989859 0.099480346 0.15206882 0.099582583 0.15033212 0.099309847
+		 0.14933106 0.099140018 0.14874086 0.096519783 0.15059868 0.09234941 0.15416522 0.08277078
+		 0.16501561 0.082740679 0.16102746 0.074793622 0.16397765 0.079212457 0.16225162 0.071863413
+		 0.10463011 0.071162373 0.10406815 0.073739767 0.1025221 0.075908259 0.1008684 0.077690989
+		 0.10048189 0.079165265 0.10227435 0.080237463 0.10465529 0.08451727 0.10251494 0.081680447
+		 0.10379463 0.10910919 0.13883705 0.088373676 0.10055649 0.093420863 0.098266207 0.098641112
+		 0.096279234 0.10640945 0.094240986 0.11963278 0.091370031 0.13250481 0.088894144
+		 0.13467081 0.08963792 0.095011935 0.17646101 0.096572831 0.16721059 0.097702548 0.1589205
+		 0.098293215 0.15441337 0.092848331 0.18722537 0.094704241 0.19244239 0.098942235
+		 0.15214279 0.099074021 0.15113804 0.098671347 0.15032127 0.096724391 0.1507456 0.081223711
+		 0.16327587 0.067794546 0.10622617 0.066854283 0.10559689 0.072115257 0.10340052 0.0748882
+		 0.10141438 0.076731294 0.099982761 0.07803221 0.10006534 0.079299361 0.10199093 0.080239967
+		 0.10418689 0.081553653 0.10330509 0.084216014 0.10206633 0.087919563 0.10017701 0.092823848
+		 0.09806218 0.098216057 0.096194059 0.10569187 0.094162367 0.11753446 0.0913518 0.12934902
+		 0.08876811 0.09141247 0.18386492 0.093503192 0.17333807 0.095351785 0.16332771 0.096612409
+		 0.15708962 0.097766951 0.15433654 0.098459855 0.15277085 0.098524377 0.1522564 0.096669346
+		 0.15228638 0.068236232 0.10504901 0.073435917 0.10227164 0.075904265 0.10031404 0.077215329
+		 0.09943863 0.078311756 0.099745952 0.079441234 0.10160991 0.080224857 0.10371586
+		 0.084133506 0.10174545 0.081505835 0.102957 0.087703705 0.099898271 0.092309654 0.097834431
+		 0.097703934 0.09605965 0.10521832 0.094110124 0.11638802 0.091369115 0.1267008 0.088783845
+		 0.13454251 0.087922528 0.13187872 0.08735095 0.090252474 0.18071851 0.09209618 0.1690882
+		 0.094267324 0.16061005 0.095849201 0.15718898 0.097230867 0.15489116 0.097927183
+		 0.15359214 0.096926898 0.15433845 0.070340827 0.10422107 0.074754894 0.1010417 0.076525494
+		 0.09963274 0.077623278 0.099047594 0.078638911 0.099347703 0.079525545 0.10123467
+		 0.08020243 0.10338368 0.081332132 0.10235354 0.083764389 0.10124867 0.087271184 0.099460267
+		 0.092006013 0.097657673 0.097247809 0.095906675 0.10462026 0.094024025 0.11554694
+		 0.091379248 0.12520431 0.08883746 0.12954797 0.087077335 0.13055734 0.086296543 0.13270192
+		 0.08686547 0.088451296 0.17613032 0.091022968 0.16566493 0.093495935 0.15996167 0.095248744
+		 0.15802172 0.096716553 0.15547058 0.072513968 0.1027241 0.075578168 0.10022029 0.077038884
+		 0.099160433 0.078099668 0.098593466 0.078879461 0.098975323 0.079553321 0.10098272
+		 0.08016175 0.10276472 0.083304629 0.10015687 0.081157446 0.10103249 0.08662118 0.098543279
+		 0.091557756 0.09732338 0.096967012 0.095786065 0.10407087 0.093927041 0.11443023
+		 0.091370605 0.12404716 0.088904813 0.12815817 0.087047651 0.12875529 0.085942522
+		 0.12923615 0.085377052 0.12760939 0.085362002 0.08651416 0.1904799 0.08464615 0.184953
+		 0.087103233 0.17271604 0.090292782 0.1646281 0.094710693 0.15863207 0.067699939 0.10714047
+		 0.065380484 0.11043873 0.073753089 0.10164972 0.076238692 0.099644065 0.077615932
+		 0.098631188 0.078460947 0.098180436 0.078999251 0.098753862 0.079574287 0.10055583
+		 0.079991266 0.10146638 0.080699831 0.099236153 0.083046794 0.09847369 0.086301178
+		 0.097120576 0.090779603 0.096590661 0.096446037 0.095540538 0.10371301 0.093851313
+		 0.11337554 0.091345809 0.12248008 0.088978097 0.12705494 0.087106541 0.12768312 0.085850641
+		 0.1262847 0.08542119 0.13494287 0.087231711 0.13101186 0.085620299 0.12539424 0.085480943
+		 0.12677307 0.08539854 0.083234057 0.18130645 0.086537465 0.17126073 0.069521829 0.10522094
+		 0.07471469 0.10087474 0.076960042 0.099027097 0.078051537 0.098145209 0.078641579
+		 0.097928189 0.079117104 0.098486893 0.079479873 0.09964215 0.079472944 0.099284284
+		 0.083350882 0.09632846 0.08083646 0.096879475 0.086721018 0.095198356 0.090296358
+		 0.095450424 0.095529631 0.094889037 0.11265901 0.091321312 0.12098189 0.089027628
+		 0.12557481 0.087184325 0.12684412 0.085854605 0.12553762 0.085485712 0.12430097 0.085642383
+		 0.12832581 0.085741684 0.12534557 0.085735574 0.12411977 0.085853502 0.071089521
+		 0.10394727 0.075848222 0.099985175 0.077517197 0.098461851 0.078268245 0.097830705
+		 0.078768194 0.097619556 0.079136163 0.09792348 0.079101756 0.098273985 0.079267904
+		 0.097037725 0.081029728 0.09474536 0.083891958 0.094311677 0.087515101 0.093373589
+		 0.090639502 0.09378051 0.094982177 0.093851946 0.10168672 0.093065552 0.10301863
+		 0.093649015 0.11160631 0.091112845 0.11996292 0.089049622 0.12416349 0.087233856
+		 0.12570865 0.08589004 0.12494041 0.08558403 0.12368192 0.085743919 0.12319811 0.086004302
+		 0.12686397 0.085998967 0.12340064 0.086348727 0.12438671 0.086231723 0.073750868
+		 0.10226341 0.076737836 0.099163316 0.077809647 0.098096661 0.078396976 0.097437136;
+	setAttr ".uvtk[750:999]" 0.078757033 0.097013228 0.078835085 0.096986078 0.078492746
+		 0.096414797 0.079068258 0.095043205 0.084770977 0.092999451 0.081490129 0.093560539
+		 0.088197961 0.092192881 0.091514871 0.092160188 0.095041364 0.092473201 0.10096458
+		 0.091959618 0.10975879 0.09052857 0.11870518 0.088829592 0.12321912 0.087249294 0.12463345
+		 0.085943684 0.12413226 0.085725322 0.12317307 0.085839346 0.12266468 0.086061522
+		 0.12265573 0.08645194 0.12581249 0.086406276 0.12387227 0.086808585 0.12301882 0.086824618
+		 0.069671147 0.10680156 0.072486483 0.10411509 0.075549453 0.10059234 0.077196762
+		 0.098659001 0.078015566 0.097646974 0.078339115 0.096699201 0.078413337 0.096099488
+		 0.078173101 0.095591865 0.078007028 0.094736122 0.079104841 0.093778066 0.081972331
+		 0.091613345 0.085207596 0.091417544 0.088871539 0.090703301 0.092169702 0.091101997
+		 0.095885262 0.091025971 0.10077628 0.090557992 0.10870841 0.08944761 0.11674857 0.088249765
+		 0.12196638 0.087151244 0.12392996 0.086000666 0.12339006 0.085845277 0.12248109 0.085937873
+		 0.12220316 0.086082831 0.12219067 0.086421303 0.12233351 0.086795025 0.12495755 0.087082766
+		 0.12268506 0.087357305 0.12358789 0.087704323 0.071483873 0.10583191 0.073219925
+		 0.10411488 0.074697062 0.10186341 0.07639803 0.099646889 0.077514008 0.098134272
+		 0.077986702 0.096788757 0.077909261 0.095663302 0.077699289 0.094853424 0.077452019
+		 0.094159774 0.077787384 0.093669705 0.079423934 0.092050754 0.086317703 0.088671587
+		 0.082996011 0.088708483 0.090031013 0.088184856 0.092830926 0.089823537 0.096511304
+		 0.090072416 0.10134435 0.08922568 0.10827374 0.088215701 0.11533935 0.087373696 0.12027754
+		 0.086648419 0.12270226 0.086260781 0.12291683 0.085920289 0.12182648 0.085974708
+		 0.12155746 0.086094998 0.12175502 0.086322479 0.12190284 0.086644374 0.12205081 0.087077849
+		 0.12472589 0.088314407 0.12310155 0.088062868 0.12247278 0.08771129 0.072849758 0.10554566
+		 0.073458865 0.10480552 0.074599437 0.10253029 0.075703815 0.10068988 0.076890707
+		 0.098953418 0.077610016 0.097219013 0.077498734 0.09560179 0.077083051 0.094387017
+		 0.076958269 0.093593858 0.077048436 0.093236886 0.077734485 0.091938041 0.080212995
+		 0.088923 0.08570765 0.085162155 0.088819921 0.085263841 0.092361882 0.084949903 0.0940516
+		 0.087542526 0.097187489 0.088924997 0.10188606 0.088355035 0.10849012 0.087162152
+		 0.1148673 0.08650922 0.11860488 0.086262904 0.12211557 0.086015359 0.12137641 0.085967526
+		 0.12092866 0.086062841 0.12113149 0.086200885 0.12148468 0.086430363 0.12167759 0.086811654
+		 0.1220281 0.087304853 0.12401034 0.088411085 0.12295316 0.088161759 0.12343912 0.08881148
+		 0.074187852 0.10412153 0.075326212 0.10165384 0.076258004 0.099955402 0.077067271
+		 0.097905479 0.077140823 0.095915549 0.076543495 0.09423586 0.076249823 0.093180947
+		 0.076420724 0.092677258 0.076509699 0.091518842 0.07808201 0.088567071 0.082932755
+		 0.084904633 0.092730448 0.081280343 0.089931414 0.080825441 0.09601815 0.081199907
+		 0.096239775 0.084507458 0.098424047 0.08688619 0.1025341 0.087288842 0.10882562 0.086462989
+		 0.11469555 0.085738681 0.11806025 0.085687391 0.12051134 0.085918203 0.12048815 0.086012952
+		 0.12051995 0.086059026 0.12089445 0.086192451 0.12131511 0.086514108 0.12176661 0.086948268
+		 0.12265019 0.087481312 0.12417836 0.089454368 0.12548058 0.088985428 0.12670623 0.088767879
+		 0.12445469 0.089688055 0.12412702 0.088636748 0.072465084 0.10675197 0.072276697
+		 0.1072202 0.074544869 0.10365533 0.075698927 0.10104056 0.076553315 0.098885439 0.076794118
+		 0.096727245 0.076083153 0.094547741 0.075561166 0.092931263 0.075786829 0.092358164
+		 0.075466409 0.091037802 0.076132968 0.08793088 0.08059299 0.084216915 0.087427229
+		 0.079742573 0.094618201 0.076057993 0.096975312 0.077321492 0.10002394 0.077611707
+		 0.099608988 0.080886923 0.10042749 0.084083579 0.10371408 0.085352533 0.10927223
+		 0.085562132 0.11477527 0.085211925 0.11778854 0.085145049 0.11967753 0.085853122
+		 0.12010135 0.085907094 0.12033616 0.085960619 0.12080543 0.086160138 0.12152068 0.086565316
+		 0.12250312 0.086953096 0.12396498 0.087608777 0.12509085 0.090725206 0.12537368 0.09032511
+		 0.12579904 0.088992856 0.12590982 0.090409242 0.072638951 0.10646408 0.074739933
+		 0.10311272 0.075925656 0.10011005 0.07628645 0.09759035 0.075711727 0.095525078 0.074989751
+		 0.09326487 0.074987829 0.09205281 0.074529722 0.090783589 0.074352607 0.087551914
+		 0.078149945 0.083459519 0.084850475 0.078620486 0.092308998 0.073906951 0.099884808
+		 0.073427282 0.097406119 0.071566693 0.10298514 0.07433071 0.10333762 0.077499978
+		 0.10319555 0.080676787 0.10549235 0.082735769 0.11012749 0.083873779 0.11499152 0.084491089
+		 0.1177365 0.084737353 0.11936237 0.08559721 0.11997075 0.085742377 0.12034796 0.085805908
+		 0.12118687 0.086027116 0.12238137 0.086412273 0.12391423 0.086843662 0.12577973 0.08765056
+		 0.12638943 0.09178602 0.12624706 0.09181311 0.1272334 0.090780072 0.1273924 0.08907827
+		 0.072842412 0.10595199 0.075008206 0.1021966 0.075405717 0.099234603 0.075097278
+		 0.09643548 0.07456401 0.094419979 0.074194744 0.09236338 0.073581725 0.090713136
+		 0.07286495 0.087527893 0.075464278 0.083438598 0.081826478 0.077783547 0.089169875
+		 0.071792349 0.094946072 0.068732724 0.098957628 0.067381971 0.1018202 0.069441579
+		 0.10514721 0.070909999 0.10626461 0.074646734 0.10643859 0.077317737 0.10770231 0.079641484
+		 0.11158974 0.081549816 0.11558776 0.083099477 0.11788832 0.084167324 0.11926372 0.085366629
+		 0.12005903 0.085501358 0.12089829 0.085447758 0.12222861 0.085625105 0.12387259 0.086077921
+		 0.12580626 0.08665397 0.12754442 0.087495945 0.12745617 0.092390083 0.12755613 0.093021952
+		 0.12899677 0.089025341 0.12859549 0.091005258 0.073945597 0.10408442 0.074286193
+		 0.1017262 0.073632248 0.098822497 0.073618755 0.095532142 0.073607862 0.093658648
+		 0.072676376 0.091159604 0.071573019 0.087818943 0.07282044 0.08366736 0.078295588
+		 0.07843262 0.085398823 0.070427202 0.092051432 0.064710759;
+	setAttr ".uvtk[1000:1249]" 0.096336275 0.064088218 0.10326861 0.065751761 0.10012068
+		 0.063647829 0.10677724 0.067471907 0.10861787 0.071765594 0.10917343 0.074656747
+		 0.11041549 0.076758586 0.11358064 0.078736208 0.11689436 0.081242435 0.11860077 0.083139561
+		 0.11939256 0.08502005 0.12071289 0.084983528 0.12211405 0.084773473 0.12378813 0.084997021
+		 0.12580617 0.085668884 0.12764798 0.086337827 0.12928857 0.087229393 0.12857105 0.092862867
+		 0.1285577 0.093685232 0.13048606 0.091323487 0.1310377 0.089008979 0.069708712 0.10826974
+		 0.071940817 0.10623278 0.072933264 0.10435235 0.072341412 0.10104053 0.071159698
+		 0.098904334 0.072209761 0.095022105 0.072064921 0.092657678 0.070219085 0.088682078
+		 0.070500702 0.083986871 0.074412674 0.079369187 0.080960751 0.071702264 0.088448882
+		 0.062436599 0.093349352 0.059058923 0.097191378 0.060421072 0.10119495 0.06011077
+		 0.104748 0.062213257 0.10847609 0.064044952 0.11045995 0.068666808 0.11168298 0.072089307
+		 0.11280571 0.074246161 0.11593932 0.075657956 0.11888748 0.079029761 0.1200756 0.081889711
+		 0.12011476 0.084301829 0.12204231 0.084100209 0.1236832 0.083843075 0.12569015 0.084339939
+		 0.12768145 0.085219108 0.12943326 0.085971735 0.1313269 0.086970381 0.1301287 0.093547814
+		 0.1294923 0.09425845 0.13314609 0.089034759 0.1326779 0.09173625 0.07205651 0.1064175
+		 0.07142701 0.10323974 0.069849521 0.10121199 0.068871707 0.099187754 0.070305392
+		 0.094255857 0.069022328 0.090449385 0.068413824 0.085850619 0.070468694 0.079024419
+		 0.076195836 0.073206954 0.08344844 0.064618215 0.089819431 0.053674299 0.093980715
+		 0.055547815 0.09777531 0.057086248 0.10664666 0.05868011 0.10248189 0.056436531 0.11071566
+		 0.061024334 0.11189912 0.065664038 0.11372326 0.069346957 0.11554889 0.071803115
+		 0.11846843 0.0731261 0.12100358 0.076676212 0.12168153 0.080359153 0.12155156 0.08322262
+		 0.12358086 0.082911693 0.12545763 0.082937889 0.12752505 0.083772235 0.12945311 0.084807478
+		 0.13138972 0.085661672 0.13326372 0.086697482 0.13196494 0.094380371 0.13073225 0.095106803
+		 0.13469209 0.092270993 0.13483535 0.089074485 0.071056031 0.10488372 0.068541795
+		 0.10447221 0.0671762 0.10565411 0.066124819 0.099047922 0.066669405 0.092535011 0.066052407
+		 0.087968193 0.067065731 0.082248829 0.071945578 0.071314409 0.07757993 0.067388728
+		 0.084531114 0.05787893 0.090746731 0.050536234 0.094005927 0.052604426 0.098227412
+		 0.053428728 0.10443771 0.052798245 0.10907875 0.055102177 0.11251757 0.058102798
+		 0.1144383 0.062962428 0.11492431 0.066596441 0.11849836 0.068876378 0.12215614 0.070450298
+		 0.12371166 0.074645899 0.12368216 0.07852935 0.12312441 0.081798367 0.12521391 0.08178591
+		 0.12718643 0.082241468 0.1292253 0.083355062 0.13127856 0.08451765 0.13311599 0.085386835
+		 0.13468732 0.08632382 0.13376422 0.095358483 0.13216795 0.096147709 0.13628013 0.089181505
+		 0.13723399 0.093571387 0.070720412 0.10768994 0.070737161 0.10719558 0.068407618
+		 0.10603937 0.067162596 0.10688006 0.061465085 0.11301973 0.061198153 0.09811049 0.062664092
+		 0.090907387 0.06440796 0.085152946 0.072194263 0.065148667 0.077901229 0.061305393
+		 0.086636215 0.048031203 0.083030224 0.051702939 0.087163255 0.045393847 0.089903429
+		 0.048113007 0.093080789 0.04881506 0.098924354 0.048836965 0.11013895 0.052203901
+		 0.10586491 0.049738426 0.11333691 0.054928124 0.11562078 0.06054439 0.1173272 0.064369075
+		 0.11893445 0.066619001 0.12790224 0.06696175 0.12698869 0.073024206 0.12587295 0.076981835
+		 0.12472476 0.080483161 0.12686826 0.080936663 0.12885268 0.081798457 0.13089772 0.083114468
+		 0.13280497 0.084311597 0.13426884 0.085040562 0.13612102 0.085041486 0.13629167 0.097325198
+		 0.13345228 0.097414874 0.13891952 0.093096875 0.13754921 0.089497171 0.068254746
+		 0.1078498 0.067175962 0.10873684 0.063675396 0.11240374 0.054427482 0.10747238 0.056405038
+		 0.096496813 0.060579889 0.088911943 0.071681663 0.059112329 0.076865226 0.054375939
+		 0.079305366 0.045859877 0.082450345 0.042648528 0.083063319 0.039816294 0.086484164
+		 0.042519353 0.087634876 0.043910585 0.091615736 0.043205936 0.10166003 0.046372924
+		 0.10749976 0.046686966 0.11144024 0.049071215 0.11421767 0.05147665 0.11606905 0.05754431
+		 0.11825703 0.06213408 0.12072122 0.06466388 0.12634854 0.064713672 0.13160242 0.071497492
+		 0.1287524 0.075665854 0.12647782 0.079410456 0.12860177 0.080391638 0.13055138 0.081584863
+		 0.13232176 0.082953118 0.13377531 0.084065817 0.13509916 0.084582619 0.13747449 0.087375335
+		 0.1400138 0.097153954 0.13965879 0.099602543 0.13594605 0.099487685 0.14122297 0.096824519
+		 0.067025058 0.11085605 0.067040086 0.11020102 0.066913426 0.11031326 0.050656751
+		 0.12439401 0.04737968 0.11817254 0.049595855 0.10444226 0.054565609 0.094719402 0.070389211
+		 0.052542172 0.076179177 0.048479572 0.076207161 0.035997164 0.073813483 0.040516596
+		 0.094361424 0.040325005 0.087184206 0.036115214 0.097882971 0.041013572 0.10388985
+		 0.043725852 0.11392662 0.044952843 0.11072576 0.042825039 0.11618122 0.047118686
+		 0.11676265 0.054097626 0.11863646 0.059358068 0.12153055 0.062561132 0.12642641 0.06265007
+		 0.13243537 0.060415551 0.13490659 0.060140721 0.1324266 0.074483238 0.12843449 0.078668498
+		 0.1304944 0.080077164 0.13211994 0.08145874 0.13329907 0.082694851 0.13449179 0.083684079
+		 0.14079727 0.098957263 0.14214869 0.10041045 0.13978253 0.10151916 0.040506519 0.13437352
+		 0.038714156 0.12758303 0.043699525 0.11262267 0.048277892 0.10202973 0.072112396
+		 0.045230571 0.068392441 0.036315005 0.070656687 0.030352604 0.10182123 0.039470378
+		 0.10743323 0.039959464 0.11386333 0.038547155 0.11673559 0.040501479 0.11888297 0.042161085
+		 0.11802559 0.050341036 0.1193683 0.056382902 0.12159272 0.059971608 0.1263862 0.060687069
+		 0.13228357 0.058818728 0.13083865 0.078079812 0.13238765 0.079853974 0.13327728 0.08115574
+		 0.13408376 0.082226656 0.14188401 0.10139798 0.14264633 0.10058334 0.030984867 0.14270708
+		 0.028813366 0.13640746;
+	setAttr ".uvtk[1250:1499]" 0.036601067 0.12127258 0.042736277 0.10938557 0.06464228
+		 0.04682878 0.067926437 0.040706795 0.068093777 0.02675445 0.064990893 0.03232054
+		 0.10540479 0.036585663 0.095546007 0.036992677 0.10018745 0.03677668 0.11086562 0.035964701
+		 0.11995471 0.035504732 0.11716732 0.033805918 0.12177233 0.036544103 0.12091324 0.044113539
+		 0.12028269 0.053803883 0.1217975 0.05744078 0.12565154 0.058431361 0.12998053 0.056373507
+		 0.13615336 0.074206851 0.13328995 0.077785067 0.13378812 0.079478197 0.13422672 0.080596857
+		 0.020233337 0.15064967 0.017928448 0.14546958 0.026093632 0.13029963 0.036268115
+		 0.11803506 0.10318787 0.034313567 0.1085916 0.033422325 0.09914133 0.033850275 0.11439072
+		 0.031841356 0.11986701 0.029295217 0.12250291 0.030368913 0.12429658 0.030695204
+		 0.12307449 0.038190715 0.12111966 0.04952443 0.1224452 0.055543132 0.12515932 0.056279991
+		 0.12902763 0.054594144 0.13179561 0.054486521 0.13590619 0.05679623 0.13483356 0.077673309
+		 0.13695462 0.075341843 0.13485195 0.078942858 0.0086076874 0.15579353 0.0077291131
+		 0.15230536 0.014836058 0.14051604 0.026241124 0.12772149 0.10657991 0.031677164 0.11232884
+		 0.030235622 0.10400921 0.030953979 0.11718504 0.02798434 0.12392868 0.025630947 0.12157187
+		 0.025186073 0.12537833 0.025309939 0.12630734 0.03118727 0.12345919 0.043214455 0.12377614
+		 0.040238194 0.12287256 0.046769429 0.12162766 0.050232641 0.12161763 0.052620478
+		 0.12534533 0.05430517 0.12312114 0.053421728 0.12861861 0.053184062 0.13064368 0.053270645
+		 0.13532953 0.077814959 0.019633994 0.15413696 0.0086863227 0.15870954 -0.0029811691
+		 0.16019322 -0.0021002423 0.15678458 0.005973544 0.14824879 0.11054918 0.029254992
+		 0.11532661 0.02720866 0.10874964 0.028784979 0.11911231 0.024462465 0.12256046 0.021843035
+		 0.12468602 0.022009563 0.12577835 0.02150568 0.12702915 0.024307694 0.12536898 0.037105434
+		 0.12409157 0.039952688 0.12296522 0.040196978 0.12315807 0.04689436 0.120353 0.049528752
+		 0.12166955 0.051136214 0.1254885 0.052387882 0.12841435 0.051771432 0.12345047 0.051375978
+		 0.13019381 0.052108042 -0.0024877787 0.15306921 0.11328234 0.026893262 0.11750463
+		 0.024246518 0.1120262 0.027068574 0.12033626 0.021422107 0.12516783 0.01957098 0.12326925
+		 0.019552108 0.1260426 0.019136239 0.12712674 0.020336609 0.12499468 0.038904212 0.12118056
+		 0.050039161 0.12185411 0.049860228 0.12562925 0.050613899 0.12823121 0.050485253
+		 0.12985383 0.050908886 0.12363964 0.049233146 0.11584011 0.024431039 0.11894803 0.021446232
+		 0.12129125 0.019281026 0.1237876 0.017996717 0.1253493 0.01785307 0.1261299 0.01759376
+		 0.12224972 0.048588399 0.12137789 0.046591245 0.12044053 0.049179453 0.12117599 0.047831137
+		 0.12570186 0.048757512 0.12811004 0.049398571 0.12949474 0.049881943 0.12355456 0.04653471
+		 0.11732765 0.021590266 0.12003338 0.019359235 0.12219755 0.017334271 0.12527719 0.016616102
+		 0.12404035 0.016940448 0.12601824 0.016328823 0.11988093 0.046964757 0.11950922 0.047037814
+		 0.12573121 0.046674106 0.12795936 0.048372295 0.12923117 0.049091846 0.1210213 0.044400804
+		 0.12391672 0.043542851 0.11844333 0.0196683 0.12088624 0.017647233 0.12297867 0.016535912
+		 0.12404707 0.016102355 0.12493013 0.015663285 0.1256779 0.01525126 0.11855663 0.043572016
+		 0.12608935 0.044839833 0.12774269 0.047455687 0.128976 0.048385229 0.12573539 0.040797684
+		 0.12310462 0.041102789 0.1195242 0.017917942 0.12207006 0.0155393 0.12107687 0.01620749
+		 0.12283474 0.015385214 0.12338871 0.016128752 0.12449466 0.014583718 0.12384036 0.015151072
+		 0.12511633 0.013979491 0.12737034 0.043848015 0.12775998 0.047163107 0.12868677 0.047830749
+		 0.12581573 0.038473669 0.12901352 0.038334373 0.11990026 0.016866956 0.12041525 0.015851345
+		 0.12007456 0.014409211 0.12194382 0.014261056 0.12336117 0.015474994 0.12333545 0.014319021
+		 0.1236407 0.013710637 0.12414642 0.012992624 0.12998436 0.044091705 0.1285695 0.047928426
+		 0.12863289 0.048031084 0.12948044 0.036214475 0.1273085 0.037066732 0.12036816 0.016126577
+		 0.11977135 0.01288246 0.1213771 0.013005536 0.12291735 0.014508169 0.12277192 0.012980137
+		 0.12254551 0.013434749 0.12326495 0.012299884 0.13264976 0.037870876 0.13293056 0.044114478
+		 0.13067298 0.049361307 0.12930752 0.049416177 0.13289328 0.035110127 0.12062566 0.010972876
+		 0.1214865 0.011825662 0.12225533 0.013528172 0.12201698 0.012439419 0.12221899 0.012151305
+		 0.12266298 0.011592258 0.13673155 0.035779722 0.13699131 0.042700242 0.13265993 0.049894221
+		 0.13132007 0.050946899 0.13704877 0.033637609 0.1216444 0.010121185 0.12175971 0.011269812
+		 0.12186725 0.012679521 0.12196945 0.011076812 0.12223278 0.010698732 0.1409315 0.03571704
+		 0.14067714 0.043442987 0.13640921 0.050377123 0.13317929 0.051777609 0.14179043 0.032230292
+		 0.12193424 0.010288876 0.12210503 0.0098991506 0.1466866 0.034580473 0.14637817 0.043229371
+		 0.1404189 0.050793864 0.13617219 0.052742623 0.14740892 0.030729581 0.12185118 0.0093406327
+		 0.15508306 0.033217218 0.15434894 0.043049864 0.14654197 0.051546834 0.14074875 0.053755648
+		 0.15581644 0.028861593 0.16477004 0.031682167 0.16356438 0.042763069 0.154318 0.052433506
+		 0.14684252 0.054657377 0.16535938 0.02675112 0.17438209 0.029669192 0.17292544 0.042122163
+		 0.16325322 0.053298809 0.15460269 0.05598595 0.17449027 0.024145532 0.18462414 0.028079387
+		 0.18320957 0.041317545 0.17233741 0.054043956 0.16363984 0.057457142 0.18404824 0.02236224
+		 0.19596192 0.027724173 0.19500381 0.040318839 0.18263116 0.054157406 0.17313874 0.058789331
+		 0.19482785 0.022458427 0.20706585 0.027504805 0.20668867 0.039340794 0.19445196 0.052689347
+		 0.1838637 0.059051547 0.20561627 0.022644792 0.21671897 0.026433326 0.21681663 0.038462043
+		 0.20660242 0.050901558 0.19543734 0.057286296 0.21517658 0.021410067 0.22574484 0.024829816
+		 0.22615379 0.03719531 0.21735591 0.049952727 0.20735705 0.055092961 0.22413656 0.019462071;
+	setAttr ".uvtk[1500:1749]" 0.23482776 0.022994455 0.23531133 0.035012081 0.22704804
+		 0.048889674 0.21847206 0.053968318 0.23288345 0.017674051 0.243402 0.021221906 0.24409863
+		 0.032208946 0.23608646 0.04652423 0.22854295 0.053002503 0.24100322 0.016239993 0.25075036
+		 0.019772626 0.25229678 0.029096534 0.24483159 0.043051083 0.23759636 0.050753601
+		 0.24812442 0.01524778 0.25913167 0.018676583 0.26003093 0.025826925 0.25360134 0.038650706
+		 0.24625015 0.047218338 0.25496814 0.014865269 0.26171592 0.014829455 0.26419094 0.018214371
+		 0.26487389 0.024791623 0.26092914 0.034466472 0.25493675 0.042651057 0.26978734 0.018283173
+		 0.2689923 0.024036597 0.26527739 0.031553876 0.26236507 0.038594488 0.27370778 0.019013595
+		 0.27204514 0.023644814 0.26792732 0.029946553 0.27498093 0.02016674 0.27399185 0.023403157
+		 0.27029237 0.028376464 0.27227786 0.026568018 0.14742813 0.073427856 0.14626458 0.074134618
+		 0.14506301 0.073726058 0.14631763 0.072995842 0.14863411 0.074444398 0.14920774 0.073675871
+		 0.14511463 0.07510899 0.14368889 0.074520126 0.14438751 0.073189542 0.14563569 0.072535172
+		 0.14767036 0.072312012 0.14867035 0.072753996 0.14786032 0.075506911 0.15009186 0.073084801
+		 0.15180686 0.073776111 0.15229192 0.074499011 0.14368686 0.076449335 0.14225098 0.075654641
+		 0.1430054 0.073978037 0.14395759 0.072637185 0.14514986 0.071926087 0.14690205 0.071765572
+		 0.15031913 0.071901888 0.14937422 0.071405903 0.15138742 0.075908929 0.14637974 0.077051744
+		 0.15147761 0.072091773 0.15188226 0.073136836 0.15731165 0.074553058 0.15500364 0.073760107
+		 0.14144525 0.078315929 0.14014247 0.077131018 0.14151433 0.074891701 0.14259973 0.07339038
+		 0.14376572 0.07183376 0.14490309 0.071132034 0.1463246 0.07120268 0.14845333 0.070841938
+		 0.1505225 0.070375368 0.15161285 0.07083343 0.15541247 0.077271834 0.1495842 0.077609271
+		 0.14412996 0.07905753 0.15279129 0.07112582 0.1530591 0.072115555 0.15430316 0.073006049
+		 0.15740463 0.073457636 0.16169146 0.069435343 0.13943425 0.080221593 0.13855216 0.078717008
+		 0.13963589 0.075904652 0.14107582 0.074196354 0.14244738 0.072638854 0.14376876 0.070776463
+		 0.14480826 0.069971576 0.14595518 0.070308194 0.14759538 0.070155635 0.14940462 0.069825172
+		 0.15222666 0.070088342 0.1510323 0.069685042 0.15330264 0.078308403 0.14781591 0.078925997
+		 0.14245042 0.080970585 0.15335295 0.070380434 0.15410921 0.071073085 0.15496966 0.071991071
+		 0.15731886 0.07231389 0.13848993 0.081626952 0.13674089 0.080084383 0.13803026 0.077266425
+		 0.13932648 0.075116247 0.14093289 0.073434412 0.14249504 0.071610928 0.14388812 0.069584519
+		 0.14471903 0.068688944 0.14558485 0.069124252 0.14685962 0.069299385 0.14834312 0.069164045
+		 0.14975515 0.069201022 0.1508238 0.069099709 0.15205845 0.069426119 0.15209123 0.078489035
+		 0.14690909 0.079903945 0.14213893 0.082699597 0.15307638 0.069721565 0.15444103 0.070382953
+		 0.15550724 0.070962384 0.15704963 0.071558669 0.13755426 0.082764238 0.13474038 0.080698207
+		 0.13564011 0.078133002 0.13742182 0.075950861 0.13915709 0.074126184 0.14098319 0.072400689
+		 0.14268562 0.070524544 0.14410046 0.06843096 0.14479691 0.067442805 0.14538416 0.067772701
+		 0.1463345 0.06811443 0.14748064 0.068303935 0.14856443 0.068447113 0.14953855 0.068583719
+		 0.15119413 0.067998782 0.15018913 0.067848727 0.15193954 0.078482226 0.14759782 0.080779001
+		 0.1430327 0.084271446 0.15195057 0.068152256 0.15401086 0.069706649 0.15545157 0.070238754
+		 0.15722623 0.07066521 0.16000077 0.070833176 0.15931186 0.070514962 0.13809302 0.083675161
+		 0.13401726 0.081507355 0.13331729 0.078724459 0.13493615 0.07668525 0.13703749 0.074687481
+		 0.13919896 0.072928011 0.14122093 0.07121335 0.14306509 0.069375157 0.1443899 0.067138188
+		 0.14490965 0.066160992 0.1453236 0.066448756 0.14596555 0.066758744 0.14680049 0.067152619
+		 0.1476793 0.067507811 0.14845988 0.067708358 0.14914873 0.067495257 0.14962146 0.066474825
+		 0.15049216 0.066405647 0.15273556 0.078312322 0.15008298 0.0814735 0.14475456 0.085579544
+		 0.15133235 0.066318713 0.15277818 0.068084285 0.15477982 0.069329523 0.15683499 0.070094079
+		 0.1596702 0.069857627 0.16290775 0.069767088 0.1634253 0.07042022 0.1392335 0.084911227
+		 0.13430044 0.0826803 0.13191637 0.079029575 0.13251415 0.077017263 0.13453868 0.075318083
+		 0.13696167 0.073232964 0.13949722 0.071622893 0.1416904 0.069961116 0.14366749 0.06794779
+		 0.14460298 0.06573882 0.14498565 0.064800523 0.14529938 0.065118097 0.14576337 0.065394349
+		 0.14628962 0.065807536 0.14694497 0.066463962 0.14773813 0.066793516 0.14838955 0.066899791
+		 0.14889899 0.066373155 0.15006539 0.065046757 0.14926252 0.06532681 0.15473935 0.077937916
+		 0.15321639 0.081549123 0.1472418 0.087089807 0.15125081 0.064589038 0.15225103 0.066644058
+		 0.15392098 0.067655638 0.15622088 0.069385119 0.15938243 0.069471426 0.16302773 0.069234014
+		 0.1406242 0.08672829 0.13480046 0.084631965 0.13149482 0.080141872 0.13093978 0.077114716
+		 0.13204634 0.075578853 0.13450724 0.073742166 0.13710889 0.071572646 0.14012459 0.069894582
+		 0.14272997 0.068311468 0.14404583 0.066439927 0.14471254 0.063940495 0.14499447 0.063079298
+		 0.14526299 0.063740239 0.14562151 0.064014286 0.14597759 0.064405948 0.14632854 0.065140851
+		 0.14707974 0.065972492 0.14803579 0.06627845 0.14844081 0.066119865 0.14872828 0.065416045
+		 0.14865473 0.064450428 0.14907745 0.064016208 0.15790358 0.077128649 0.1569815 0.081693828
+		 0.14706936 0.090213366 0.14966533 0.063522428 0.15310875 0.065444648 0.16284391 0.068867713
+		 0.16690227 0.068434931 0.16706267 0.06907028 0.14135095 0.088810191 0.13529807 0.08666648
+		 0.13103032 0.082187414 0.12971196 0.077758595 0.13008505 0.075365692 0.13202962 0.073760241
+		 0.13483059 0.072239608 0.13877404 0.069668159 0.14140826 0.068027347 0.14333823 0.066671066
+		 0.14423406 0.064607076 0.14459923 0.061411355 0.14482453 0.060653225 0.14519715 0.062110621;
+	setAttr ".uvtk[1750:1999]" 0.14549497 0.062626816 0.14576229 0.062994547 0.14597693
+		 0.063693896 0.1464375 0.064830169 0.14762852 0.065782681 0.14823177 0.06577979 0.14843646
+		 0.065331295 0.1485289 0.064828865 0.14850125 0.063640401 0.14827457 0.06415613 0.14731005
+		 0.092946179 0.14879254 0.063081868 0.15010169 0.062723383 0.15256891 0.063063197
+		 0.15454653 0.063930824 0.16663423 0.068005107 0.17425635 0.06850218 0.17485431 0.069791503
+		 0.14101383 0.090337038 0.13532394 0.088153899 0.13046414 0.084405363 0.12827033 0.079469353
+		 0.12809563 0.075526297 0.12990388 0.073040485 0.13268057 0.071580812 0.13636109 0.071081981
+		 0.13508189 0.071682096 0.13776749 0.069435194 0.14011103 0.067571029 0.14243805 0.066262916
+		 0.14362046 0.064877301 0.14417234 0.062219791 0.14422098 0.058388915 0.14444193 0.057682537
+		 0.14501184 0.059963677 0.14537719 0.06113378 0.14560017 0.061629511 0.14575943 0.062290929
+		 0.14616069 0.06351158 0.14717785 0.064993113 0.14798149 0.065541685 0.1482335 0.065201357
+		 0.14826986 0.064657889 0.14801416 0.064218596 0.14820179 0.063716717 0.14586481 0.094086923
+		 0.14847943 0.063231468 0.14934394 0.062435873 0.15107122 0.061838098 0.15356216 0.061397225
+		 0.14007291 0.091287181 0.13497239 0.089078531 0.13052997 0.086015835 0.12678045 0.081594646
+		 0.12570271 0.076591462 0.12761462 0.072177395 0.13065666 0.070115805 0.13428223 0.07118912
+		 0.13551241 0.071077198 0.13626894 0.070580497 0.13710597 0.069306687 0.13928506 0.067201465
+		 0.14155811 0.065573417 0.14288995 0.064556442 0.14356056 0.062815964 0.14380521 0.059401035
+		 0.14361101 0.05498432 0.1438801 0.054274786 0.14466226 0.057311624 0.14523712 0.059422206
+		 0.14548633 0.060315311 0.14560077 0.060938694 0.1459485 0.062179372 0.14697102 0.0639247
+		 0.14769772 0.065150037 0.14800629 0.065146193 0.14803335 0.064655714 0.14794293 0.063936099
+		 0.14780459 0.06431856 0.15115544 0.098864242 0.14957932 0.099412113 0.14445391 0.094814084
+		 0.14811429 0.063564509 0.14888564 0.062715843 0.15035036 0.061623909 0.13912281 0.091533899
+		 0.13441125 0.089371473 0.13054785 0.087016672 0.1264717 0.083424047 0.12310562 0.078433573
+		 0.12483484 0.071476184 0.12881294 0.067930378 0.13352278 0.068576187 0.13208646 0.067040496
+		 0.13475591 0.069171369 0.1350807 0.070673585 0.13651446 0.069274992 0.13869086 0.066911951
+		 0.14091778 0.064897612 0.14218932 0.063805871 0.14286432 0.062979102 0.14326975 0.060446672
+		 0.14312181 0.056256704 0.14286426 0.051245935 0.14329118 0.050542802 0.14416718 0.054160427
+		 0.14500943 0.057388283 0.14543369 0.059089601 0.14554223 0.059735827 0.14580968 0.060883004
+		 0.14683458 0.062850766 0.1476436 0.064405873 0.14777657 0.064983115 0.14784244 0.064684279
+		 0.14775309 0.064419605 0.14785686 0.06405367 0.15432766 0.10261766 0.1527476 0.10327891
+		 0.14806208 0.099818371 0.14323273 0.095089786 0.14793488 0.063711882 0.14831439 0.063177586
+		 0.14941517 0.062097266 0.13773704 0.092203602 0.13344809 0.090048999 0.13044009 0.087382466
+		 0.12664646 0.08457534 0.12331963 0.081682935 0.12113526 0.070874058 0.12540203 0.066805363
+		 0.12868306 0.064156212 0.13374069 0.063007295 0.13499463 0.064608179 0.13628659 0.065681294
+		 0.13582098 0.069266528 0.13811982 0.066639856 0.14029628 0.064142182 0.14165407 0.062959611
+		 0.14207754 0.062614694 0.14253905 0.061082348 0.14241156 0.057658147 0.1421324 0.052830651
+		 0.14205626 0.047513224 0.14268339 0.046739765 0.14372495 0.050680257 0.14465019 0.054873742
+		 0.14535752 0.057785701 0.14558443 0.058790684 0.1457946 0.059767231 0.14673707 0.061865423
+		 0.14762488 0.063645512 0.14777777 0.064496145 0.14775148 0.064709976 0.14782003 0.063971117
+		 0.15672311 0.10582444 0.15657082 0.1063368 0.15163782 0.10352732 0.14678159 0.10005776
+		 0.14164773 0.095762961 0.14785686 0.063507125 0.14800611 0.063373655 0.14853242 0.062739819
+		 0.14976701 0.061342649 0.15089163 0.06006825 0.13602671 0.093094945 0.13226876 0.090885878
+		 0.13006204 0.088106081 0.12710485 0.084980994 0.12425488 0.083706632 0.12132359 0.065077841
+		 0.12638745 0.062891766 0.13296664 0.062279172 0.13486764 0.058655038 0.13307315 0.056391805
+		 0.13685584 0.060754165 0.13736579 0.066245615 0.13958737 0.063353211 0.1409758 0.061779469
+		 0.14142051 0.061806705 0.14195868 0.061905295 0.14168528 0.05898279 0.14121014 0.05491234
+		 0.14106569 0.049354255 0.14094451 0.043299325 0.14173374 0.041821349 0.14327976 0.047119774
+		 0.14452544 0.052135248 0.14505431 0.056177191 0.145641 0.057764757 0.14590654 0.058980763
+		 0.14667597 0.061053157 0.14759311 0.062957205 0.15610829 0.10676689 0.15055189 0.10362764
+		 0.1451377 0.10054357 0.1396164 0.096552983 0.14786366 0.063070744 0.14808586 0.063020192
+		 0.14873233 0.062225375 0.14988354 0.060534306 0.15086988 0.05885265 0.13447151 0.093913428
+		 0.13120505 0.091629371 0.12956256 0.088942587 0.12741235 0.085757107 0.12496492 0.084071577
+		 0.12284854 0.084038556 0.1235539 0.081617936 0.1211499 0.05973912 0.12733856 0.059308305
+		 0.13152918 0.053937025 0.13062513 0.050270326 0.1330913 0.053361215 0.13608727 0.056428835
+		 0.1385175 0.062294576 0.14005983 0.060500037 0.14067575 0.060757175 0.14110029 0.060875531
+		 0.14067376 0.058988746 0.14022779 0.056986857 0.1399833 0.051944751 0.13974842 0.045621291
+		 0.13923502 0.037927769 0.14004496 0.033736188 0.14229873 0.041721966 0.14403114 0.048970949
+		 0.14451358 0.05450131 0.14542809 0.056182362 0.146054 0.058077738 0.14661619 0.060482748
+		 0.14753363 0.062331323 0.15553352 0.10778256 0.14895967 0.1037761 0.14308634 0.10098316
+		 0.1378431 0.097256944 0.14786395 0.06265597 0.14818648 0.062598251 0.14891401 0.061601304
+		 0.14971182 0.059771147 0.15043083 0.058105491 0.13354269 0.094357751 0.13058987 0.09202601
+		 0.12907502 0.089664429 0.12762746 0.086744681 0.12571523 0.084742203 0.12368485 0.08440958
+		 0.12110817 0.053793378 0.13099396 0.05528906 0.12922195 0.055292919 0.13008699 0.051385932;
+	setAttr ".uvtk[2000:2249]" 0.12899745 0.04768499 0.13176244 0.050174933 0.1288676
+		 0.046950154 0.13493821 0.054192498 0.13851935 0.058766246 0.13957712 0.059350241
+		 0.14034554 0.060060855 0.13956967 0.059480384 0.13904521 0.054875895 0.13851792 0.048714638
+		 0.1380139 0.04132257 0.13655096 0.032039247 0.1373032 0.026242319 0.14409104 0.054287381
+		 0.14592203 0.055852309 0.14630845 0.059827894 0.14746538 0.06178806 0.1625149 0.10855437
+		 0.16818222 0.11088067 0.15257373 0.10750081 0.14716819 0.10376398 0.14132896 0.10136034
+		 0.13682052 0.097616598 0.14782104 0.062182315 0.1483297 0.062050037 0.14895436 0.060789898
+		 0.13284382 0.094655074 0.13014689 0.092303619 0.12878737 0.090045542 0.12769204 0.087646618
+		 0.12638581 0.085746065 0.12475321 0.08494556 0.12290376 0.083361819 0.1227566 0.082617134
+		 0.12648061 0.052147135 0.12987384 0.051235586 0.13005427 0.052056432 0.12872529 0.049178094
+		 0.12778184 0.045797568 0.13757491 0.057358049 0.13915423 0.058854416 0.13903365 0.058364183
+		 0.13945606 0.056138776 0.13801569 0.057203628 0.13758025 0.052343614 0.13680384 0.045102481
+		 0.13547695 0.036337793 0.13325295 0.026290104 0.13437435 0.020014733 0.14424512 0.053684365
+		 0.14740482 0.061226808 0.16757062 0.10910068 0.17545393 0.10969803 0.16031942 0.10929089
+		 0.15028951 0.10781509 0.14564696 0.10363185 0.14036962 0.10153513 0.1360549 0.097853035
+		 0.14784577 0.061706707 0.14851114 0.061223097 0.14979556 0.058888674 0.14899257 0.059886921
+		 0.13203666 0.095073678 0.12961838 0.092708468 0.12857231 0.09032096 0.12768444 0.088166803
+		 0.12682036 0.086749792 0.12575594 0.085869014 0.12384897 0.084144741 0.12219313 0.081711203
+		 0.12158459 0.08229053 0.12068254 0.045476168 0.12532496 0.047689147 0.12866014 0.049298003
+		 0.12672979 0.044382162 0.13790709 0.057716489 0.13811675 0.057242744 0.13878736 0.054737575
+		 0.13812366 0.059130859 0.13698569 0.05503118 0.13583094 0.049535464 0.13441744 0.040758435
+		 0.13184497 0.030877225 0.12895507 0.020022709 0.13027266 0.013254058 0.14717153 0.060365677
+		 0.14606914 0.058911391 0.15666375 0.10844968 0.17014715 0.1121181 0.16473952 0.1109807
+		 0.14864621 0.10830382 0.14483109 0.10344943 0.13967708 0.10163299 0.13514599 0.098203555
+		 0.1480898 0.061068147 0.14848915 0.059908569 0.13139334 0.095517047 0.12916216 0.093137026
+		 0.1282787 0.090713516 0.12765989 0.088563859 0.1270223 0.087385803 0.12645289 0.086859733
+		 0.12497884 0.085278705 0.1225034 0.083007559 0.11742735 0.080563053 0.11833516 0.07991676
+		 0.12736404 0.046721675 0.13684946 0.056075681 0.13793895 0.054727215 0.13773164 0.056282476
+		 0.13669261 0.055995803 0.13519183 0.052543633 0.13346618 0.046068784 0.13067237 0.035494395
+		 0.12724981 0.024890432 0.12226772 0.013099916 0.12327388 0.0058084372 0.1630595 0.11089789
+		 0.15529403 0.10817115 0.16898116 0.11250017 0.17678097 0.11351063 0.17581335 0.1142099
+		 0.14767805 0.10859391 0.14417797 0.10380968 0.13880894 0.10179786 0.13439217 0.098586455
+		 0.14742467 0.059120618 0.1481826 0.059699293 0.1497657 0.058383033 0.14991143 0.058626361
+		 0.13110128 0.095844023 0.12890586 0.093450204 0.12798122 0.091115251 0.12757772 0.089095935
+		 0.12716314 0.087906882 0.12681061 0.087503806 0.12591141 0.086412773 0.1237461 0.084183112
+		 0.11877021 0.081085503 0.13643497 0.053500079 0.13724557 0.054785613 0.13652301 0.055418842
+		 0.13489041 0.053461172 0.13266683 0.049688112 0.12985334 0.041429952 0.12583455 0.029320555
+		 0.12120086 0.017567236 0.16116729 0.11089135 0.15458891 0.10796134 0.17318854 0.11432946
+		 0.16671148 0.11249027 0.14614323 0.10696074 0.14328578 0.10418521 0.13803914 0.10199893
+		 0.13399205 0.098875299 0.14828727 0.057429731 0.13034001 0.09626431 0.12838164 0.093950436
+		 0.127767 0.091402337 0.12743875 0.089610159 0.12727648 0.088591352 0.12707207 0.088006541
+		 0.12643662 0.087134525 0.12499031 0.085456997 0.12083358 0.08183302 0.13611344 0.051739719
+		 0.13602132 0.054634459 0.13444284 0.053216882 0.13201034 0.050330676 0.12912449 0.0458676
+		 0.12480715 0.035446279 0.12041637 0.021760836 0.16006359 0.11089445 0.1767191 0.11502699
+		 0.17410722 0.11562855 0.1706126 0.11426524 0.16538504 0.11245581 0.14253882 0.10454127
+		 0.13757077 0.1021613 0.13324019 0.099283352 0.12911698 0.097182758 0.12709144 0.094861269
+		 0.12740865 0.091904685 0.12730783 0.089955747 0.12729186 0.089237645 0.12730187 0.088644609
+		 0.12682137 0.087660834 0.1257405 0.086307377 0.12300876 0.083380207 0.13395029 0.052832369
+		 0.13145909 0.049910102 0.12849382 0.047253124 0.12419736 0.040525526 0.11901391 0.028215025
+		 0.15915051 0.11092446 0.15422443 0.10773835 0.17489806 0.11602386 0.17263928 0.11660687
+		 0.17182651 0.11592595 0.16912416 0.11419108 0.16430989 0.11242627 0.14210519 0.10477856
+		 0.13686612 0.10245333 0.13202783 0.10011336 0.12806705 0.098593213 0.12607449 0.096491724
+		 0.12622985 0.09286955 0.12705547 0.090513051 0.12724802 0.089644998 0.12738541 0.089260697
+		 0.12715352 0.088294774 0.12630141 0.08691752 0.12417677 0.084482402 0.11855254 0.078194305
+		 0.11659563 0.074765652 0.13092625 0.049565963 0.12366048 0.042416781 0.1179252 0.033143882
+		 0.11256659 0.019230494 0.11387679 0.011760753 0.15787265 0.11101312 0.15370902 0.107318
+		 0.17088869 0.11757585 0.16922179 0.11754405 0.17076048 0.11698764 0.17043146 0.11592866
+		 0.16793689 0.11408655 0.1628392 0.11240809 0.1413981 0.105126 0.13566288 0.10309383
+		 0.13101706 0.10137911 0.12755617 0.10057712 0.1252012 0.09858726 0.12521353 0.094475418
+		 0.12635878 0.091623053 0.12710124 0.090190426 0.12735483 0.089664012 0.12729087 0.088915959
+		 0.12681392 0.087601095 0.12504715 0.085277379 0.12019798 0.080119878 0.11765969 0.035637401
+		 0.11147246 0.024493024 0.15654829 0.11112309 0.15314737 0.10673915 0.17736992 0.11601572
+		 0.17272183 0.11743186 0.16809306 0.11733357 0.16664508 0.11720901 0.1678516 0.11745647;
+	setAttr ".uvtk[2250:2499]" 0.16963258 0.1170717 0.16931614 0.11583937 0.16632006
+		 0.11397298 0.16142562 0.11240952 0.14008346 0.10558147 0.13466337 0.10416289 0.13065132
+		 0.10315093 0.12740877 0.10246418 0.12462494 0.10051773 0.12391594 0.096507087 0.12514827
+		 0.093267038 0.12656248 0.091243476 0.12717772 0.090181932 0.12727109 0.089341626
+		 0.12709349 0.0882577 0.12601325 0.086232692 0.12159356 0.081377998 0.16970453 0.11703282
+		 0.16629776 0.11680802 0.16496506 0.11663177 0.16549233 0.11702005 0.16707155 0.11737428
+		 0.16874561 0.11706343 0.16781798 0.1157232 0.1647667 0.1139087 0.15590408 0.1111339
+		 0.1604602 0.11241776 0.1388078 0.10606949 0.13426521 0.10566401 0.13072792 0.10488693
+		 0.12736914 0.10367294 0.12433821 0.10176863 0.12282658 0.098344997 0.12360182 0.095255971
+		 0.12543458 0.092719406 0.12656933 0.09115915 0.12707236 0.089884192 0.12715584 0.088701949
+		 0.12665114 0.087142795 0.12425074 0.083194777 0.16791055 0.11660019 0.16497639 0.11611418
+		 0.16388252 0.11592913 0.16396549 0.11644644 0.16484353 0.11691136 0.16644159 0.11726024
+		 0.16754338 0.11701856 0.16638759 0.1156446 0.16370651 0.11389063 0.15918055 0.11265434
+		 0.15484598 0.11119491 0.13841918 0.10766231 0.13442066 0.10727342 0.13085386 0.10601227
+		 0.12723902 0.10518264 0.1240418 0.1034472 0.12224698 0.099500313 0.12212914 0.097021863
+		 0.12370533 0.094564587 0.12534773 0.092519403 0.12637532 0.090882137 0.12702286 0.089257464
+		 0.12688342 0.087720394 0.12582532 0.085032582 0.1233409 0.080681205 0.12056139 0.077942654
+		 0.16651669 0.1160083 0.16418913 0.11532947 0.16325215 0.11527322 0.16305944 0.11578906
+		 0.16340932 0.11639256 0.16431412 0.11681569 0.16558549 0.11709536 0.16639999 0.11694818
+		 0.16543362 0.11561886 0.16234753 0.11414839 0.15305212 0.11180639 0.1570017 0.11323182
+		 0.14334103 0.10875604 0.1426805 0.10972452 0.13835427 0.10911249 0.13467845 0.10828768
+		 0.13085857 0.10737567 0.12725595 0.1078288 0.12383103 0.10629474 0.12169069 0.10118805
+		 0.1212765 0.098121673 0.12198645 0.096253499 0.12352768 0.094180375 0.12501562 0.092234775
+		 0.12627834 0.090303108 0.12684634 0.088327825 0.12642446 0.086095586 0.12525794 0.083059967
+		 0.12247145 0.078321442 0.12400007 0.080043718 0.16532579 0.11508612 0.16362163 0.11412346
+		 0.1626775 0.11453399 0.16251925 0.1153015 0.1625863 0.1158401 0.1629515 0.11639462
+		 0.16359612 0.11671848 0.16479585 0.11695013 0.16564378 0.11687256 0.1640645 0.11568502
+		 0.16017261 0.11478918 0.15063617 0.1101601 0.1490874 0.11020938 0.15534374 0.11416504
+		 0.15134159 0.11265773 0.14752802 0.11069211 0.14651784 0.11180256 0.14247969 0.11095775
+		 0.13885948 0.11013919 0.13475373 0.10951481 0.13106397 0.10978609 0.12843552 0.11112937
+		 0.12503687 0.10982578 0.12103927 0.10428765 0.12029919 0.099868909 0.12091789 0.097313628
+		 0.12175032 0.095732793 0.1230503 0.093809977 0.12475222 0.091718107 0.1261704 0.089363128
+		 0.12653053 0.086892933 0.12596893 0.084326237 0.12506795 0.081671521 0.12393939 0.078449488
+		 0.12352806 0.077714667 0.16481772 0.11344439 0.16272375 0.11352265 0.16221049 0.11394854
+		 0.16206583 0.11488332 0.16210565 0.1155019 0.16218403 0.11599214 0.16231498 0.11641171
+		 0.16292098 0.11668799 0.16429076 0.11685411 0.16442445 0.11660557 0.16213265 0.11620951
+		 0.1583527 0.11564017 0.15032265 0.11362177 0.15422609 0.11521049 0.14633843 0.11284172
+		 0.14303622 0.11173286 0.13892564 0.11125488 0.13512626 0.11171815 0.13228604 0.1129235
+		 0.13147035 0.11505383 0.12852958 0.11425351 0.12212968 0.10831432 0.11892039 0.10325538
+		 0.11935949 0.099093586 0.12051818 0.096813396 0.12116542 0.095233157 0.1225974 0.093274623
+		 0.12457284 0.090818211 0.12587151 0.0880512 0.12610722 0.085138619 0.12555504 0.082597584
+		 0.12452555 0.079137787 0.16356727 0.11314386 0.1628758 0.11224594 0.16261354 0.11308924
+		 0.16190061 0.11445432 0.16174713 0.11522682 0.16173998 0.1157947 0.16161188 0.1161744
+		 0.16170046 0.11647614 0.16245821 0.11669975 0.16359976 0.11681405 0.16019043 0.11663095
+		 0.15742871 0.11642751 0.15379503 0.11604035 0.14995602 0.11457451 0.14655712 0.11364451
+		 0.14311555 0.11276084 0.13946322 0.11331629 0.13640496 0.11469708 0.13500884 0.11661866
+		 0.1346297 0.11912789 0.13187474 0.11888041 0.12573549 0.11340319 0.11970139 0.10757568
+		 0.11701044 0.10269624 0.11849651 0.098506868 0.12003613 0.096189618 0.12052518 0.094716653
+		 0.12226897 0.092264086 0.12450188 0.089283764 0.12556493 0.086291358 0.1255337 0.083231404
+		 0.12473115 0.079608619 0.12289983 0.075606376 0.12290627 0.075192794 0.166971 0.1132392
+		 0.16503289 0.11259855 0.16344783 0.11143485 0.16386965 0.11063238 0.16389033 0.11204419
+		 0.16253403 0.11395284 0.16174325 0.11490076 0.16145697 0.11561489 0.16122821 0.11611551
+		 0.16105661 0.11637242 0.16127208 0.11654995 0.16169253 0.1168293 0.15933952 0.11720232
+		 0.15689012 0.11711732 0.1500226 0.11524442 0.1537672 0.11661541 0.14666179 0.11458178
+		 0.14367345 0.11456795 0.14072362 0.11612093 0.13887879 0.11827688 0.13797581 0.12024497
+		 0.13656935 0.12285023 0.13378289 0.12320863 0.12939087 0.11915933 0.12300274 0.11277343
+		 0.11723939 0.10707666 0.11532605 0.10200943 0.11766431 0.097791046 0.11925212 0.095685393
+		 0.12007508 0.093583286 0.12218812 0.090448752 0.1241565 0.087665737 0.12495923 0.084170043
+		 0.12456486 0.080114096 0.12295654 0.07585904 0.16455016 0.1104498 0.16419995 0.10924271
+		 0.16554913 0.10916727 0.1659058 0.11109666 0.16403618 0.11337531 0.16253886 0.11460947
+		 0.16160259 0.11537725 0.16104981 0.11606616 0.16075483 0.11641651 0.16068348 0.11657262
+		 0.16058353 0.11682462 0.15883967 0.11771297 0.15678844 0.11758971 0.1537663 0.11738369
+		 0.15005586 0.11609374 0.14701423 0.11628583 0.14482063 0.11712538 0.1427314 0.11954104;
+	setAttr ".uvtk[2500:2749]" 0.14166823 0.12169205 0.14005038 0.12341445 0.13770112
+		 0.12659968 0.13462102 0.12716083 0.13121954 0.12412523 0.1264419 0.11883893 0.12002766
+		 0.1120135 0.11462837 0.10615599 0.1139918 0.10102122 0.11676198 0.096975833 0.11853835
+		 0.094502747 0.11995661 0.091483548 0.12181172 0.088722914 0.12335688 0.085085541
+		 0.12408984 0.08095561 0.12280113 0.076263607 0.16517928 0.10792942 0.16558808 0.10726779
+		 0.16720137 0.10831021 0.16794595 0.11061441 0.16626182 0.11285216 0.16417989 0.1143363
+		 0.16255686 0.11526942 0.16141292 0.11602702 0.1606997 0.11650001 0.16045561 0.1166908
+		 0.16008422 0.11701958 0.15868035 0.11810149 0.15679124 0.11824483 0.15018013 0.11768883
+		 0.15384915 0.11887285 0.1479657 0.11868392 0.14635798 0.1203297 0.14515439 0.12290464
+		 0.14377192 0.12439717 0.14134666 0.12660612 0.13839161 0.13000536 0.13506979 0.13064224
+		 0.13192546 0.12859967 0.1285274 0.12550414 0.12288091 0.11821754 0.116633 0.1107198
+		 0.11207369 0.10505562 0.11275801 0.099824697 0.11597431 0.095620528 0.11825967 0.092167109
+		 0.11936009 0.089479506 0.12073493 0.08551833 0.12259516 0.08159849 0.12314323 0.078253582
+		 0.1665045 0.10570327 0.16686234 0.10608664 0.16895869 0.10769354 0.17005703 0.11035632
+		 0.1685293 0.11267363 0.16650864 0.11410984 0.16430375 0.11527654 0.16258231 0.11620038
+		 0.16125962 0.1167038 0.16049066 0.11686435 0.15989044 0.11720696 0.15873715 0.1186378
+		 0.15700933 0.11949702 0.15463677 0.12099734 0.15097049 0.1199389 0.14933696 0.12170609
+		 0.1483458 0.12362837 0.14719346 0.12537698 0.14515361 0.12706883 0.14213046 0.12972185
+		 0.13902515 0.13328165 0.13536251 0.13392197 0.13203877 0.13222045 0.12918472 0.13111739
+		 0.12539318 0.12559895 0.11872232 0.11666639 0.11282578 0.10940635 0.10994041 0.10355797
+		 0.1115886 0.097999245 0.11573741 0.093007267 0.11738065 0.089891866 0.11773679 0.085522875
+		 0.11925966 0.080967143 0.1219418 0.078555167 0.121402 0.07539323 0.11969551 0.07354109
+		 0.16765943 0.10440005 0.16824624 0.10514724 0.1714268 0.1068359 0.17275783 0.10997342
+		 0.17080757 0.11268927 0.16885719 0.11412381 0.16667494 0.1153217 0.16439357 0.11656307
+		 0.16261527 0.11717862 0.16116294 0.11723541 0.15996006 0.11749342 0.15933374 0.11951201
+		 0.15809909 0.12100738 0.15233669 0.12276821 0.15606716 0.12365945 0.1512247 0.12484407
+		 0.15038887 0.12622802 0.14849338 0.12770902 0.14602879 0.12986116 0.14294061 0.13287327
+		 0.13981661 0.13662831 0.13572159 0.13737755 0.13187084 0.13551541 0.12894145 0.1351565
+		 0.12619224 0.13405563 0.12080872 0.1233841 0.11416993 0.11548467 0.10881835 0.10895524
+		 0.10784987 0.10076751 0.11079088 0.094939113 0.11458424 0.090461075 0.11533749 0.085417092
+		 0.11556345 0.080038086 0.1177586 0.07701239 0.12137556 0.074898466 0.1687865 0.10331023
+		 0.17020854 0.10380337 0.17430142 0.10577555 0.17555556 0.10951565 0.17345896 0.11266853
+		 0.17114422 0.11425819 0.16902891 0.11548748 0.16667828 0.11690231 0.16438207 0.11789645
+		 0.16262546 0.11793841 0.16067746 0.11807322 0.16074386 0.12053409 0.15945163 0.1229967
+		 0.15838626 0.12636919 0.15438327 0.12571746 0.15340009 0.12710801 0.15152213 0.12832768
+		 0.14937624 0.13030331 0.1465849 0.13254282 0.14410838 0.13576669 0.14138126 0.14012437
+		 0.13696727 0.14092614 0.13159156 0.13905142 0.12812224 0.13868015 0.12584025 0.138657
+		 0.12144396 0.13000984 0.11528891 0.12129544 0.10991952 0.1172113 0.10536012 0.1031635
+		 0.10571215 0.096837401 0.10890046 0.091670737 0.11197919 0.08540155 0.11272633 0.079447061
+		 0.11331195 0.075785071 0.11622792 0.073979095 0.17032775 0.10175104 0.17252615 0.10218918
+		 0.17694327 0.10456337 0.17778757 0.1090778 0.17595741 0.11269878 0.1736137 0.11433287
+		 0.17123404 0.11567365 0.16889748 0.11719089 0.16643718 0.11850886 0.16429493 0.11895602
+		 0.16219804 0.11897064 0.16207305 0.12185724 0.16187277 0.12533724 0.15677825 0.1279574
+		 0.16117623 0.12874958 0.15436563 0.12897661 0.15229216 0.13066377 0.14978054 0.1327107
+		 0.14810976 0.1351499 0.14489576 0.13849935 0.14180139 0.14274287 0.13784784 0.14383592
+		 0.13167328 0.14339156 0.1263608 0.14254594 0.12418222 0.14185771 0.1228351 0.13990724
+		 0.12201181 0.14282811 0.11953273 0.13634527 0.11538202 0.12743668 0.10997391 0.1236072
+		 0.10229993 0.097787112 0.10231385 0.092061266 0.10484251 0.085335821 0.1087704 0.078844622
+		 0.10990903 0.074998885 0.11044806 0.072262079 0.12093663 0.071394607 0.11447623 0.07039459
+		 0.1721426 0.099902943 0.17473814 0.1004041 0.18025604 0.10206385 0.17966601 0.10857747
+		 0.17775407 0.11290209 0.17573562 0.11443894 0.17344132 0.11575453 0.17089847 0.11738106
+		 0.16842178 0.11891933 0.16612384 0.11980068 0.16377863 0.1202306 0.1641064 0.12329241
+		 0.1648623 0.12767741 0.16240737 0.13075325 0.15771481 0.12981597 0.15486971 0.13109806
+		 0.15264967 0.13280541 0.1511527 0.13478026 0.14825848 0.13735855 0.14492393 0.14125121
+		 0.14248469 0.14553501 0.13887843 0.14666815 0.13384566 0.14606731 0.12443516 0.14824367
+		 0.12096274 0.14594546 0.11981592 0.1463533 0.11802 0.14791831 0.11838931 0.1453647
+		 0.1156992 0.14214391 0.11368975 0.13438401 0.10942307 0.12975639 0.09753868 0.091223106
+		 0.096261114 0.084137172 0.10035768 0.077420875 0.10569116 0.074212417 0.10645229
+		 0.071329072 0.10721996 0.067628533 0.11177391 0.064591736 0.11811036 0.066592366
+		 0.17362097 0.09782052 0.17781612 0.096915826 0.18259612 0.10224436 0.18129221 0.10779421
+		 0.17948893 0.1141151 0.1770843 0.11470993 0.17519733 0.11583219 0.17277941 0.11743845
+		 0.17026278 0.11912205 0.16794083 0.12036411 0.16548672 0.12122523 0.16647843 0.12473553
+		 0.1688076 0.13098601 0.15770945 0.13188031 0.16160855 0.1331479 0.155054 0.13304588
+		 0.15340152 0.13482434;
+	setAttr ".uvtk[2750:2999]" 0.15103534 0.13682351 0.14784607 0.13975391 0.14504418
+		 0.14432888 0.14429486 0.1493654 0.14140695 0.15036611 0.13549408 0.14859597 0.12683898
+		 0.15126845 0.12973657 0.15075091 0.1198141 0.15550184 0.11297569 0.1522246 0.11044723
+		 0.14753887 0.11205837 0.13927412 0.10854709 0.13635617 0.091020405 0.082313091 0.090632915
+		 0.075295925 0.097366124 0.072593838 0.10229984 0.070776969 0.10238117 0.066536322
+		 0.10223672 0.060401805 0.17647681 0.094179809 0.18369493 0.095514402 0.18223783 0.092235848
+		 0.18497178 0.096225038 0.18121836 0.11069535 0.17800298 0.1151195 0.1762369 0.11604254
+		 0.17429551 0.1175025 0.17207161 0.11915021 0.16979232 0.12067028 0.16733083 0.12202622
+		 0.1694639 0.12598844 0.16572961 0.13425891 0.16123882 0.13519639 0.15760514 0.13376105
+		 0.1553044 0.13476676 0.15329883 0.13671732 0.15054956 0.13915597 0.14782569 0.14282537
+		 0.14638519 0.14820579 0.14581665 0.15339012 0.14341751 0.15427543 0.1383816 0.15225047
+		 0.13333008 0.15234929 0.10801962 0.15903285 0.10489437 0.15326306 0.10684383 0.14180937
+		 0.085741729 0.073678493 0.088000417 0.07045041 0.094721466 0.069744691 0.098446757
+		 0.066808492 0.096440703 0.05935555 0.092973322 0.048439384 0.1024228 0.052313484
+		 0.18127277 0.089853987 0.1860067 0.089796707 0.18398669 0.093259588 0.1769841 0.11640818
+		 0.17528674 0.11773936 0.17368928 0.11916725 0.17178318 0.12079912 0.16942194 0.12258302
+		 0.17615804 0.13039082 0.17339739 0.12674914 0.16575548 0.1375916 0.15730098 0.13521305
+		 0.16020879 0.13643655 0.15524212 0.13663357 0.15288761 0.13894869 0.15036413 0.14145406
+		 0.1484662 0.14704168 0.14769629 0.15257131 0.14739218 0.15789793 0.14517477 0.15853895
+		 0.14079398 0.15591601 0.13636535 0.15511316 0.13151652 0.15482333 0.12703258 0.15452957
+		 0.10557342 0.16293365 0.10137993 0.1580613 0.10079259 0.14819789 0.08328712 0.068911515
+		 0.086345792 0.067967974 0.091659248 0.066690125 0.092440814 0.060203873 0.087386817
+		 0.047731712 0.080923557 0.032025471 0.086325645 0.032682732 0.184513 0.088877246
+		 0.17607847 0.11820154 0.17485407 0.11942841 0.17373219 0.12089451 0.17195246 0.12297001
+		 0.16218707 0.13875864 0.15929905 0.13818663 0.15711036 0.13689113 0.15463969 0.13888533
+		 0.15245023 0.1411009 0.15045395 0.14443691 0.15178958 0.1429873 0.15038446 0.14676608
+		 0.14962873 0.15179045 0.14882529 0.15763441 0.14787 0.16237871 0.14590743 0.16234319
+		 0.14293984 0.15951681 0.13863772 0.15789205 0.13410503 0.1570648 0.1301578 0.15725005
+		 0.08174938 0.066182114 0.084144771 0.065555342 0.085546613 0.060158111 0.082327276
+		 0.047665998 0.076117575 0.031481251 0.068097726 0.012860741 0.07181567 0.012370896
+		 0.1758121 0.11996482 0.17516336 0.12119488 0.17449591 0.1231158 0.17761293 0.126765
+		 0.16429201 0.1422748 0.16206512 0.14215951 0.16058055 0.13961537 0.15618411 0.13911694
+		 0.15800777 0.14026287 0.15396968 0.14112718 0.15346637 0.14275096 0.15246835 0.14436111
+		 0.15121761 0.14481193 0.15125367 0.14622647 0.15059939 0.14867713 0.15006599 0.15657692
+		 0.14922702 0.1627876 0.14695552 0.16621478 0.14537635 0.16553195 0.14388227 0.16259013
+		 0.14114711 0.16053149 0.13665545 0.15926728 0.13414866 0.15968403 0.080273837 0.063520662
+		 0.077479154 0.057817928 0.073803127 0.045528568 0.070102736 0.030039147 0.063604519
+		 0.011577666 0.059637815 0.0012134127 0.059186876 -0.0034643449 0.17630211 0.12164744
+		 0.17619947 0.12304046 0.17849848 0.12531286 0.17006823 0.14141117 0.16710773 0.14289798
+		 0.16397622 0.14506228 0.16160491 0.14473961 0.15998009 0.14173369 0.15693232 0.14241558
+		 0.15529034 0.14141712 0.15464672 0.14300485 0.15392676 0.1444809 0.14962921 0.14574918
+		 0.15098265 0.14597493 0.14872941 0.14595179 0.15068784 0.14803357 0.15173903 0.15326522
+		 0.15152803 0.15020597 0.15099835 0.15514468 0.15133771 0.16304471 0.1478647 0.16712169
+		 0.14567199 0.16885427 0.1443533 0.16797079 0.14365548 0.16514616 0.14242563 0.16274369
+		 0.13949353 0.16116306 0.13776913 0.16134527 0.065816 0.042289712 0.060966894 0.02671285
+		 0.057827726 0.0093463697 0.053204089 -0.0044416115 0.049215883 -0.015543126 0.17677554
+		 0.12281077 0.16559419 0.14510502 0.16336438 0.1471553 0.16119269 0.14685157 0.1590322
+		 0.1438906 0.15569577 0.14347729 0.15706632 0.14447081 0.15498266 0.14478493 0.15260336
+		 0.14608757 0.14931551 0.14706051 0.14876977 0.14647073 0.14762089 0.14656402 0.15174267
+		 0.15085962 0.15034202 0.15691981 0.15132612 0.155864 0.15192503 0.15805505 0.14925414
+		 0.16837211 0.14621234 0.16973312 0.14486113 0.1705613 0.14371014 0.16966763 0.14289737
+		 0.16731547 0.1425128 0.16479243 0.14106476 0.16266757 0.13991404 0.16249749 0.052847087
+		 0.02241515 0.049296409 0.0062303245 0.0443452 -0.011554804 0.16455695 0.14695521
+		 0.16263649 0.14919652 0.1606178 0.14891435 0.15892377 0.14601135 0.15696761 0.1465296
+		 0.15588829 0.14538923 0.15381804 0.14631407 0.15076712 0.1475165 0.14779481 0.14755434
+		 0.15184209 0.15654299 0.147264 0.17102727 0.14529854 0.17129667 0.14423317 0.17175178
+		 0.14335138 0.17085703 0.14246336 0.16898535 0.14197314 0.16678344 0.14140996 0.16436408
+		 0.14068398 0.16413449 0.16374967 0.14895506 0.16169623 0.15143706 0.15966538 0.15089373
+		 0.15851882 0.14817654 0.15481529 0.14698818 0.1560162 0.14821468 0.15239963 0.14785476
+		 0.14836255 0.14812085 0.14472255 0.17228888 0.1436092 0.17257725 0.14300013 0.17165954
+		 0.14217335 0.17053571 0.14163175 0.16840313 0.14036468 0.16624673 0.16291043 0.15135308
+		 0.16024026 0.15359907 0.15826049 0.15278839 0.15757146 0.14998354 0.15488264 0.14993669
+		 0.15364787 0.14870772 0.14893064 0.15006922 0.15029421 0.15029149 0.14757445 0.14987352
+		 0.14733103 0.14876834 0.1471962 0.14828539 0.14410633 0.17310868 0.14279738 0.17310624
+		 0.14250308 0.1722406;
+	setAttr ".uvtk[3000:3249]" 0.14217293 0.17135592 0.14131531 0.1697427 0.14029971
+		 0.16775833 0.16146323 0.15362032 0.15861747 0.15523185 0.15725294 0.15438725 0.15632686
+		 0.15184405 0.15193471 0.15139174 0.15349206 0.15245995 0.14936355 0.15318197 0.14854845
+		 0.15159599 0.14760777 0.1520877 0.14695856 0.15011978 0.1433031 0.17373137 0.14181748
+		 0.17367099 0.14169991 0.1728131 0.1421378 0.17182316 0.14059564 0.17127877 0.14122683
+		 0.17178677 0.14019349 0.17054357 0.14025924 0.16908225 0.15970919 0.15527244 0.15576264
+		 0.15673925 0.15478954 0.15628581 0.15560314 0.15339059 0.1513705 0.15450698 0.15059337
+		 0.15330216 0.14968529 0.15450713 0.14644727 0.1532702 0.14215851 0.17445807 0.14026546
+		 0.17381066 0.14046204 0.17304045 0.14169618 0.17213105 0.13895831 0.17200647 0.13679534
+		 0.17110991 0.13886675 0.17042021 0.13944981 0.1698591 0.15727085 0.1564232 0.15415755
+		 0.15599728 0.15347108 0.15645556 0.15299806 0.1549765 0.15022871 0.15599211 0.14047229
+		 0.17468403 0.13856089 0.17362992 0.13870364 0.17306207 0.14029744 0.17250782 0.13526422
+		 0.17207992 0.13721713 0.17248309 0.13922176 0.1702792 0.15528312 0.15628028 0.15564379
+		 0.15582043 0.15436271 0.15568376 0.15404442 0.15330303 0.15351906 0.15549818 0.1519855
+		 0.15723149 0.1474894 0.15919682 0.15006199 0.15851194 0.13880435 0.17444752 0.13719934
+		 0.17356986 0.13724992 0.17318833 0.13855529 0.17266677 0.13648725 0.17321837 0.13513577
+		 0.17357475 0.1577206 0.15329236 0.1576992 0.1543851 0.15443543 0.15425855 0.1569486
+		 0.1508355 0.15485463 0.15506849 0.15277216 0.15785266 0.15187702 0.16033851 0.15097418
+		 0.16189758 0.13746184 0.17423803 0.13630146 0.17391378 0.13630846 0.17367375 0.13737899
+		 0.17291659 0.13571447 0.17441291 0.15570125 0.15130121 0.15550962 0.1538216 0.15830758
+		 0.1489412 0.16224918 0.15040515 0.15749595 0.15697777 0.15415248 0.15823239 0.15324792
+		 0.16367693 0.15370741 0.16116984 0.15087253 0.16363242 0.14791015 0.1620712 0.13643086
+		 0.17434549 0.13599053 0.1743775 0.16275385 0.14778294 0.16838309 0.15019889 0.16786638
+		 0.15851153 0.15508506 0.15922865 0.15308401 0.16464221 0.15552869 0.16192739 0.15556499
+		 0.1653575 0.13599673 0.1746648 0.13570726 0.17513454 0.1680766 0.1473776 0.17395064
+		 0.15012865 0.17436907 0.15873034 0.16729423 0.16682431 0.15860423 0.16261828 0.15508309
+		 0.16622843 0.15991858 0.16684359 0.17390391 0.14712371 0.18135706 0.14913116 0.18270507
+		 0.15890251 0.17461762 0.16927226 0.16238639 0.16760176 0.15853843 0.16785006 0.18140087
+		 0.14573015 0.19039497 0.14768384 0.19243553 0.15883802 0.18435571 0.16958195 0.17416546
+		 0.17182909 0.16855606 0.17037348 0.16352591 0.16905846 0.19053283 0.14389847 0.20034882
+		 0.14647953 0.20216134 0.15937851 0.19481388 0.17104881 0.18299565 0.1735162 0.20030537
+		 0.14218615 0.21134439 0.1459984 0.21265283 0.16009741 0.2041181 0.17322218 0.19303676
+		 0.17570311 0.21101955 0.14124732 0.22362119 0.14673106 0.22482282 0.16040765 0.21415186
+		 0.17488842 0.20256141 0.17865609 0.22349334 0.14199792 0.23624349 0.14785813 0.23721337
+		 0.16072915 0.22630936 0.17457253 0.21294034 0.18075292 0.23658764 0.14339958 0.24827403
+		 0.14821254 0.24864107 0.16143005 0.23855877 0.17406885 0.22522044 0.18024801 0.24882996
+		 0.14368044 0.25944117 0.14847378 0.25945821 0.16233067 0.24935034 0.17517565 0.23739868
+		 0.1795684 0.2600666 0.14369439 0.26950231 0.14979367 0.26976347 0.163505 0.2599276
+		 0.17676269 0.24814174 0.18077664 0.27047214 0.14496772 0.27904764 0.15206657 0.27960381
+		 0.1650037 0.27054334 0.17776714 0.25858 0.18249993 0.2806944 0.14742659 0.28867742
+		 0.15510415 0.28910854 0.1668378 0.28071496 0.17839532 0.26927704 0.18367533 0.29114547
+		 0.15074287 0.2981818 0.15734284 0.2976158 0.16856126 0.28989699 0.17900471 0.27953812
+		 0.18440364 0.30076513 0.15368263 0.30311719 0.16118853 0.30517343 0.16996442 0.298574
+		 0.17931281 0.28845289 0.18482411 0.30240175 0.1576287 0.30278322 0.15934728 0.30918446
+		 0.16311227 0.3116087 0.17091928 0.30729392 0.17891376 0.29700086 0.18480152 0.30465451
+		 0.15899824 0.3054128 0.15977697 0.31758341 0.16801237 0.3166844 0.17138569 0.31479999
+		 0.17803101 0.30678341 0.18383388 0.32143208 0.17219131 0.32058784 0.17542146 0.12316938
+		 -0.7405808 0.12218663 -0.74127674 0.12083255 -0.74289083 0.12133318 -0.74250984 0.12620901
+		 -0.7371068 0.12688617 -0.73680544 0.12093842 -0.74211597 0.12434059 -0.7384432 0.13094819
+		 -0.73259759 0.13031361 -0.73275661 0.12869173 -0.73392743 0.13350603 -0.72902584
+		 0.13428406 -0.72936165 0.13238609 -0.72976822 0.12583786 -0.73560977 0.12094837 -0.74016362
+		 0.13759619 -0.72768384 0.13612923 -0.72570086 0.13473226 -0.72679138 0.13017732 -0.73102641
+		 0.13738444 -0.72398925 0.13493016 -0.72569299 0.13230044 -0.72853029 0.13757712 -0.72478318
+		 0.13836563 -0.72297084 0.13719793 -0.72357154 0.13506633 -0.7248441 0.13123918 -0.72835374
+		 0.12657672 -0.73229301 0.13852997 -0.72462475 0.13907158 -0.7225166 0.1390042 -0.72206175
+		 0.13761993 -0.72265828 0.12914988 -0.72809243 0.13926242 -0.72430021 0.13979827 -0.72198844
+		 0.13955736 -0.72162533 0.1399782 -0.72100651 0.13603973 -0.72296941 0.14011396 -0.72358841
+		 0.14083415 -0.72104287 0.14117891 -0.71959043 0.13069469 -0.72381961 0.1360831 -0.72122234
+		 0.14167178 -0.72235131 0.14267822 -0.71932667 0.14138621 -0.7181679 0.14377098 -0.72087288
+		 0.14497873 -0.71727026 0.14392816 -0.71684647 0.14462036 -0.71524084 0.14642042 -0.7145763
+		 0.14726914 -0.71278417 0.14425941 -0.71450496 0.14102201 -0.7171011 0.14933275 -0.71243572
+		 0.1476268 -0.71545511 0.15023895 -0.71064883 0.14771089 -0.71144176 0.15098129 -0.70913768
+		 0.14795637 -0.71006978 0.14214641 -0.71438193 0.15226893 -0.70701545 -0.22717658
+		 -0.49032044;
+	setAttr ".uvtk[3250:3499]" -0.22787884 -0.490601 -0.22809514 -0.49263337 -0.22759649
+		 -0.49261224 -0.22732556 -0.4891119 -0.22646752 -0.48876423 -0.22873726 -0.49108225
+		 -0.22880238 -0.49293765 -0.22714952 -0.49269786 -0.22658426 -0.49015021 -0.22831178
+		 -0.4895947 -0.22571999 -0.48853207 -0.22590491 -0.48753881 -0.22690919 -0.48789376
+		 -0.22966141 -0.49170497 -0.22971317 -0.49335515 -0.22762108 -0.49551189 -0.22675303
+		 -0.4956657 -0.22604042 -0.49005908 -0.22666836 -0.49288708 -0.22800556 -0.48833764
+		 -0.22934416 -0.49015892 -0.22506946 -0.48840374 -0.22502059 -0.4873029 -0.22664422
+		 -0.48698765 -0.22553155 -0.48661458 -0.23064631 -0.49235249 -0.23073241 -0.49383759
+		 -0.22856277 -0.49545962 -0.22599483 -0.49285242 -0.22522533 -0.48952514 -0.22783655
+		 -0.48742288 -0.22912657 -0.48880231 -0.23035944 -0.49072623 -0.22418216 -0.48796991
+		 -0.22430125 -0.48720634 -0.22456318 -0.48636472 -0.22531748 -0.48571238 -0.22648832
+		 -0.48606983 -0.23169628 -0.49302202 -0.2318086 -0.49439928 -0.22961348 -0.49556726
+		 -0.22335312 -0.48813987 -0.22492072 -0.49238288 -0.2277419 -0.48650181 -0.22903991
+		 -0.48783731 -0.23020869 -0.48922059 -0.23138744 -0.49127775 -0.22263548 -0.48675406
+		 -0.22389603 -0.48721296 -0.2238206 -0.4862811 -0.22429302 -0.48547864 -0.22653979
+		 -0.48481241 -0.2253561 -0.48451775 -0.23278525 -0.49372685 -0.23290592 -0.49507996
+		 -0.23079112 -0.49582118 -0.22393486 -0.49207211 -0.21997783 -0.48572794 -0.2278122
+		 -0.48525774 -0.2290014 -0.48690009 -0.23019105 -0.4881615 -0.23124748 -0.48959929
+		 -0.23242763 -0.49182004 -0.22083214 -0.48509353 -0.22323066 -0.48639935 -0.22349542
+		 -0.48538423 -0.22427011 -0.48436099 -0.22583663 -0.48332611 -0.22704923 -0.48365125
+		 -0.23397931 -0.49458161 -0.2341966 -0.4959493 -0.23201549 -0.49623233 -0.21890947
+		 -0.48578149 -0.22350836 -0.49214971 -0.22826061 -0.48414814 -0.22906831 -0.48568106
+		 -0.23019713 -0.48718587 -0.23126471 -0.48842183 -0.23222888 -0.48996049 -0.23353118
+		 -0.49243334 -0.21600372 -0.48259914 -0.21909732 -0.48338413 -0.22254416 -0.48530626
+		 -0.22335133 -0.48422295 -0.22470486 -0.48316371 -0.22783202 -0.48286185 -0.22673729
+		 -0.48234516 -0.23541078 -0.49567866 -0.23579344 -0.49706835 -0.23341447 -0.49688002
+		 -0.21389621 -0.48219854 -0.22269198 -0.49181241 -0.21781865 -0.48565143 -0.22888499
+		 -0.4834621 -0.2294299 -0.48460045 -0.23024312 -0.48598886 -0.23129568 -0.48738927
+		 -0.23222706 -0.48865959 -0.23323902 -0.49032408 -0.23476878 -0.49316889 -0.2128922
+		 -0.480573 -0.21856847 -0.48207331 -0.22196123 -0.48397416 -0.22369337 -0.48294288
+		 -0.22570312 -0.48198032 -0.22833675 -0.48097509 -0.22909027 -0.48167515 -0.23708808
+		 -0.49701592 -0.23724303 -0.49812561 -0.23514295 -0.49783167 -0.21249601 -0.48207676
+		 -0.20915532 -0.47939265 -0.22990617 -0.48241472 -0.22993967 -0.48393551 -0.23051006
+		 -0.48493224 -0.23132199 -0.48619831 -0.23225778 -0.48755753 -0.23317799 -0.48887646
+		 -0.23436639 -0.49069017 -0.23598257 -0.49373174 -0.21591854 -0.48055673 -0.22021675
+		 -0.48111975 -0.22205481 -0.48265553 -0.2247555 -0.48163152 -0.2276412 -0.48041725
+		 -0.23130378 -0.47892728 -0.23111269 -0.47809511 -0.23832756 -0.49841633 -0.23822826
+		 -0.49884525 -0.23674345 -0.49877539 -0.21678934 -0.48546255 -0.21155524 -0.4820677
+		 -0.20714349 -0.47891396 -0.2317026 -0.47997445 -0.23076975 -0.48303902 -0.23092461
+		 -0.484267 -0.2315186 -0.48515606 -0.23228526 -0.4863427 -0.23317897 -0.48769954 -0.23421729
+		 -0.48905626 -0.23545101 -0.49096236 -0.23809192 -0.49678677 -0.23699859 -0.49388769
+		 -0.22062439 -0.47956705 -0.22406653 -0.48001814 -0.22321898 -0.48137987 -0.22696549
+		 -0.48001236 -0.23104778 -0.47748694 -0.23903039 -0.49851531 -0.23901317 -0.49908784
+		 -0.23905739 -0.49944985 -0.23788273 -0.49942765 -0.20605844 -0.47887155 -0.23226777
+		 -0.48097903 -0.23162451 -0.48346895 -0.23185939 -0.48449552 -0.23246473 -0.48528802
+		 -0.23320124 -0.48645926 -0.23415002 -0.48780715 -0.23520398 -0.48916626 -0.23634616
+		 -0.49108636 -0.23773384 -0.49391234 -0.23908034 -0.49715731 -0.22592437 -0.47985798
+		 -0.23100534 -0.47706532 -0.23998028 -0.49904382 -0.23968393 -0.49948528 -0.23997548
+		 -0.50016642 -0.23888382 -0.49993855 -0.21061698 -0.48228714 -0.20536065 -0.47919199
+		 -0.23289692 -0.48176986 -0.23245284 -0.48378038 -0.23277134 -0.48464161 -0.23336163
+		 -0.48539871 -0.23413685 -0.48655996 -0.2350601 -0.48785427 -0.23602816 -0.48920625
+		 -0.23710319 -0.49117124 -0.23073903 -0.47684145 -0.22990447 -0.47676915 -0.24014068
+		 -0.49973881 -0.24055859 -0.50051391 -0.23997855 -0.50049984 -0.23353806 -0.48242581
+		 -0.23327979 -0.48401335 -0.23364267 -0.48477381 -0.23422793 -0.48553872 -0.2349965
+		 -0.48661494 -0.23584405 -0.48782915 -0.23685953 -0.48925537 -0.24050084 -0.49992961
+		 -0.24046117 -0.5006367 -0.23417792 -0.48295927 -0.23407525 -0.48422757 -0.23442894
+		 -0.48495382 -0.23502216 -0.48561427 -0.23573005 -0.4866097 -0.23673159 -0.4877969
+		 -0.23477513 -0.48343265 -0.23477021 -0.48446572 -0.23507574 -0.48508167 -0.23568299
+		 -0.48560435 -0.23659277 -0.48652613 -0.23528656 -0.48386264 -0.23516619 -0.48465565
+		 -0.23563734 -0.48497421 -0.23648226 -0.48550785 -0.23562214 -0.4843443 -0.14478266
+		 -0.60787654 -0.14462686 -0.60990947 -0.14394471 -0.61022937 -0.14430311 -0.60793394
+		 -0.14545479 -0.60938209 -0.14546061 -0.6075294 -0.14414069 -0.61139894 -0.14330092
+		 -0.6117897 -0.14336663 -0.61043376 -0.14386973 -0.60788023 -0.14509988 -0.61086595
+		 -0.14340028 -0.60485232 -0.14424261 -0.60496348 -0.14633447 -0.6070652 -0.14634019
+		 -0.60871071 -0.14378858 -0.61261559 -0.14279971 -0.6130178 -0.14256614 -0.61205912
+		 -0.14283574 -0.61055577 -0.14340118 -0.60772157 -0.14609811 -0.61024874 -0.1448631
+		 -0.61211717 -0.14515156 -0.60496944 -0.1472809 -0.6080153 -0.14731169 -0.60653687
+		 -0.14357236 -0.61352015 -0.14247289 -0.61394358 -0.14192578 -0.61329395 -0.1419259
+		 -0.61221945 -0.1420491 -0.61112332 -0.14274999 -0.60779059 -0.14707407 -0.60962945
+		 -0.14595783 -0.6115945 -0.14474705 -0.61302662 -0.14616385 -0.60481673 -0.14834175
+		 -0.60592854 -0.14828438 -0.60729647 -0.14346874 -0.61443627 -0.14230683 -0.61484623
+		 -0.14151338 -0.61423582 -0.14121357 -0.61342353;
+	setAttr ".uvtk[3500:3749]" -0.1410614 -0.61268342 -0.140237 -0.61255354 -0.14171824
+		 -0.60830343 -0.1480588 -0.60902715 -0.14701077 -0.61111915 -0.14593065 -0.6125499
+		 -0.14470881 -0.61394352 -0.14729637 -0.60451764 -0.14932746 -0.60653788 -0.14938134
+		 -0.60519445 -0.14359489 -0.61569142 -0.14241099 -0.61603928 -0.14128754 -0.61512393
+		 -0.14077535 -0.61435318 -0.14080971 -0.6134358 -0.13956463 -0.61393112 -0.13694501
+		 -0.61502516 -0.14076677 -0.60865414 -0.1490545 -0.60843611 -0.14801681 -0.61068636
+		 -0.14706248 -0.61216295 -0.14595342 -0.61347997 -0.14485916 -0.61518377 -0.14844823
+		 -0.60405278 -0.15051931 -0.60423756 -0.15051413 -0.6056205 -0.14417699 -0.61684871
+		 -0.14295805 -0.6172269 -0.14132196 -0.6162411 -0.14049244 -0.61525351 -0.14018029
+		 -0.61426234 -0.13782567 -0.61562073 -0.13586134 -0.61500823 -0.14034101 -0.60860163
+		 -0.15033713 -0.60760087 -0.14895973 -0.61027652 -0.14811662 -0.61184251 -0.14713588
+		 -0.61312807 -0.14610362 -0.614694 -0.14538375 -0.61628914 -0.14969349 -0.60331726
+		 -0.15175879 -0.60481656 -0.15193531 -0.60302961 -0.14500752 -0.61763537 -0.14391032
+		 -0.61820281 -0.14181802 -0.6174345 -0.14040333 -0.61641717 -0.13954094 -0.61536551
+		 -0.13306132 -0.61819458 -0.13615656 -0.6173526 -0.13093486 -0.61863852 -0.1347501
+		 -0.61516422 -0.13951501 -0.60896027 -0.15134272 -0.6071049 -0.15003097 -0.60988116
+		 -0.14905891 -0.61155009 -0.14822182 -0.61286181 -0.14726782 -0.61432016 -0.14654326
+		 -0.61577034 -0.14605471 -0.61697286 -0.15124896 -0.60228044 -0.15326804 -0.60194874
+		 -0.15350956 -0.60256696 -0.14630422 -0.61881435 -0.14555541 -0.6195609 -0.14287323
+		 -0.61860985 -0.14080685 -0.61769497 -0.13901585 -0.61670667 -0.13569435 -0.61866766
+		 -0.13002869 -0.6202507 -0.12626046 -0.62149316 -0.12950951 -0.61879259 -0.15255505
+		 -0.60632861 -0.15084597 -0.6096006 -0.15017706 -0.61120933 -0.14917067 -0.61263824
+		 -0.14833692 -0.61404872 -0.14761358 -0.61537445 -0.14710018 -0.61643273 -0.14711112
+		 -0.6180141 -0.15275684 -0.60131133 -0.15439123 -0.60164535 -0.15426037 -0.60122102
+		 -0.14856488 -0.62154227 -0.14838278 -0.62241536 -0.14486474 -0.62015593 -0.1419313
+		 -0.61899602 -0.13917336 -0.6180256 -0.13313279 -0.62021518 -0.13741326 -0.61959594
+		 -0.12422416 -0.62201101 -0.13370836 -0.61537433 -0.12854919 -0.61882496 -0.15216076
+		 -0.60907495 -0.15445319 -0.60323143 -0.15355954 -0.60612971 -0.15086016 -0.61105889
+		 -0.15011051 -0.61237597 -0.14929098 -0.61384904 -0.14861268 -0.61509049 -0.14807606
+		 -0.61603844 -0.14796406 -0.61732388 -0.14895111 -0.62043822 -0.15389103 -0.60064566
+		 -0.15506622 -0.6014843 -0.15498835 -0.60057002 -0.15497944 -0.60093105 -0.14832652
+		 -0.62305379 -0.14419997 -0.62059307 -0.14040461 -0.61928654 -0.14132962 -0.62065232
+		 -0.13792467 -0.62114578 -0.12311548 -0.62208056 -0.1530399 -0.60892022 -0.15202156
+		 -0.61088455 -0.15536162 -0.60278279 -0.15429124 -0.60608292 -0.15098169 -0.61230135
+		 -0.15019751 -0.6136806 -0.14955017 -0.61490411 -0.149001 -0.61575109 -0.14880872
+		 -0.61683214 -0.14950177 -0.61937034 -0.15478486 -0.60008436 -0.1555596 -0.60049295
+		 -0.1558958 -0.60087919 -0.15576214 -0.59979904 -0.14829567 -0.62350082 -0.14317286
+		 -0.62077856 -0.1223855 -0.62178588 -0.1275802 -0.61863172 -0.15283611 -0.61080825
+		 -0.15379161 -0.60881984 -0.15192372 -0.61215866 -0.15112433 -0.61352813 -0.15043747
+		 -0.6147424 -0.14990151 -0.61555064 -0.14962482 -0.61646295 -0.15011567 -0.61851943
+		 -0.15574834 -0.5994544 -0.15596765 -0.60020328 -0.15629369 -0.59938169 -0.14804503
+		 -0.62374866 -0.14723191 -0.62384742 -0.15366429 -0.61074305 -0.15275532 -0.61217928
+		 -0.1519762 -0.61342645 -0.15129197 -0.61455274 -0.1507597 -0.61536801 -0.15043536
+		 -0.61617601 -0.1507383 -0.61780703 -0.15618902 -0.59927523 -0.15630001 -0.59994721
+		 -0.15364262 -0.61219645 -0.15270934 -0.61340547 -0.15207547 -0.61443603 -0.15153104
+		 -0.61514163 -0.15121216 -0.61591256 -0.15135488 -0.61722124 -0.15357187 -0.61347562
+		 -0.15272918 -0.61442047 -0.15216523 -0.61497784 -0.15188831 -0.6156311 -0.15192699
+		 -0.61670113 -0.1535266 -0.61450529 -0.15272132 -0.61506617 -0.15227053 -0.61541599
+		 -0.15241501 -0.61623108 -0.15272805 -0.61571789 -0.0029578879 -0.79279268 -0.005028151
+		 -0.79151905 -0.0047160238 -0.79268521 -0.0025961846 -0.79421091 -0.0061885118 -0.79036993
+		 -0.0068531036 -0.79077911 -0.0050308481 -0.79352355 -0.0021939352 -0.79551196 -0.0003631115
+		 -0.79564226 -0.0010002106 -0.79351074 -0.0069871172 -0.78835702 -0.0075996444 -0.78939039
+		 -0.0081278533 -0.78900266 -0.0091471374 -0.78852642 -0.0084524453 -0.79059368 -0.0029735342
+		 -0.79625714 -0.0013464689 -0.79678404 0.00025104731 -0.79737031 0.0011248291 -0.79468507
+		 0.0019003898 -0.79749405 -0.0098827109 -0.78472042 -0.0082389638 -0.78745484 -0.010612383
+		 -0.78566515 -0.011229292 -0.78754973 -0.00043019652 -0.7989285 0.00058882684 -0.79864705
+		 0.0025663525 -0.79955047 0.0041135326 -0.79947424 0.0031827092 -0.79604852 -0.012457438
+		 -0.7823568 -0.013154872 -0.78413534 0.0027365163 -0.80181563 0.0029806644 -0.80097497
+		 0.0050113946 -0.80180073 -0.013090558 -0.7798456 -0.015174918 -0.77816826 -0.015305646
+		 -0.78044271 0.0061119348 -0.80481923 0.0056634173 -0.80345392 0.0078523532 -0.80394793
+		 0.0064910278 -0.80110133 -0.017052919 -0.77387321 -0.01772698 -0.77425939 -0.018334202
+		 -0.77600694 0.006407693 -0.80625582 0.00093335658 -0.80217266 0.0093122646 -0.80711919
+		 0.0086353272 -0.80564821 -0.012832917 -0.77895677 -0.017514639 -0.77283108 -0.018999983
+		 -0.77186048 -0.021207109 -0.77230179 0.010562673 -0.80923688 -0.019965805 -0.77084768
+		 -0.022227805 -0.77024853 -0.022314906 -0.76876616 -0.43089825 -0.94952327 -0.43077108
+		 -0.94973195 -0.43044376 -0.94982994 -0.43068081 -0.94950771 -0.42990738 -0.95020831
+		 -0.43023306 -0.94869614 -0.43108693 -0.94869637 -0.43140408 -0.94891173 -0.42915314
+		 -0.94750315 -0.42934781 -0.94651806 -0.43083036 -0.94848669 -0.42822221 -0.94480693
+		 -0.42820284 -0.94361001 -0.42950848 -0.94544947 -0.42817843 -0.94239062 -0.14765212
+		 -0.95019859 -0.14938781 -0.95051181 -0.15112475 -0.95082498 -0.14419916 -0.94759953
+		 -0.1488162 -0.94890082 -0.15046456 -0.94917107 -0.14803442 -0.94779021 -0.15107974
+		 -0.94842875 0.67538416 -0.60512012 0.67612773 -0.60362375;
+	setAttr ".uvtk[3750:3999]" 0.67410094 -0.60360193 0.67314154 -0.60497713 0.6783427
+		 -0.60365105 0.67774606 -0.60530293 0.67544723 -0.60212767 0.67320418 -0.60222614
+		 0.67197418 -0.60358351 0.67072511 -0.60492116 0.67104214 -0.60669094 0.67379326 -0.60677481
+		 0.67781109 -0.6019997 0.67653519 -0.60698581 0.68002951 -0.60542011 0.68052733 -0.60367882
+		 0.67391598 -0.60047257 0.67116421 -0.6005109 0.67078781 -0.60224402 0.66933507 -0.60356605
+		 0.66782403 -0.6049512 0.66804713 -0.60670805 0.67203683 -0.60836446 0.66859365 -0.60843158
+		 0.68009692 -0.60193807 0.67666125 -0.60031676 0.67531294 -0.60843128 0.67907584 -0.60710746
+		 0.68239391 -0.60370219 0.68196231 -0.60546696 0.67221069 -0.59888124 0.66876668 -0.59876835
+		 0.6681698 -0.60045421 0.66788632 -0.6021781 0.66644025 -0.60354984 0.66476333 -0.60501778
+		 0.66464919 -0.6068902 0.66492045 -0.6087172 0.66647822 -0.60984385 0.67076236 -0.60956573
+		 0.68203139 -0.60193831 0.67920566 -0.60025096 0.67549032 -0.59886932 0.67456424 -0.60947865
+		 0.67819142 -0.60848325 0.68113232 -0.60715663 0.68371195 -0.60547042 0.6841011 -0.60372281
+		 0.67097586 -0.59767818 0.66669101 -0.59735465 0.66509432 -0.59844327 0.66477126 -0.60023522
+		 0.66482496 -0.60207868 0.66364866 -0.60353547 0.66198409 -0.60505307 0.66127223 -0.607104
+		 0.66107392 -0.60916746 0.6619783 -0.61055446 0.6707567 -0.61020732 0.66565067 -0.61054581
+		 0.6837818 -0.60197651 0.681265 -0.60024941 0.67837292 -0.59887338 0.67478168 -0.59781885
+		 0.67473894 -0.61021 0.67794144 -0.6096617 0.68032247 -0.60854572 0.68292582 -0.60715693
+		 0.68582016 -0.60374236 0.68545926 -0.605425 0.67099589 -0.59703702 0.66588932 -0.59665298
+		 0.66219324 -0.59660447 0.66124809 -0.59795612 0.66139364 -0.59998775 0.66204536 -0.60201478
+		 0.66041851 -0.60351968 0.65876204 -0.60509515 0.65844887 -0.60717404 0.65741032 -0.6095987
+		 0.65766358 -0.61140931 0.66003901 -0.61173087 0.66564167 -0.61087698 0.6711762 -0.61063683
+		 0.68552893 -0.60206115 0.68306023 -0.60029137 0.68050736 -0.59885895 0.67816961 -0.59769928
+		 0.67498457 -0.59708512 0.67504388 -0.61074615 0.67748344 -0.61042273 0.68012643 -0.60959482
+		 0.68207103 -0.60859656 0.68468148 -0.6070807 0.68700451 -0.60537672 0.68736798 -0.60376048
+		 0.67143261 -0.59660918 0.66589797 -0.59632456 0.66028321 -0.59542698 0.65788132 -0.59571385
+		 0.65758461 -0.59749138 0.65856951 -0.5998888 0.65882301 -0.60194105 0.65621406 -0.60349941
+		 0.65434229 -0.60514373 0.65497786 -0.60727584 0.65450579 -0.60978699 0.67101061 -0.61099589
+		 0.66610903 -0.61115515 0.68707359 -0.60214543 0.68481612 -0.60040724 0.68225855 -0.59885108
+		 0.68034995 -0.59781837 0.67774248 -0.59692299 0.67530906 -0.59654725 0.67462832 -0.61113483
+		 0.67743635 -0.61096442 0.67963022 -0.61051899 0.67896003 -0.61098051 0.68103379 -0.61024618
+		 0.68156523 -0.60936528 0.68374962 -0.60856885 0.6862002 -0.60700071 0.68858457 -0.60377669
+		 0.68817598 -0.60537291 0.67128038 -0.59625149 0.66637981 -0.59605229 0.65467894 -0.59727418
+		 0.65509754 -0.59975511 0.65440208 -0.60185206 0.65147519 -0.6034804 0.64926511 -0.60519266
+		 0.64975744 -0.60773152 0.66664666 -0.61137104 0.67063642 -0.61136174 0.68824387 -0.60218096
+		 0.68633389 -0.60052311 0.68393868 -0.59891903 0.6817804 -0.59808064 0.67988998 -0.59689033
+		 0.68128073 -0.59719789 0.67924148 -0.59641063 0.67771709 -0.59637523 0.67490751 -0.59615707
+		 0.67394185 -0.61161327 0.6769855 -0.61138189 0.67854989 -0.6114589 0.67974597 -0.61189473
+		 0.68064988 -0.61131072 0.68224114 -0.61067903 0.68259221 -0.60970473 0.6852144 -0.60851645
+		 0.68732303 -0.60700154 0.68933249 -0.60540211 0.68981236 -0.60379303 0.67091703 -0.59588701
+		 0.66692895 -0.59584278 0.64987695 -0.59925759 0.6493234 -0.6017645 0.67039591 -0.61163878
+		 0.66678858 -0.61154997 0.6893999 -0.60218436 0.68745512 -0.60055351 0.6854037 -0.59900784
+		 0.68282044 -0.59777158 0.68250257 -0.59680331 0.68093348 -0.59613788 0.68005365 -0.59553552
+		 0.67885262 -0.59592271 0.67728031 -0.59595394 0.67423177 -0.59567785 0.67354304 -0.61189556
+		 0.67623931 -0.61187398 0.67798424 -0.61188948 0.67911673 -0.61239338 0.68116724 -0.61222148
+		 0.6800822 -0.61300546 0.6830337 -0.61117697 0.6839503 -0.60980487 0.68633163 -0.60852289
+		 0.6883989 -0.60707855 0.69138384 -0.60381144 0.6908108 -0.60542512 0.67068511 -0.59561098
+		 0.66707945 -0.59566748 0.66741598 -0.61176109 0.67071384 -0.61194479 0.6908794 -0.60219926
+		 0.6885305 -0.60050857 0.68651962 -0.59903252 0.68418318 -0.59770882 0.68147331 -0.59525794
+		 0.68330818 -0.5963366 0.68041432 -0.59445488 0.67944419 -0.59502518 0.67829877 -0.59548342
+		 0.67654395 -0.59545833 0.67384082 -0.59539402 0.67359179 -0.61212355 0.67584324 -0.61218989
+		 0.67840058 -0.61292338 0.67934185 -0.61361015 0.68004704 -0.6144107 0.68149573 -0.61342013
+		 0.68398756 -0.61157578 0.68498862 -0.60993195 0.68739265 -0.60860419 0.68974763 -0.60721844
+		 0.69216496 -0.60542876 0.69281131 -0.60382813 0.67101306 -0.59530604 0.66771692 -0.59545964
+		 0.67189473 -0.61284912 0.66922116 -0.61266184 0.69223487 -0.60223007 0.68988174 -0.60040808
+		 0.68758041 -0.59898353 0.68522424 -0.59761333 0.68427104 -0.59597284 0.6818276 -0.59409082
+		 0.68040442 -0.59307218 0.67969221 -0.59383804 0.67873734 -0.59448195 0.67615479 -0.59513915
+		 0.67389804 -0.5951646 0.6741454 -0.61281025 0.67572695 -0.61238682 0.67749321 -0.61201417
+		 0.67706531 -0.61238253 0.67930895 -0.61509484 0.68387228 -0.6132226 0.68562704 -0.61163449
+		 0.68602109 -0.61007309 0.68865323 -0.60877609 0.69097114 -0.60738784 0.69362593 -0.60383928
+		 0.69293565 -0.60545838 0.67221099 -0.59440231 0.66954017 -0.59456187 0.67103535 -0.61381263
+		 0.67320698 -0.61389321 0.69300634 -0.60222292 0.69110852 -0.6002748 0.68884408 -0.59885025
+		 0.68625885 -0.59750473 0.68419963 -0.5943532 0.68591326 -0.59596276 0.67968172 -0.59237564
+		 0.67781293 -0.59535146 0.67739075 -0.59497714 0.67604566 -0.59493774 0.67446578 -0.59447521;
+	setAttr ".uvtk[4000:4249]" 0.67483288 -0.61372256 0.67587453 -0.61289179 0.67694086
+		 -0.61260062 0.68035954 -0.61570239 0.68233144 -0.61514753 0.68579674 -0.61302924
+		 0.68713778 -0.61165488 0.68733281 -0.61019123 0.68973172 -0.60903239 0.69164878 -0.60757279
+		 0.69343585 -0.60564339 0.69416797 -0.60384959 0.67354435 -0.59335852 0.67137712 -0.59341455
+		 0.67409086 -0.61466771 0.67224771 -0.6146872 0.69350725 -0.60205793 0.69178838 -0.60011244
+		 0.68992722 -0.59862953 0.68757355 -0.59742743 0.68073452 -0.59181774 0.68269706 -0.59241939
+		 0.68742484 -0.59598893 0.68612134 -0.59460038 0.67727298 -0.59475291 0.67620492 -0.59442675
+		 0.67517245 -0.59355819 0.67532724 -0.61453271 0.67609942 -0.61361623 0.67687172 -0.61305338
+		 0.67786771 -0.61280537 0.67801464 -0.61252105 0.68433291 -0.61481124 0.68672216 -0.613222
+		 0.68780547 -0.61195743 0.68845564 -0.61040819 0.69027728 -0.60935849 0.69211149 -0.60795712
+		 0.6949001 -0.60386384 0.69410151 -0.60609728 0.67445093 -0.59258354 0.6726132 -0.59254467
+		 0.67340076 -0.61531901 0.67437828 -0.61505282 0.69417423 -0.60163164 0.69225293 -0.59974718
+		 0.69047731 -0.59832561 0.68870068 -0.59724796 0.68469363 -0.5928067 0.68704832 -0.59444141
+		 0.68809617 -0.59571445 0.67721558 -0.59429014 0.67835474 -0.5948658 0.67821479 -0.5945729
+		 0.67644686 -0.59369278 0.67568952 -0.59274107 0.67542666 -0.61512136 0.67625302 -0.61442739
+		 0.67686015 -0.61370051 0.67759365 -0.61323828 0.6787042 -0.61312664 0.67894793 -0.61276782
+		 0.68554491 -0.61496449 0.68724906 -0.6137588 0.68819296 -0.61251765 0.68895978 -0.61078906
+		 0.6906724 -0.6098724 0.6928333 -0.60875201 0.69470894 -0.60663748 0.69561887 -0.60387683
+		 0.67475498 -0.59219944 0.6737864 -0.59192252 0.67469507 -0.61547947 0.69478357 -0.60111678
+		 0.69297659 -0.59897923 0.69087571 -0.59783077 0.68921 -0.59689045 0.6859073 -0.5926913
+		 0.6884867 -0.59517556 0.68757737 -0.59392953 0.67795289 -0.59412563 0.6772204 -0.59362912
+		 0.67906857 -0.59427249 0.6793049 -0.59464514 0.67662287 -0.59286815 0.67580986 -0.59214431
+		 0.6761862 -0.61510772 0.67682272 -0.61443985 0.6773783 -0.61382937 0.67826849 -0.61349714
+		 0.67953902 -0.61354017 0.67985505 -0.61312306 0.68633348 -0.61554599 0.68795323 -0.61450922
+		 0.68882012 -0.61327684 0.68930107 -0.61136699 0.69136596 -0.61076319 0.69353336 -0.60966188
+		 0.69598234 -0.60388327 0.69497967 -0.60697007 0.67509174 -0.59177768 0.67176944 -0.61589205
+		 0.67319638 -0.61599219 0.67566818 -0.61556602 0.69505692 -0.6007967 0.69367933 -0.59809452
+		 0.69157106 -0.59696603 0.68955559 -0.59633172 0.68669945 -0.59214097 0.68827993 -0.59320712
+		 0.6891129 -0.59444237 0.67864388 -0.59388465 0.67775309 -0.59351641 0.6772027 -0.59287155
+		 0.68022788 -0.59431195 0.6799193 -0.59387743 0.67657697 -0.59217453 0.67660612 -0.61508864
+		 0.67720091 -0.61454755 0.67789441 -0.61399603 0.67905539 -0.61386245 0.68722028 -0.6164937
+		 0.68864936 -0.61522746 0.68947512 -0.61404383 0.6899367 -0.6122129 0.69209349 -0.61173171
+		 0.69387317 -0.61028355 0.69528371 -0.60697478 0.69663304 -0.60388809 0.67607158 -0.59170687
+		 0.67360294 -0.59125483 0.67216629 -0.59133875 0.67414165 -0.61614847 0.67616189 -0.61562073
+		 0.69536263 -0.60080016 0.69402283 -0.5974859 0.69230032 -0.59602177 0.69019204 -0.59551156
+		 0.68758684 -0.59122497 0.68976593 -0.59369844 0.68897301 -0.59251297 0.67944551 -0.59353602
+		 0.67828315 -0.59336483 0.67759246 -0.59277642 0.67700416 -0.59220594 0.6768446 -0.61520636
+		 0.67757875 -0.61483812 0.67862737 -0.61439395 0.68054342 -0.61406165 0.68013614 -0.61449641
+		 0.68811387 -0.61740512 0.68911099 -0.61573303 0.68992096 -0.61460519 0.69062942 -0.61310136
+		 0.69253844 -0.61240542 0.69399673 -0.61068404 0.69862866 -0.60389709 0.69633502 -0.60653764
+		 0.67657155 -0.59166318 0.67455459 -0.59111321 0.67639911 -0.61582601 0.69641399 -0.60125077
+		 0.69415057 -0.59709281 0.69274801 -0.59536141 0.69088459 -0.59464657 0.68847871 -0.59034014
+		 0.68943304 -0.59202039 0.69021136 -0.59314942 0.68093443 -0.59337294 0.68053842 -0.59291911
+		 0.67902988 -0.59298265 0.67798287 -0.59249812 0.67725104 -0.59209776 0.67704654 -0.6156112
+		 0.67828387 -0.61539614 0.67980099 -0.61512482 0.68877554 -0.61796761 0.68974876 -0.61627424
+		 0.69048607 -0.61514187 0.69110811 -0.61373997 0.6928618 -0.61294502 0.69417781 -0.61094606
+		 0.67681605 -0.59146607 0.67655921 -0.61622202 0.69433528 -0.5968399 0.69307494 -0.59482992
+		 0.69136417 -0.59402084 0.6891374 -0.58979273 0.69077623 -0.59262168 0.69006902 -0.59148848
+		 0.68021715 -0.5922696 0.67870116 -0.59195518 0.67746389 -0.59170222 0.68966371 -0.61854798
+		 0.69088238 -0.6170665 0.69136745 -0.6158514 0.69161582 -0.61428881 0.69315255 -0.61352712
+		 0.69417667 -0.61178064 0.69704717 -0.6067031 0.67698526 -0.59107804 0.69336939 -0.59425676
+		 0.69711471 -0.60105127 0.69435078 -0.59600669 0.69187325 -0.59348023 0.69002104 -0.58922362
+		 0.69119883 -0.59070998 0.69165653 -0.59192377 0.69115531 -0.6194557 0.68944931 -0.62129354
+		 0.69047934 -0.6219089 0.6919167 -0.61773038 0.69222009 -0.61626363 0.69223642 -0.61494231
+		 0.69323575 -0.61442149 0.69346529 -0.59337211 0.69249535 -0.59283686 0.69150627 -0.58833206
+		 0.69088447 -0.58587587 0.68986142 -0.58647752 0.69250089 -0.59152484 0.69222617 -0.59006286
+		 0.69213629 -0.62285173 0.69237238 -0.62021935 0.69265556 -0.61788356 0.69302565 -0.61588854
+		 0.6926083 -0.61524183 0.69402832 -0.6138652 0.69424629 -0.59390521 0.69328481 -0.59191537
+		 0.69286501 -0.59254497 0.69271535 -0.58758628 0.69253236 -0.58495057 0.69295323 -0.58993089
+		 0.6922937 -0.62652212 0.69372994 -0.62723172 0.69346684 -0.62358785 0.69333076 -0.61745054
+		 0.69361275 -0.59037173 0.69385278 -0.58423263 0.69276112 -0.58127391 0.69418573 -0.58058238
+		 0.695086 -0.6278857 0.69552946 -0.57994759 -0.22604051 -0.0041273832 -0.22540912
+		 -0.0046463013 -0.22521064 -0.0037296414 -0.22579357 -0.0029622316 -0.22554305 -0.0054804683
+		 -0.22618416 -0.0051204562;
+	setAttr ".uvtk[4250:4499]" -0.22435561 -0.0054425001 -0.22421566 -0.0046508908
+		 -0.2249231 -0.0027725697 -0.22542682 -0.0016818643 -0.22617945 -0.002187252 -0.22645226
+		 -0.003714025 -0.22450307 -0.0061991811 -0.22661927 -0.0049765706 -0.22616783 -0.0060894489
+		 -0.22553661 -0.0063518286 -0.22333559 -0.0062385798 -0.22321972 -0.0055195093 -0.22405949
+		 -0.0038566589 -0.22450712 -0.0018139482 -0.22489718 -0.00034046173 -0.22579822 -0.00045776367
+		 -0.22689745 -0.0033954382 -0.22666177 -0.0015141964 -0.22451481 -0.0070377588 -0.22350791
+		 -0.0069502592 -0.22705963 -0.004989624 -0.2266185 -0.0061130524 -0.22533855 -0.0073921084
+		 -0.22596845 -0.0072112083 -0.22276065 -0.0066222548 -0.22257909 -0.0059583187 -0.22314826
+		 -0.0048069358 -0.22385582 -0.0030987859 -0.22387007 -0.00056362152 -0.22406712 0.0014941692
+		 -0.22528347 0.0014116168 -0.22635499 0.00065881014 -0.22723123 -0.001072824 -0.22738937
+		 -0.0032501817 -0.22426137 -0.0080876946 -0.22378495 -0.0073043704 -0.22297618 -0.007304728
+		 -0.22750887 -0.0051335692 -0.22708324 -0.0063195825 -0.22641465 -0.0073337555 -0.22558847
+		 -0.0083823204 -0.22519848 -0.0082523823 -0.22213271 -0.0068512559 -0.22186843 -0.0062381029
+		 -0.22244522 -0.0052984953 -0.22309747 -0.0041227341 -0.22342482 -0.00200212 -0.22290954
+		 0.0013349056 -0.22273293 0.0042227507 -0.22442743 0.0040311813 -0.2259672 0.0031323433
+		 -0.22703865 0.0014913082 -0.2279121 -0.0033814311 -0.22784308 -0.00097560883 -0.22457418
+		 -0.0089902282 -0.22341791 -0.0078482032 -0.22238293 -0.0075042248 -0.2279608 -0.0054071546
+		 -0.22753844 -0.0066131949 -0.22691187 -0.0075642467 -0.22603193 -0.0085953474 -0.22495517
+		 -0.009476006 -0.22092965 -0.0071467161 -0.22063646 -0.0065625906 -0.22161809 -0.005625248
+		 -0.22236791 -0.0046259761 -0.22293898 -0.0032598376 -0.22245666 -5.0127506e-05 -0.22526792
+		 0.0064282417 -0.22682795 0.0045208335 -0.22776708 0.0019004345 -0.22846934 -0.0010225177
+		 -0.22843656 -0.0035308003 -0.22358707 -0.0098187327 -0.22319326 -0.0089520216 -0.22270623
+		 -0.0082044601 -0.22118172 -0.0077633262 -0.22840723 -0.0055918097 -0.22796336 -0.0069223046
+		 -0.22740868 -0.0078358054 -0.22655603 -0.0088527799 -0.22540203 -0.0098033547 -0.22401926
+		 -0.010372341 -0.21957597 -0.0074138641 -0.21929136 -0.006860435 -0.22030672 -0.0059523582
+		 -0.22140971 -0.0049646497 -0.22217497 -0.0037310123 -0.22279337 -0.0020688176 -0.22639152
+		 0.0084113479 -0.22770616 0.0053458214 -0.22850659 0.0019868612 -0.22896287 -0.0034390092
+		 -0.22909471 -0.0010361671 -0.22228512 -0.01022011 -0.22183016 -0.0093541145 -0.22145954
+		 -0.0084777474 -0.21982011 -0.0079843998 -0.22885671 -0.0054616928 -0.22837791 -0.0070942044
+		 -0.22788051 -0.0080751777 -0.22712108 -0.0091193318 -0.22592542 -0.010211349 -0.22449669
+		 -0.010834217 -0.22281358 -0.010910153 -0.21851006 -0.0075880885 -0.2182534 -0.0070795417
+		 -0.21891585 -0.0062345862 -0.21994725 -0.0052551627 -0.2211152 -0.004032433 -0.22222587
+		 -0.0020675659 -0.22165987 -0.0023292899 -0.22268376 -0.0019625425 -0.2225652 -0.0015185475
+		 -0.22224548 -0.0011893511 -0.22755292 0.0097408295 -0.22854885 0.0056103468 -0.22924057
+		 0.0018372536 -0.22969803 -0.0011926293 -0.22948417 -0.0033637881 -0.22096267 -0.010339975
+		 -0.22047243 -0.0094578862 -0.22009602 -0.0086419582 -0.21876529 -0.008120358 -0.22931102
+		 -0.0052413344 -0.22879604 -0.0069746375 -0.22834495 -0.0082123876 -0.22770497 -0.0093578696
+		 -0.22656754 -0.010633707 -0.22502777 -0.011419177 -0.22340277 -0.011544108 -0.22158346
+		 -0.011183679 -0.21750352 -0.0075278282 -0.21695927 -0.0068866014 -0.21787867 -0.0064553618
+		 -0.21839568 -0.0054510236 -0.21947768 -0.0042667985 -0.2206246 -0.0025939941 -0.22090515
+		 -0.00083035231 -0.22144714 -0.00020116568 -0.22125027 0.0020681024 -0.22859105 0.010215402
+		 -0.22937927 0.0052803755 -0.22994998 0.0013654232 -0.22996315 -0.0035623908 -0.23024592
+		 -0.0016910434 -0.21989647 -0.010388136 -0.21941993 -0.009508431 -0.21905586 -0.008738637
+		 -0.21783248 -0.0081125498 -0.22975495 -0.0051477551 -0.22922453 -0.0067164302 -0.22881201
+		 -0.0081267953 -0.22830352 -0.0094592571 -0.22737786 -0.010986745 -0.22573426 -0.012021363
+		 -0.22403792 -0.01224941 -0.22229281 -0.011998594 -0.22053131 -0.011328518 -0.21627721
+		 -0.0060715675 -0.21727368 -0.0055780411 -0.21768776 -0.0043793321 -0.21884206 -0.0027754903
+		 -0.21997812 -0.0011490583 -0.22026435 0.0017938018 -0.22000101 0.00064402819 -0.22025123
+		 0.0037199855 -0.22055241 0.0055434704 -0.22148386 0.0039591193 -0.22960994 0.0096707344
+		 -0.23022452 0.0043896437 -0.23060027 0.00047159195 -0.23069665 -0.0024146438 -0.2303859
+		 -0.0039284229 -0.21887663 -0.010290682 -0.21845463 -0.0094455481 -0.21812192 -0.0087151527
+		 -0.21629307 -0.0069338083 -0.21681771 -0.007807374 -0.23018122 -0.0051796436 -0.2296783
+		 -0.0064715743 -0.229287 -0.0079378486 -0.22890374 -0.0094145536 -0.22824863 -0.011152506
+		 -0.22676286 -0.012523711 -0.22483072 -0.012957573 -0.2230477 -0.012799025 -0.22125992
+		 -0.012265325 -0.21943817 -0.011243761 -0.21550056 -0.004974544 -0.21627715 -0.0044196844
+		 -0.2167972 -0.0028586984 -0.21809384 -0.0012834668 -0.23072401 0.0082702637 -0.23103523
+		 0.0029349327 -0.23111331 -0.00069957972 -0.23076823 -0.0043801665 -0.23104471 -0.0032300949
+		 -0.2176846 -0.0099160671 -0.21733925 -0.0091330409 -0.21704993 -0.0084303617 -0.21508953
+		 -0.0070768595 -0.21481302 -0.006270051 -0.23059312 -0.0053601861 -0.23013458 -0.0063083172
+		 -0.22978196 -0.0077143312 -0.22948977 -0.0092300177 -0.22912058 -0.011059105 -0.22818509
+		 -0.013143539 -0.22589663 -0.013593614 -0.22396508 -0.013614297 -0.22201523 -0.013131082
+		 -0.22008547 -0.012239516 -0.21808687 -0.010780275 -0.21513036 -0.0028242469 -0.21576938
+		 -0.0013432503 -0.23178247 0.0062161088 -0.23165876 0.0011539459 -0.2314367 -0.0019670129
+		 -0.23157877 -0.004036665 -0.23135516 -0.0049369335 -0.21675661 -0.0095345378 -0.21602139
+		 -0.0087988973 -0.21539113 -0.0078777075 -0.23119345 -0.0057567358 -0.23056832 -0.0063199997
+		 -0.2302725 -0.0075262189 -0.23005399 -0.0090120435 -0.2299349 -0.010771096 -0.22962371
+		 -0.012630582 -0.22694758 -0.014132023 -0.225153 -0.014469087 -0.22299567 -0.014048636
+		 -0.22076473 -0.013182759 -0.21855423 -0.011747599 -0.21653548 -0.009842217 -0.23254874
+		 0.003755033 -0.23198429 -0.00064599514 -0.23188618 -0.0030989647 -0.23233885 -0.005777657
+		 -0.23250538 -0.0050007701 -0.21471426 -0.0087945461 -0.23216495 -0.0065200925 -0.23116264
+		 -0.0066180229 -0.23070806 -0.0074375272 -0.23057497 -0.0087962151 -0.23058453 -0.010399163
+		 -0.2306582 -0.012203217 -0.22936061 -0.01422596 -0.23041049 -0.013760805;
+	setAttr ".uvtk[4500:4749]" -0.22817001 -0.013860166 -0.22768179 -0.014605761
+		 -0.22635618 -0.015232563 -0.22438028 -0.01509124 -0.2217603 -0.014258444 -0.21911874
+		 -0.012856662 -0.21658799 -0.010587871 -0.2328327 0.0011668205 -0.23231408 -0.0021627545
+		 -0.2326858 -0.0042231083 -0.23342958 -0.0059118867 -0.23328912 -0.0066174865 -0.21390018
+		 -0.0093802214 -0.2330921 -0.0073145032 -0.23211581 -0.0073503256 -0.23130515 -0.0076552033
+		 -0.23101437 -0.008616209 -0.2311154 -0.010030806 -0.23138091 -0.011653483 -0.23148099
+		 -0.013198555 -0.22862676 -0.014647186 -0.23109072 -0.014704049 -0.22988823 -0.015386462
+		 -0.22815385 -0.01481086 -0.22735068 -0.015823901 -0.22585419 -0.01603055 -0.22335663
+		 -0.015564382 -0.22010568 -0.014264643 -0.21699342 -0.011831999 -0.23295969 -0.00093507767
+		 -0.2329101 -0.0034843087 -0.23352513 -0.005212009 -0.23382995 -0.00702703 -0.23403281
+		 -0.0063788891 -0.21423861 -0.010702312 -0.23359019 -0.0076937079 -0.23280784 -0.0076519847
+		 -0.23231032 -0.0084033012 -0.23139727 -0.0085123777 -0.23156601 -0.0097363591 -0.23192996
+		 -0.011107445 -0.23228884 -0.012544692 -0.23228192 -0.013923824 -0.22889379 -0.015899599
+		 -0.23032472 -0.016226292 -0.23179916 -0.015387177 -0.22812209 -0.016101837 -0.22713497
+		 -0.016727984 -0.22516552 -0.016715825 -0.22186616 -0.015919805 -0.21802381 -0.013716936
+		 -0.23393857 0.00094109774 -0.23419443 0.0038735271 -0.23336223 -0.002413094 -0.23359886
+		 -0.004539907 -0.23418623 -0.0057345033 -0.23471308 -0.0066880584 -0.23442912 -0.0072848201
+		 -0.21559837 -0.012994647 -0.21066019 -0.010650098 -0.20994326 -0.0091177225 -0.234155
+		 -0.0079221725 -0.23313656 -0.0082107782 -0.23196083 -0.0092791319 -0.23241836 -0.010679662
+		 -0.23294249 -0.011882246 -0.23320973 -0.013166308 -0.23318788 -0.014433086 -0.22904417
+		 -0.016824663 -0.23275074 -0.015926778 -0.2309404 -0.016953826 -0.22808978 -0.017003536
+		 -0.22677496 -0.01744312 -0.22398481 -0.017333627 -0.22005811 -0.016006112 -0.23429722
+		 -0.00049352646 -0.23378479 -0.0036932826 -0.23428246 -0.0050769448 -0.23498094 -0.00609231
+		 -0.23558113 -0.0076400042 -0.23589754 -0.0070706606 -0.21825978 -0.016058505 -0.21225515
+		 -0.012718678 -0.20518968 -0.010590553 -0.20633343 -0.011817992 -0.2353023 -0.008243382
+		 -0.23380619 -0.0086023211 -0.23329613 -0.0093191862 -0.23286742 -0.010157108 -0.23354664
+		 -0.011287451 -0.23397958 -0.0124138 -0.23417827 -0.013578594 -0.23435423 -0.014729142
+		 -0.229332 -0.017560422 -0.23203504 -0.017633915 -0.23415548 -0.016367078 -0.22805455
+		 -0.017667413 -0.22603652 -0.018271923 -0.22263327 -0.017900288 -0.23424268 -0.0024900436
+		 -0.23449546 -0.0042021871 -0.23520482 -0.0054480433 -0.23625034 -0.0064775944 -0.23717082
+		 -0.007450521 -0.23686159 -0.0079907179 -0.22161934 -0.018426418 -0.21657667 -0.015926063
+		 -0.20690647 -0.013423204 -0.20098636 -0.014468849 -0.19996068 -0.013267934 -0.23659012
+		 -0.0085493922 -0.23499271 -0.0089420676 -0.23458418 -0.0097956657 -0.2340951 -0.010632336
+		 -0.2347061 -0.011644185 -0.23494861 -0.012761831 -0.23536408 -0.013724089 -0.23592681
+		 -0.014837027 -0.22998551 -0.018422365 -0.23588508 -0.016538084 -0.23330432 -0.018261909
+		 -0.228012 -0.018666804 -0.22526649 -0.019144118 -0.23504564 -0.002836585 -0.23547506
+		 0.0015992522 -0.23522061 -0.00062978268 -0.23554432 -0.0045334101 -0.23663616 -0.0058002472
+		 -0.23757365 -0.006842792 -0.2378543 -0.0082432628 -0.23813322 -0.0077448487 -0.22483394
+		 -0.019771278 -0.2207078 -0.019091249 -0.21120784 -0.013085604 -0.21551356 -0.015671015
+		 -0.2014716 -0.015883625 -0.23757583 -0.0087650418 -0.23628357 -0.0091925263 -0.23587209
+		 -0.0099874139 -0.23534966 -0.010839939 -0.23569655 -0.011873126 -0.23606288 -0.012830436
+		 -0.23693785 -0.013510704 -0.23793897 -0.014391482 -0.23067334 -0.019326627 -0.23425692
+		 -0.018823743 -0.23763153 -0.016653121 -0.22797105 -0.01970315 -0.23577705 -0.0012937188
+		 -0.23642099 -0.0030252337 -0.23640984 0.0013674498 -0.23644736 0.0032678843 -0.23522955
+		 0.0034781098 -0.23615718 0.0050674677 -0.23693675 -0.0047994256 -0.23812938 -0.0060859919
+		 -0.23853269 -0.0071367621 -0.23936045 -0.0076400042 -0.23879862 -0.0082657933 -0.22794142
+		 -0.020329118 -0.22472897 -0.020370841 -0.21874782 -0.01924473 -0.21489254 -0.01590395
+		 -0.21029523 -0.012876093 -0.23844942 -0.008838594 -0.23725891 -0.0093701482 -0.23686343
+		 -0.010121822 -0.2363562 -0.010973811 -0.23673421 -0.011880755 -0.23753247 -0.01245451
+		 -0.23900303 -0.012601674 -0.24032447 -0.013756633 -0.2310445 -0.019969165 -0.23928145
+		 -0.01657027 -0.23509812 -0.019533813 -0.2366809 0.00019043684 -0.23690486 -0.0015126467
+		 -0.23778445 -0.002984941 -0.23903072 -0.0052391291 -0.23916915 -0.0062885284 -0.24006397
+		 -0.00684762 -0.22791842 -0.020993829 -0.22182223 -0.021194577 -0.22487518 -0.02106607
+		 -0.21901998 -0.023237109 -0.2186223 -0.02317524 -0.21822008 -0.01983434 -0.20932272
+		 -0.012744606 -0.21436736 -0.016611636 -0.23995554 -0.0077760816 -0.23941115 -0.0086295009
+		 -0.23813623 -0.0094293952 -0.23777479 -0.010144591 -0.23732322 -0.010965645 -0.23803112
+		 -0.011526644 -0.23944858 -0.011413574 -0.24172029 -0.011576653 -0.24363366 -0.013577342
+		 -0.23110303 -0.020570874 -0.2370171 -0.019821167 -0.24031907 -0.016356528 -0.23853236
+		 -0.0015859604 -0.24036717 -0.0035048127 -0.24024597 -0.0051881075 -0.24087209 -0.0057827234
+		 -0.2278991 -0.021615863 -0.2195532 -0.024151027 -0.22513822 -0.021933734 -0.22237721
+		 -0.022332311 -0.21810481 -0.025540292 -0.21758994 -0.026020706 -0.2182568 -0.023552656
+		 -0.21771267 -0.020684898 -0.24139479 -0.0071918964 -0.24108779 -0.0079978704 -0.23915482
+		 -0.0092414021 -0.23883855 -0.0099290609 -0.23846421 -0.010691106 -0.23954254 -0.010692418
+		 -0.24210295 -0.010312498 -0.24526295 -0.011621535 -0.24464479 -0.013950169 -0.23392367
+		 -0.021594048 -0.23091909 -0.021259725 -0.23662043 -0.023886442 -0.23701459 -0.023856282
+		 -0.2409116 -0.016631961 -0.2375167 -0.020463228 -0.24063852 -0.0017680526 -0.24153847
+		 -0.0036887527 -0.22787729 -0.022296309 -0.22013602 -0.025136471 -0.21808991 -0.02694726
+		 -0.22307274 -0.023517668 -0.22546664 -0.022994459 -0.21752658 -0.027826071 -0.21732929
+		 -0.026078284 -0.21780011 -0.023999155 -0.24075526 -0.0087834597 -0.24010175 -0.0096792579
+		 -0.23935914 -0.010373414 -0.24134746 -0.0097244978 -0.24602956 -0.010169685 -0.24894014
+		 -0.014416039 -0.24954468 -0.012878716 -0.24553102 -0.01377058 -0.23606005 -0.024775445
+		 -0.23332205 -0.022706985 -0.23061106 -0.022114575 -0.23735908 -0.024273515;
+	setAttr ".uvtk[4750:4999]" -0.23792139 -0.026854455 -0.23743472 -0.026315093
+		 -0.23798963 -0.021379173 -0.24139917 -0.017392159 -0.24283978 -0.0021599531 -0.22784629
+		 -0.023152471 -0.22092882 -0.02572763 -0.21854272 -0.027800083 -0.22574744 -0.023951054
+		 -0.22364274 -0.024532199 -0.21795681 -0.028707147 -0.21737888 -0.027923346 -0.21701208
+		 -0.02620095 -0.21736321 -0.024388671 -0.21716222 -0.021092772 -0.25072446 -0.011733472
+		 -0.2548292 -0.015611887 -0.25431323 -0.016965687 -0.24647218 -0.013679445 -0.23739502
+		 -0.027751505 -0.23543242 -0.025729537 -0.23255718 -0.023855269 -0.23021528 -0.023156762
+		 -0.23778999 -0.024770081 -0.23816854 -0.026933014 -0.23791021 -0.028695941 -0.22781625
+		 -0.023952067 -0.22160879 -0.026225865 -0.219336 -0.027802408 -0.22386238 -0.025065124
+		 -0.22586641 -0.024474323 -0.21876678 -0.028647959 -0.21785578 -0.028880656 -0.2171919
+		 -0.02804929 -0.21672484 -0.026333094 -0.21671948 -0.021272898 -0.21704766 -0.024563849
+		 -0.25588691 -0.014486253 -0.23689988 -0.028571427 -0.23458779 -0.026266992 -0.23192048
+		 -0.024836421 -0.22986886 -0.024096489 -0.23851147 -0.021853685 -0.23820347 -0.025206208
+		 -0.23846823 -0.02708137 -0.23804629 -0.028805315 -0.23743898 -0.029543936 -0.22779825
+		 -0.024427772 -0.22179636 -0.026586533 -0.22021499 -0.027385294 -0.22591385 -0.024828851
+		 -0.2239252 -0.02540493 -0.21996322 -0.027845323 -0.21863505 -0.02889204 -0.21773008
+		 -0.029087484 -0.21701375 -0.028172314 -0.21652684 -0.026397824 -0.21656999 -0.024387062
+		 -0.21600088 -0.020871699 -0.23607528 -0.028509974 -0.23386052 -0.026716769 -0.23166543
+		 -0.025356352 -0.22971275 -0.024612367 -0.23893642 -0.022078514 -0.23850423 -0.025412858
+		 -0.23873878 -0.027237177 -0.23821902 -0.028945982 -0.23752987 -0.029728234 -0.23660454
+		 -0.029419482 -0.22778443 -0.02478689 -0.22176298 -0.026917279 -0.22399798 -0.025830269
+		 -0.22597095 -0.025274098 -0.21985313 -0.028169274 -0.21846589 -0.029190123 -0.21761408
+		 -0.029275298 -0.21689287 -0.028249979 -0.21626958 -0.026359081 -0.23519722 -0.028010726
+		 -0.23364711 -0.02706337 -0.23157999 -0.025693476 -0.22963879 -0.024964035 -0.23964038
+		 -0.021722019 -0.23896903 -0.025267959 -0.23892581 -0.027317286 -0.23838377 -0.029082239
+		 -0.237643 -0.029948294 -0.23672697 -0.029675841 -0.23541689 -0.028500736 -0.22776702
+		 -0.025240779 -0.22171518 -0.027335048 -0.22602203 -0.025692284 -0.22406039 -0.026227295
+		 -0.21970138 -0.028574228 -0.21830669 -0.029460728 -0.21753821 -0.029390514 -0.21677068
+		 -0.028319657 -0.23366389 -0.027398109 -0.23147893 -0.026115417 -0.2295489 -0.025405824
+		 -0.23917308 -0.02729404 -0.2384958 -0.029168248 -0.23774743 -0.030148149 -0.23688447
+		 -0.029989541 -0.23551551 -0.028835952 -0.22775075 -0.025670648 -0.2216635 -0.027725637
+		 -0.22409788 -0.026483595 -0.22605464 -0.025965691 -0.21954843 -0.028947294 -0.218205
+		 -0.029628336 -0.21746621 -0.029495299 -0.21582368 -0.026256144 -0.21658751 -0.028425872
+		 -0.2336908 -0.027820766 -0.23138976 -0.026508987 -0.22946671 -0.025820553 -0.23860985
+		 -0.029245794 -0.23781574 -0.030271232 -0.23703313 -0.030274808 -0.23565346 -0.029255092
+		 -0.22774008 -0.025954962 -0.22162649 -0.027976096 -0.22608557 -0.026232839 -0.22413144
+		 -0.026728272 -0.21944574 -0.029181182 -0.21810904 -0.029779375 -0.21736398 -0.029651582
+		 -0.23372278 -0.028215885 -0.2313351 -0.026763082 -0.22941402 -0.026091814 -0.23960418
+		 -0.027212322 -0.23878038 -0.029362857 -0.23788077 -0.030383408 -0.23712778 -0.030451953
+		 -0.23579341 -0.029641688 -0.22773001 -0.02623713 -0.2215881 -0.028210521 -0.22417822
+		 -0.027088404 -0.22613016 -0.02663058 -0.21934494 -0.029392838 -0.21796831 -0.029995799
+		 -0.21726283 -0.029797912 -0.21640524 -0.028549135 -0.23374712 -0.028469324 -0.23128501
+		 -0.027005851 -0.22936365 -0.026356816 -0.23797238 -0.030550063 -0.23721725 -0.03061229
+		 -0.23588786 -0.029884458 -0.22771499 -0.026661515 -0.22152719 -0.028552949 -0.2261748
+		 -0.027035058 -0.22422174 -0.027452469 -0.21919104 -0.029694796 -0.21783116 -0.030192554
+		 -0.2171779 -0.02987051 -0.2162672 -0.0286327 -0.23377338 -0.02870667 -0.23121405
+		 -0.027362823 -0.22929075 -0.026751459 -0.23734879 -0.030842543 -0.23894987 -0.029496074
+		 -0.23806304 -0.030706346 -0.23598093 -0.030104697 -0.22769967 -0.027095854 -0.22146031
+		 -0.028893888 -0.224251 -0.027711332 -0.22620687 -0.027323604 -0.21903232 -0.02997905
+		 -0.21774027 -0.030295432 -0.21659902 -0.029939055 -0.21561363 -0.028691232 -0.23381627
+		 -0.02905345 -0.23114523 -0.02772367 -0.22921702 -0.027152538 -0.23747662 -0.031053245
+		 -0.2361235 -0.030419588 -0.23814043 -0.03078568 -0.23907921 -0.029586136 -0.22768858
+		 -0.027406871 -0.22141078 -0.029125333 -0.22618738 -0.027889788 -0.2243003 -0.028239071
+		 -0.21892193 -0.030146956 -0.21728572 -0.030471504 -0.23386472 -0.029398859 -0.23109818
+		 -0.02798003 -0.22916386 -0.027438641 -0.23756105 -0.031166196 -0.23627096 -0.030717254
+		 -0.23970634 -0.029666841 -0.23869193 -0.030877769 -0.2276679 -0.027985454 -0.22167572
+		 -0.029474139 -0.22443888 -0.029394984 -0.22609863 -0.029094934 -0.21860579 -0.030716002
+		 -0.21524683 -0.030375898 -0.21606544 -0.030960798 -0.23390099 -0.029633641 -0.23100373
+		 -0.028505743 -0.22913942 -0.028006732 -0.23801091 -0.03138721 -0.23637319 -0.030894876
+		 -0.22762367 -0.02923739 -0.22256175 -0.030220151 -0.22614047 -0.030467033 -0.22495511
+		 -0.030773222 -0.21653506 -0.031374454 -0.21447209 -0.031647742 -0.21358731 -0.031126022
+		 -0.2335999 -0.029965103 -0.23075804 -0.0296579 -0.22912982 -0.029220402 -0.24004909
+		 -0.03126955 -0.23926154 -0.03196907 -0.23665911 -0.031514108 -0.22757432 -0.030847132
+		 -0.22330251 -0.031699359 -0.2210336 -0.031682611 -0.22546104 -0.031794488 -0.22648284
+		 -0.031887472 -0.21861801 -0.032437801 -0.21700028 -0.032018661 -0.21497622 -0.032422066
+		 -0.23262346 -0.030653 -0.23008913 -0.031034768 -0.22898266 -0.030595839 -0.24198437
+		 -0.031757236 -0.2409763 -0.032827139 -0.23882145 -0.032396436 -0.22753772 -0.032617748
+		 -0.22589919 -0.032763362 -0.22361287 -0.034353316 -0.22213998 -0.032828391 -0.22072515
+		 -0.034070432 -0.21846756 -0.034083307 -0.21650091 -0.032964885 -0.21292147 -0.032024801
+		 -0.21424833 -0.032991707 -0.23411286 -0.032270253 -0.23175392 -0.032089472 -0.2295244
+		 -0.032006204 -0.22857186 -0.032003582 -0.24072087 -0.033817112 -0.23650151 -0.033251762
+		 -0.23823249 -0.032985091 -0.22750989 -0.034749806 -0.22648713 -0.033547223;
+	setAttr ".uvtk[5000:5249]" -0.2269859 -0.035196602 -0.22388634 -0.037469685 -0.22215024
+		 -0.035355091 -0.22089908 -0.036522806 -0.21859959 -0.035692155 -0.21639249 -0.034294426
+		 -0.21445814 -0.034091651 -0.2141622 -0.034233749 -0.23428506 -0.034731328 -0.23291081
+		 -0.033330083 -0.22897777 -0.033070266 -0.23128253 -0.03477037 -0.23857766 -0.034017384
+		 -0.23647076 -0.034920037 -0.22852054 -0.033650458 -0.22748789 -0.037120938 -0.22669491
+		 -0.035716891 -0.22630873 -0.038016021 -0.22385272 -0.040090859 -0.22243777 -0.038464725
+		 -0.22115526 -0.038486063 -0.21716538 -0.035789609 -0.21483228 -0.035523951 -0.21364656
+		 -0.034467161 -0.21373019 -0.033336818 -0.21284071 -0.035835743 -0.21292457 -0.034808695
+		 -0.23393035 -0.037216485 -0.23278177 -0.035887778 -0.23084921 -0.03795141 -0.22771442
+		 -0.035528302 -0.240159 -0.035474718 -0.2383652 -0.035374999 -0.23614392 -0.036565483
+		 -0.2282705 -0.035807788 -0.22606245 -0.040091038 -0.22371158 -0.042307258 -0.2225236
+		 -0.040908813 -0.21343878 -0.033477247 -0.21196172 -0.036775351 -0.21136388 -0.035989404
+		 -0.21225718 -0.035292745 -0.2335813 -0.039205432 -0.23232836 -0.039062679 -0.22827536
+		 -0.038409889 -0.23076972 -0.040637076 -0.24325863 -0.036040604 -0.24122396 -0.036691308
+		 -0.23874307 -0.036681175 -0.23741445 -0.036893785 -0.22607574 -0.041711986 -0.22372147
+		 -0.044178486 -0.22243556 -0.042868137 -0.2210184 -0.039915264 -0.21209857 -0.034041941
+		 -0.21122786 -0.038231194 -0.21033004 -0.037809312 -0.21129748 -0.034207523 -0.23212641
+		 -0.041568398 -0.23082945 -0.042910516 -0.22842985 -0.040512502 -0.24329871 -0.034560204
+		 -0.24404326 -0.036508799 -0.23850435 -0.037776709 -0.22635433 -0.043407619 -0.22396794
+		 -0.046279609 -0.22241041 -0.044748306 -0.22091225 -0.041279376 -0.21090725 -0.040112972
+		 -0.20970014 -0.040061414 -0.20985606 -0.036052704 -0.23365057 -0.040661871 -0.23213458
+		 -0.043569267 -0.22832823 -0.042138278 -0.23075095 -0.044824243 -0.2453298 -0.038668156
+		 -0.24465206 -0.038526893 -0.22241846 -0.04811877 -0.22091612 -0.043018639 -0.21063963
+		 -0.042130113 -0.2093493 -0.042238593 -0.20924255 -0.038461924 -0.23209879 -0.045463681
+		 -0.23365501 -0.042079091 -0.23044187 -0.046972036 -0.22788242 -0.043799698 -0.24677286
+		 -0.041071355 -0.24708733 -0.040782332 -0.22297153 -0.052804708 -0.22481743 -0.049114585
+		 -0.21029767 -0.044200897 -0.20904574 -0.044371009 -0.20878401 -0.040719926 -0.23369974
+		 -0.043644845 -0.23201567 -0.048797369 -0.22699726 -0.046092451 -0.2297838 -0.049862564
+		 -0.24369872 -0.039259851 -0.24593347 -0.041080058 -0.24853808 -0.042770147 -0.2478067
+		 -0.042305827 -0.22176751 -0.050510585 -0.22180459 -0.05585295 -0.2100881 -0.04662317
+		 -0.20906904 -0.046833932 -0.20839199 -0.042913318 -0.23157707 -0.053485036 -0.24781278
+		 -0.042877138 -0.24923664 -0.044124484 -0.21001193 -0.048753619 -0.20922074 -0.048961699
+		 -0.23270774 -0.050973892 -0.23273131 -0.05656141 -0.24666429 -0.042901099 -0.24440825
+		 -0.041065693 -0.24861151 -0.044486701 -0.21037367 -0.050209463 -0.20973054 -0.050282061
+		 -0.2087054 -0.049458444 -0.20809707 -0.045506001 -0.25069359 -0.045454502 -0.24994087
+		 -0.046292722 -0.2107552 -0.051397502 -0.20993522 -0.050593555 -0.20939621 -0.050101101
+		 -0.24839449 -0.04251641 -0.24993831 -0.042194009 -0.24913937 -0.045755506 -0.2471962
+		 -0.044268131 -0.24891329 -0.046407461 -0.24980712 -0.046964645 -0.41746852 -0.94873321
+		 -0.41538283 -0.94905078 -0.41549537 -0.94838434 -0.41761974 -0.94809484 -0.41535249
+		 -0.94933885 -0.41742817 -0.94901657 -0.41347623 -0.94925016 -0.41354236 -0.94854963
+		 -0.41565537 -0.94746017 -0.41789013 -0.94718754 -0.41342914 -0.94955742 -0.41746461
+		 -0.94914711 -0.41537642 -0.94946098 -0.41359574 -0.94760525 -0.41339007 -0.94969487
+		 -0.41126537 -0.9497472 -0.41136366 -0.9494099 -0.41542703 -0.94963032 -0.4175446
+		 -0.94932818 -0.41334519 -0.94988525 -0.41109613 -0.94991469 -0.41764721 -0.949507
+		 -0.41549233 -0.9497968 -0.41331038 -0.95007199 -0.41555959 -0.94991207 -0.41330042
+		 -0.95019877 0.2554948 -0.79418254 0.25693646 -0.79357451 0.25590208 -0.78984821 0.25456476
+		 -0.7902655 0.25698724 -0.79256487 0.25597531 -0.78900588 0.25482103 -0.78641248 0.25350735
+		 -0.7865448 0.25813356 -0.79646266 0.25809255 -0.79550803 0.25493014 -0.78598666 0.25407773
+		 -0.78425741 0.25281605 -0.78419727 0.25140139 -0.78588104 0.25255996 -0.79067898
+		 0.2589536 -0.7986716 0.25897986 -0.79778278 0.25432193 -0.78440928 0.25936344 -0.7997911
+		 0.25957271 -0.79901564 0.25391448 -0.78330457 0.25240079 -0.78343797 0.25967699 -0.79788864
+		 0.25923514 -0.79596364 0.25977522 -0.79996359 0.25992814 -0.79895675 0.26017696 -0.8000443
+		 0.25995669 -0.80100226 0.26016539 -0.80306208 0.26052412 -0.80164182 0.26103845 -0.80429494
+		 0.26045743 -0.80705309 0.37220612 -0.39106071 0.37512878 -0.39282301 0.37517986 -0.39029953
+		 0.373449 -0.39020994 0.37406221 -0.39447662 0.37099031 -0.39153767 0.37809309 -0.39115825
+		 0.37691537 -0.39028388 0.37522021 -0.38770199 0.37415853 -0.38793305 0.37506399 -0.40017039
+		 0.37440762 -0.39998934 0.37614474 -0.39453009 0.37926123 -0.39165092 0.37628004 -0.38798475
+		 0.37525085 -0.38521135 0.37459734 -0.38530692 0.37282035 -0.38857877 0.37114641 -0.39235121
+		 0.37571219 -0.40002203 0.37441757 -0.40512788 0.37500522 -0.40557253 0.37590221 -0.38534167
+		 0.37921938 -0.3924951 0.37762007 -0.38868365 0.3752794 -0.38239661 0.37488911 -0.38245395
+		 0.37378737 -0.38545594 0.37133864 -0.38925499 0.36865053 -0.39422435 0.37559071 -0.40515348
+		 0.37493947 -0.40953881 0.37451449 -0.40927231 0.37671533 -0.38553113 0.37566867 -0.38247603
+		 0.37911621 -0.38941431 0.38172922 -0.39442912 0.37531182 -0.37936515 0.3750619 -0.37939167
+		 0.37433562 -0.38249233 0.37263998 -0.38554397 0.37536308 -0.40928894 0.37466517 -0.41325009
+		 0.3748779 -0.41321844 0.37787858 -0.3856712 0.37622598 -0.38254446 0.37556139 -0.37940568
+		 0.3753399 -0.37650436 0.37509051 -0.37663066 0.37467763 -0.37931776 0.37342754 -0.38236377
+		 0.37131557 -0.38589808 0.36958984 -0.39034548 0.3751106 -0.41289312 0.37476203 -0.41760138
+		 0.37462857 -0.41753438 0.38074562 -0.39036623 0.37913892 -0.38595074 0.37715021 -0.38246241
+		 0.37594965 -0.37935314 0.37558851 -0.37664407;
+	setAttr ".uvtk[5250:5499]" 0.37535688 -0.37412429 0.37495145 -0.37459219 0.37477514
+		 -0.37725902 0.37400439 -0.37896413 0.3722938 -0.38242054 0.37497917 -0.41606665 0.37461761
+		 -0.42197689 0.37828639 -0.38253906 0.37663749 -0.3790355 0.37589321 -0.37728924 0.37575957
+		 -0.37461483 0.37537345 -0.37214577 0.37435111 -0.37380251 0.37447801 -0.37613967
+		 0.37301579 -0.37882864 0.37102619 -0.38298118 0.36993322 -0.38671181 0.3750219 -0.41748318
+		 0.37543699 -0.41298884 0.37950936 -0.38305083 0.38026759 -0.38642246 0.37764868 -0.37894505
+		 0.3762134 -0.37618601 0.37638608 -0.37385505 0.37294284 -0.37303486 0.37230071 -0.37432286
+		 0.37363824 -0.37573844 0.37148866 -0.37931091 0.37920317 -0.37947553 0.37707737 -0.37582237
+		 0.37784675 -0.37313345 0.37847671 -0.37443945 0.37538823 -0.37085554 0.37336615 -0.37155813
+		 0.36954638 -0.37466273 0.36915115 -0.37587664 0.3717486 -0.37620491 0.36912087 -0.38040534
+		 0.36891314 -0.3839581 0.38160005 -0.38400918 0.3816022 -0.38062149 0.37900206 -0.37634465
+		 0.37744096 -0.37164855 0.38166699 -0.37606999 0.38128909 -0.37484643 0.36893329 -0.37753913
+		 0.38185439 -0.37774336 0.13932031 -0.79876947 0.13801983 -0.80177379 0.14016035 -0.80375165
+		 0.14071122 -0.80043399 0.14095736 -0.80532539 0.14192462 -0.80005997 0.14152986 -0.79919851
+		 0.14028254 -0.79757571 0.14117742 -0.81143773 0.13958955 -0.80933762 0.14283749 -0.80238128
+		 0.14586946 -0.79365665 0.14277995 -0.79897261 0.14156181 -0.79772645 0.13947824 -0.79702705
+		 0.33906054 -0.79105145 0.33955908 -0.78894293 0.33885089 -0.78941727 0.33853707 -0.79131854
+		 0.34035403 -0.78980148 0.33969501 -0.79168212 0.33816117 -0.79324079 0.33861101 -0.79306459
+		 0.33918437 -0.79359865 0.33811903 -0.79561484 0.33768889 -0.79583246 0.33864346 -0.79618919
+		 0.33718321 -0.799371 0.33756208 -0.79913473 0.33799911 -0.79970652 0.33691233 -0.80415475
+		 0.33665365 -0.80418861 0.33722508 -0.80446404 0.33612636 -0.80916697 0.33632049 -0.80934054
+		 0.33657315 -0.80941409 -0.83654797 -0.95012683 -0.83742738 -0.94741017 -0.83772194
+		 -0.94746572 -0.83682233 -0.95019466 -0.34424043 -0.94961971 -0.34383187 -0.95020604
+		 -0.34388462 -0.94877422 -0.34404016 -0.9484092 -0.34343904 -0.94959384 -0.34373918
+		 -0.94839168 -0.34392601 -0.9465127 -0.34403348 -0.94637024 -0.34382045 -0.9463551
+		 -0.34397402 -0.9435364 -0.34414381 -0.94334233 -0.34380364 -0.94332081 -0.34402961
+		 -0.93981969 -0.34432745 -0.93939781 -0.34373063 -0.93936443 -0.16853282 -0.94702232
+		 -0.16860428 -0.94824815 -0.1676763 -0.94880831 -0.16727081 -0.94787431 -0.16873673
+		 -0.94911623 -0.16793767 -0.94907564 -0.16666332 -0.94893897 -0.16590336 -0.94764048
+		 -0.1695517 -0.95095086 -0.16821507 -0.95018893 -0.16742864 -0.94974124 -0.16750148
+		 -0.95083445 -0.29889488 -0.94507992 -0.29956818 -0.94765478 -0.29922724 -0.94741023
+		 -0.29830739 -0.94401336 -0.30055571 -0.95053113 -0.29988164 -0.94796145 -0.12597123
+		 -0.79540288 -0.12498134 -0.79387259 -0.12512231 -0.79141355 -0.12662858 -0.79534733
+		 -0.12878788 -0.79701275 -0.12776828 -0.79711664 -0.12972414 -0.79861659 -0.13082075
+		 -0.79849315 -0.12698194 -0.79332024 -0.12888393 -0.79633653 -0.13101697 -0.79823291
+		 -0.13306075 -0.79920292 -0.13259503 -0.80002338 -0.1336439 -0.80158353 -0.13310498
+		 -0.80229205 -0.13341025 -0.80488122 -0.13285947 -0.80555236 -0.13310537 -0.80854344
+		 -0.13220841 -0.81025434 -0.84396416 -0.9494915 -0.84419066 -0.94886827 -0.84416831
+		 -0.94954896 -0.84397864 -0.95028681 -0.13338131 -0.94990337 -0.13348866 -0.94799626
+		 -0.13345546 -0.94987828 -0.13347739 -0.95092297 -0.15411448 -0.80384696 -0.15405986
+		 -0.80476111 -0.15229341 -0.80513406 -0.15222386 -0.80465126 -0.15536153 -0.80411315
+		 -0.15565953 -0.80289495 -0.15332684 -0.80557096 -0.15207449 -0.80553639 -0.15464848
+		 -0.80575275 -0.1553444 -0.80533481 -0.15411529 -0.80286551 -0.15607628 -0.80144072
+		 -0.15401337 -0.80623269 -0.1528672 -0.80605054 -0.15174559 -0.80583882 -0.15555143
+		 -0.8066473 -0.15506995 -0.80683839 -0.15452287 -0.80717802 -0.15352258 -0.80671912
+		 -0.15253055 -0.80637783 -0.15145117 -0.80604899 -0.15548494 -0.80794704 -0.15491161
+		 -0.80800611 -0.15405428 -0.80756146 -0.15324908 -0.80700964 -0.15237141 -0.8066467
+		 -0.1513592 -0.80618137 -0.15442365 -0.80816674 -0.15379688 -0.8077935 -0.15302679
+		 -0.80720329 -0.1521112 -0.80726814 -0.15126473 -0.80669135 -0.15416908 -0.80836892
+		 -0.15538016 -0.80906457 -0.15477449 -0.80892497 -0.15352511 -0.80788553 -0.15246856
+		 -0.80765545 -0.15179738 -0.80782437 -0.15104446 -0.80732346 -0.15454155 -0.80901265
+		 -0.15388948 -0.80847728 -0.15278357 -0.80813575 -0.15199155 -0.80806971 -0.1513986
+		 -0.80822945 -0.15070483 -0.80797732 -0.15437028 -0.80911088 -0.15316725 -0.80866039
+		 -0.15213293 -0.80839473 -0.15164939 -0.80840611 -0.1507979 -0.80884027 -0.15025035
+		 -0.8086248 -0.15374368 -0.80927837 -0.15241653 -0.8089577 -0.15173277 -0.80870616
+		 -0.15113065 -0.80896068 -0.15526801 -0.80993116 -0.1545786 -0.81002378 -0.15308487
+		 -0.8095929 -0.15181074 -0.80931062 -0.1513719 -0.80907762 -0.14977989 -0.80962926
+		 -0.15029582 -0.80963838 -0.15629387 -0.81084943 -0.15549669 -0.81080228 -0.1539062
+		 -0.81027865 -0.15125692 -0.80966228 -0.35275114 -0.80657482 -0.35451728 -0.80694461
+		 -0.35457346 -0.8078593 -0.35268274 -0.8070575 -0.35378295 -0.80613601 -0.35253128
+		 -0.80617261 -0.35581911 -0.80759013 -0.35611877 -0.80880892 -0.35510397 -0.805951
+		 -0.35446808 -0.80547237 -0.3522017 -0.80587041 -0.35332254 -0.80565691 -0.35580012
+		 -0.80636758 -0.35653758 -0.81026387 -0.35457608 -0.80884129 -0.3539764 -0.80498683
+		 -0.35497594 -0.80452573 -0.35552371 -0.80486405 -0.35298532 -0.80533028 -0.35190666
+		 -0.80566049 -0.35600552 -0.80505395 -0.35370252 -0.80469704 -0.35450658 -0.80414331
+		 -0.35593736 -0.80375421 -0.35536343 -0.80369669 -0.35181412 -0.80552852 -0.35282558
+		 -0.8050617 -0.35347974 -0.8045038 -0.35424894 -0.80391192 -0.35487491 -0.80353743
+		 -0.35256431 -0.80444115 -0.3517186 -0.80501902 -0.35292074 -0.80405271 -0.35397682
+		 -0.80382091 -0.35462022 -0.80333602 -0.35522491 -0.8027786 -0.35583091 -0.80263758;
+	setAttr ".uvtk[5500:5749]" -0.35149708 -0.80438781 -0.35224921 -0.8038857 -0.35244244
+		 -0.80363947 -0.35323444 -0.80357158 -0.35434017 -0.80322826 -0.35499164 -0.8026917
+		 -0.35184902 -0.80348134 -0.35115606 -0.8037343 -0.3520993 -0.80330408 -0.35258293
+		 -0.80331385 -0.35361719 -0.80304646 -0.35482013 -0.80259413 -0.35070023 -0.80308753
+		 -0.35124719 -0.80287135 -0.35157952 -0.80275011 -0.35218194 -0.80300367 -0.35286552
+		 -0.80275029 -0.35419273 -0.80242777 -0.35022849 -0.80208319 -0.35074395 -0.80207312
+		 -0.35182059 -0.80263287 -0.35225904 -0.80239868 -0.35353294 -0.80211461 -0.35571712
+		 -0.80177331 -0.35502693 -0.80168188 -0.35170481 -0.80204815 -0.35435367 -0.80142832
+		 -0.35594442 -0.80090261 -0.35674223 -0.80085421 -0.7512157 -0.94830918 -0.75308198
+		 -0.94645178 -0.75306249 -0.94853222 -0.75137234 -0.95019287 -0.67358357 -0.94845712
+		 -0.67281938 -0.95019758 -0.67111486 -0.94786334 -0.67205477 -0.94629258 0.49909669
+		 -0.60923684 0.49846822 -0.61119223 0.50002676 -0.61266208 0.5008747 -0.61102897 0.49773556
+		 -0.61086619 0.49839592 -0.60900885 0.49734002 -0.61371517 0.49660525 -0.61333525
+		 0.49930739 -0.60758799 0.49862111 -0.60758591 0.49780345 -0.60915822 0.49706486 -0.61113465
+		 0.49596214 -0.61354136 0.49910605 -0.60593772 0.49840492 -0.60616124 0.49806321 -0.60758412
+		 0.49646732 -0.61139858 0.49730438 -0.60931289 0.49536011 -0.61377525 0.49453655 -0.61629891
+		 0.49507159 -0.61618161 0.49848658 -0.60397834 0.49775326 -0.60429966 0.49781233 -0.60600793
+		 0.49760026 -0.60758257 0.49688959 -0.60932195 0.49599108 -0.61147666 0.4948796 -0.61386859
+		 0.49400282 -0.61646163 0.49299851 -0.61923397 0.49346164 -0.61917806 0.50004661 -0.60251462
+		 0.50088555 -0.60415149 0.49736673 -0.60144931 0.496631 -0.60182452 0.49708241 -0.60402715
+		 0.49731326 -0.6058501 0.49718547 -0.60758114 0.49561074 -0.61110699 0.49636549 -0.60892576
+		 0.4945713 -0.61360157 0.49356249 -0.61653966 0.4925729 -0.61932689 0.49156147 -0.6221121
+		 0.49198949 -0.62207085 0.49598736 -0.60161513 0.49648467 -0.60375988 0.49689829 -0.60583806
+		 0.49654287 -0.60757959 0.49582189 -0.60854876 0.49515185 -0.61071146 0.49416149 -0.61336768
+		 0.49329096 -0.61637777 0.49220419 -0.61937726 0.4912166 -0.62217236 0.49538472 -0.60137826
+		 0.49510479 -0.59897149 0.49456879 -0.59885126 0.4960081 -0.60367912 0.49637347 -0.60623145
+		 0.49601513 -0.60757768 0.49438748 -0.61068302 0.49509689 -0.60852736 0.49337465 -0.61357355
+		 0.49289578 -0.61632568 0.49191085 -0.61930573 0.49082533 -0.62228429 0.49403417 -0.59868628
+		 0.49490348 -0.60128248 0.49303743 -0.59591013 0.49350151 -0.59596854 0.49562666 -0.60404611
+		 0.49582911 -0.60660493 0.49542141 -0.607575 0.49384817 -0.60907489 0.49324629 -0.61138523
+		 0.4922989 -0.61432636 0.49208814 -0.61675918 0.49148762 -0.61936462 0.49024406 -0.62249219
+		 0.48934728 -0.62512529 0.49004221 -0.62475806 0.49261087 -0.59581506 0.49359283 -0.59860599
+		 0.49459413 -0.60154736 0.49203551 -0.59307027 0.49160653 -0.59302646 0.49516663 -0.60443866
+		 0.49510339 -0.60662115 0.49402574 -0.60757184 0.4910714 -0.61750847 0.49071544 -0.61982608
+		 0.49040329 -0.62152916 0.49126095 -0.59296441 0.49224126 -0.59576315 0.49332032 -0.59876633
+		 0.49418324 -0.60177863 0.49440107 -0.60446256 0.49385443 -0.6060679 0.48976105 -0.62047839
+		 0.48932865 -0.6228866 0.48796892 -0.62612474 0.49086878 -0.59285104 0.49194688 -0.59583318
+		 0.49292427 -0.59881598 0.49339551 -0.60156834 0.49325928 -0.60375524 0.48939645 -0.59000576
+		 0.49009228 -0.59037513 0.49028644 -0.592641 0.49152273 -0.59577215 0.49211597 -0.59837866
+		 0.49231917 -0.60081089 0.49044281 -0.59360409 0.49074984 -0.59530735 0.49109882 -0.59762514
+		 0.4893696 -0.59224331 0.4880169 -0.58900261 0.48979479 -0.5946517 0.30165029 -0.80481136
+		 0.30042219 -0.80510569 0.30012378 -0.80736732 0.30071074 -0.80741608 0.29997069 -0.80956256
+		 0.30182055 -0.80933708 0.42927742 -0.80436033 0.43064389 -0.80437982 0.43088618 -0.80108237
+		 0.42910933 -0.80244195 0.43068722 -0.80755603 0.4290204 -0.80625701 0.43149966 -0.80290407
+		 0.43301952 -0.79807985 0.43138629 -0.80581748 0.43253011 -0.81031847 0.43156672 -0.80441058
+		 0.43171623 -0.80417943 0.43169692 -0.80464351 0.43273035 -0.80443156 0.43292972 -0.80418527
+		 0.43224359 -0.80363417 0.43195501 -0.80259526 0.43194851 -0.80653489 0.43220627 -0.80519122
+		 0.43291542 -0.80468035 0.43355083 -0.80368423 0.43352085 -0.80518788 -0.53426015
+		 -0.95066702 -0.53310835 -0.95019573 -0.53233594 -0.94776762 -0.53349519 -0.94812787
+		 -0.5311991 -0.94528866 -0.53257751 -0.94573259 -0.53367132 -0.94608068 -0.53448415
+		 -0.94854504 -0.4500989 -0.94890225 -0.4505074 -0.94651139 -0.45164582 -0.94593227
+		 -0.45112455 -0.94830585 -0.45309758 -0.94521528 -0.45235303 -0.9477216 -0.45204675
+		 -0.95019162 -0.45084351 -0.95084238 -0.050402999 -0.82879001 -0.050343335 -0.82785058
+		 -0.051577926 -0.82644427 -0.051672012 -0.82716095 -0.04916814 -0.82861936 -0.049680978
+		 -0.8293674 -0.048917502 -0.82707644 -0.048100978 -0.82764143 -0.049337119 -0.83006656
+		 -0.048432916 -0.82969707 -0.047884703 -0.82889968 -0.047580123 -0.83176613 -0.04884702
+		 -0.83156902 -0.046856165 -0.83177364 -0.046742618 -0.82785213 -0.046722651 -0.82559645
+		 0.17723247 -0.82674205 0.1760948 -0.82800716 0.17633727 -0.82875347 0.17754093 -0.82721055
+		 0.17515013 -0.82857984 0.17574248 -0.82924616 0.17516491 -0.82699752 0.17438576 -0.82750797
+		 0.17449895 -0.82964039 0.17538199 -0.82999837 0.17405394 -0.82877749 0.17353252 -0.8317945
+		 0.1748229 -0.83156115 0.17281041 -0.83176196 0.17353484 -0.82554901 0.17312488 -0.8275407
+		 -0.28105274 -0.94821358 -0.2817241 -0.94880462 -0.28186101 -0.95022297 -0.28080907
+		 -0.94960499 -0.28228635 -0.94813359 -0.28279698 -0.94952852 0.76552409 -0.79348201
+		 0.76417089 -0.79316592 0.7649712 -0.79610515 0.76658469 -0.79733491 0.76417637 -0.79551256
+		 0.76442087 -0.79626667 0.76338297 -0.79610085 0.76393038 -0.79626572 0.76417482 -0.79694414
+		 0.76432866 -0.79715574 0.7640205 -0.79715532 0.76417339 -0.79807043;
+	setAttr ".uvtk[5750:5938]" 0.76430857 -0.79813731 0.76459408 -0.79771113 0.76482892
+		 -0.79763716 0.76403821 -0.79813683 0.76351994 -0.79763579 0.76375425 -0.79771012
+		 0.76417166 -0.79951805 0.76432723 -0.79960644 0.76460969 -0.79839003 0.76373708 -0.79838902
+		 0.76401603 -0.79960591 0.76416928 -0.80204153 0.76430964 -0.80206347 0.7646783 -0.79993337
+		 0.76366484 -0.7999323 0.76402879 -0.80206293 0.76416695 -0.80458355 0.76427394 -0.80452001
+		 0.76462287 -0.80233204 0.76371562 -0.80233085 0.76405996 -0.80451959 0.7641654 -0.80597842
+		 0.76452786 -0.80468726 0.76380599 -0.80468631 0.76441246 -0.80611169 0.76391858 -0.80611104
+		 0.76416492 -0.8064214 0.76416409 -0.80709791 -0.01951769 -0.94865054 -0.021171302
+		 -0.94910687 -0.020295769 -0.95020056 -0.018342108 -0.949929 -0.021751016 -0.94837064
+		 -0.020238131 -0.94780982 -0.02112928 -0.94672287 -0.022488564 -0.94742739 -0.46810457
+		 -0.94675702 -0.46895736 -0.94785631 -0.46728098 -0.94827533 -0.46612611 -0.94699234
+		 -0.4695214 -0.9485957 -0.46798721 -0.94911849 -0.4702431 -0.94954008 -0.46886429
+		 -0.95020658 0.081919104 -0.82687324 0.082041115 -0.82816422 0.082073539 -0.82837802
+		 0.082442373 -0.82822043 0.081663638 -0.82826602 0.082217127 -0.82962298 0.082410008
+		 -0.83014941 0.082142681 -0.83019388 0.082437843 -0.83158529 -0.13720965 -0.82808065
+		 -0.13726205 -0.82765996 -0.14053193 -0.83100849 -0.13989967 -0.83156651 -0.13389733
+		 -0.83053434 -0.13441569 -0.83107734 -0.137362 -0.82569933 -0.13951379 -0.82870924
+		 -0.13512674 -0.82834643 -0.13747448 -0.82332277 -0.13875335 -0.82560766 -0.13613182
+		 -0.825351 -0.13756019 -0.82193851 -0.1387589 -0.82384586 -0.1363067 -0.82362831 -0.13763487
+		 -0.82091755 -0.13896474 -0.82277477 -0.13625091 -0.82256782 -0.13771126 -0.81982881
+		 -0.13912445 -0.82171303 -0.1362462 -0.8215183 -0.13779968 -0.8183741 -0.13918477
+		 -0.82032526 -0.13636526 -0.82014656 0.49068797 -0.80504894 0.49095291 -0.80338544
+		 0.49029535 -0.80377078 0.49021292 -0.80540901 0.4916054 -0.80401617 0.49115726 -0.80559403
+		 0.49122727 -0.80209929 0.49039119 -0.80241275 0.49013615 -0.80715346 0.49044159 -0.80692339
+		 0.49206132 -0.80271721 0.49074471 -0.80728233 0.4915148 -0.80097342 0.49053806 -0.80117571
+		 0.49249542 -0.8015362 0.49181688 -0.79988116 0.49076512 -0.79998112 0.49288189 -0.80039316
+		 0.49208993 -0.7988885 0.49096531 -0.79898107 0.49323452 -0.79944259 0.49228877 -0.79811829
+		 0.49100506 -0.79831839 0.49359441 -0.79883099 0.49243891 -0.79748011 0.49101442 -0.79777849
+		 0.49388921 -0.7983433 0.49256778 -0.79682338 0.49121925 -0.79703039 0.49395758 -0.79764223
+		 -0.76084268 -0.95018941 -0.76324826 -0.94815874 -0.76336765 -0.94764352 -0.76359534
+		 -0.94850421 -0.11677626 -0.9449178 -0.11703613 -0.94452399 -0.11750403 -0.94447887
+		 -0.11714104 -0.94514054 -0.11807159 -0.94519079 -0.11774531 -0.94583803 -0.11701164
+		 -0.94637203 -0.11675462 -0.94588298 -0.11774436 -0.94771546 -0.11662337 -0.94652665
+		 -0.11701044 -0.94738138 -0.11739168 -0.94836116 -0.11700615 -0.94824553 -0.11635676
+		 -0.94788182 -0.117295 -0.94871312 -0.11603501 -0.9492079 -0.11703292 -0.94898683
+		 -0.11731383 -0.94936424 -0.11707059 -0.95019078 -0.11583564 -0.95085466 -0.11784372
+		 -0.95115268 0.75905704 -0.77735937 0.75917792 -0.77765489 0.75923312 -0.77732897
+		 0.75911033 -0.77716887 0.75927657 -0.77886987 0.75910854 -0.7790575 0.75944471 -0.7790041
+		 0.75924617 -0.78198314 0.75946873 -0.78169572 0.75969106 -0.78191447 0.75967979 -0.78525579
+		 0.75942212 -0.78561366 0.75993764 -0.78553629 0.75961399 -0.78910935 0.75988412 -0.78875268
+		 0.76015377 -0.78902948 0.76005542 -0.79135716 0.75980711 -0.79165137 0.76030213 -0.79157466
+		 0.7599867 -0.79361683 0.76020151 -0.79338837 0.76041442 -0.7935468 0.76032984 -0.79514289
+		 0.76014638 -0.79532373 0.76051152 -0.7952615 0.76027238 -0.7974329 0.76046646 -0.79711819
+		 0.76066983 -0.79737127 0.76063824 -0.79982775 0.76036221 -0.80067456 0.76095766 -0.80059797
+		 0.76042181 -0.8070333 0.76093602 -0.80554307 0.76151353 -0.80692685 -0.66064948 -0.94221675
+		 -0.66115189 -0.93823195 -0.66167319 -0.95019615 -0.66057265 -0.95023918 -0.58999181
+		 -0.95142102 -0.60189009 -0.94518161 -0.60181653 -0.94955301 -0.59328818 -0.95019203
+		 -0.74995708 -0.9481287 -0.75196868 -0.95020473 -0.75074619 -0.94951224 -0.74952352
+		 -0.94881958 -0.74873435 -0.94743621 -0.74794531 -0.94605279 0.13194981 0.057605356
+		 0.13548815 0.062665105 0.13459703 0.054047942 0.13999096 0.05857724 0.13953927 0.056907561
+		 0.1394563 0.056139015 0.13945559 0.056139462 0.13945642 0.056138478 0.073997125 0.10651328;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -61379,10 +64075,10 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 4 ".st";
+	setAttr -s 5 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 7 ".s";
+	setAttr -s 8 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
@@ -61391,9 +64087,9 @@ select -ne :standardSurface1;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
 	setAttr ".ro" yes;
+	setAttr -s 2 ".gn";
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
-select -ne :initialMaterialInfo;
 select -ne :defaultRenderGlobals;
 	addAttr -ci true -h true -sn "dss" -ln "defaultSurfaceShader" -dt "string";
 	setAttr ".ren" -type "string" "arnold";
@@ -61412,10 +64108,8 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
-connectAttr "polyCloseBorder2.out" "Fish_MeshShape.i";
-connectAttr "polyTweakUV20.uvtk[0]" "Fish_MeshShape.uvst[0].uvtw";
+connectAttr "polyTweakUV37.out" "Fish_MeshShape.i";
+connectAttr "polyTweakUV37.uvtk[0]" "Fish_MeshShape.uvst[0].uvtw";
 connectAttr "polyTweakUV1.out" "FishBowlShape.i";
 connectAttr "polyTweakUV1.uvtk[0]" "FishBowlShape.uvst[0].uvtw";
 connectAttr "polyMapDel2.out" "GreekBuilding:GreekBuildingShape.i";
@@ -61429,10 +64123,12 @@ relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLigh
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "GreekBuilding:lambert2SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "Fishbowl:GreekBuilding:lambert2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "GreekBuilding:lambert2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "Fishbowl:GreekBuilding:lambert2SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drivers"
@@ -61665,9 +64361,6 @@ connectAttr "Bowl_Mat.oc" "lambert2SG.ss";
 connectAttr "FishBowlShape.iog" "lambert2SG.dsm" -na;
 connectAttr "lambert2SG.msg" "materialInfo1.sg";
 connectAttr "Bowl_Mat.msg" "materialInfo1.m";
-connectAttr "polySurfaceShape1.o" "polyFlipUV1.ip";
-connectAttr "FishBowlShape.wm" "polyFlipUV1.mp";
-connectAttr "polyFlipUV1.out" "polyTweakUV1.ip";
 connectAttr "GreekBuilding:polySoftEdge56.out" "polyTweakUV2.ip";
 connectAttr "GreekBuilding:polyTweak1.out" "polyMapDel1.ip";
 connectAttr "polyTweakUV2.out" "GreekBuilding:polyTweak1.ip";
@@ -61788,11 +64481,312 @@ connectAttr "polyTweak15.out" "polyMergeVert14.ip";
 connectAttr "Fish_MeshShape.wm" "polyMergeVert14.mp";
 connectAttr "polyTweakUV20.out" "polyTweak15.ip";
 connectAttr "polyMergeVert14.out" "polyCloseBorder2.ip";
+connectAttr "polyCloseBorder2.out" "deleteComponent7.ig";
+connectAttr "deleteComponent7.og" "deleteComponent8.ig";
+connectAttr "deleteComponent8.og" "deleteComponent9.ig";
+connectAttr "deleteComponent9.og" "deleteComponent10.ig";
+connectAttr "deleteComponent10.og" "deleteComponent11.ig";
+connectAttr "deleteComponent11.og" "deleteComponent12.ig";
+connectAttr "deleteComponent12.og" "deleteComponent13.ig";
+connectAttr "deleteComponent13.og" "deleteComponent14.ig";
+connectAttr "deleteComponent14.og" "deleteComponent15.ig";
+connectAttr "deleteComponent15.og" "deleteComponent16.ig";
+connectAttr "deleteComponent16.og" "deleteComponent17.ig";
+connectAttr "deleteComponent17.og" "deleteComponent18.ig";
+connectAttr "deleteComponent18.og" "deleteComponent19.ig";
+connectAttr "deleteComponent19.og" "deleteComponent20.ig";
+connectAttr "deleteComponent20.og" "deleteComponent21.ig";
+connectAttr "deleteComponent21.og" "deleteComponent22.ig";
+connectAttr "deleteComponent22.og" "deleteComponent23.ig";
+connectAttr "deleteComponent23.og" "deleteComponent24.ig";
+connectAttr "deleteComponent24.og" "deleteComponent25.ig";
+connectAttr "deleteComponent25.og" "deleteComponent26.ig";
+connectAttr "deleteComponent26.og" "deleteComponent27.ig";
+connectAttr "deleteComponent27.og" "deleteComponent28.ig";
+connectAttr "deleteComponent28.og" "deleteComponent29.ig";
+connectAttr "deleteComponent29.og" "deleteComponent30.ig";
+connectAttr "deleteComponent30.og" "deleteComponent31.ig";
+connectAttr "deleteComponent31.og" "deleteComponent32.ig";
+connectAttr "deleteComponent32.og" "deleteComponent33.ig";
+connectAttr "deleteComponent33.og" "deleteComponent34.ig";
+connectAttr "deleteComponent34.og" "deleteComponent35.ig";
+connectAttr "deleteComponent35.og" "deleteComponent36.ig";
+connectAttr "deleteComponent36.og" "deleteComponent37.ig";
+connectAttr "deleteComponent37.og" "deleteComponent38.ig";
+connectAttr "deleteComponent38.og" "deleteComponent39.ig";
+connectAttr "deleteComponent39.og" "deleteComponent40.ig";
+connectAttr "deleteComponent40.og" "deleteComponent41.ig";
+connectAttr "deleteComponent41.og" "deleteComponent42.ig";
+connectAttr "deleteComponent42.og" "deleteComponent43.ig";
+connectAttr "deleteComponent43.og" "deleteComponent44.ig";
+connectAttr "deleteComponent44.og" "deleteComponent45.ig";
+connectAttr "deleteComponent45.og" "deleteComponent46.ig";
+connectAttr "deleteComponent46.og" "deleteComponent47.ig";
+connectAttr "deleteComponent47.og" "deleteComponent48.ig";
+connectAttr "deleteComponent48.og" "deleteComponent49.ig";
+connectAttr "deleteComponent49.og" "deleteComponent50.ig";
+connectAttr "deleteComponent50.og" "deleteComponent51.ig";
+connectAttr "deleteComponent51.og" "deleteComponent52.ig";
+connectAttr "deleteComponent52.og" "deleteComponent53.ig";
+connectAttr "deleteComponent53.og" "deleteComponent54.ig";
+connectAttr "deleteComponent54.og" "deleteComponent55.ig";
+connectAttr "deleteComponent55.og" "deleteComponent56.ig";
+connectAttr "deleteComponent56.og" "deleteComponent57.ig";
+connectAttr "deleteComponent57.og" "deleteComponent58.ig";
+connectAttr "deleteComponent58.og" "deleteComponent59.ig";
+connectAttr "deleteComponent59.og" "deleteComponent60.ig";
+connectAttr "deleteComponent60.og" "deleteComponent61.ig";
+connectAttr "deleteComponent61.og" "deleteComponent62.ig";
+connectAttr "deleteComponent62.og" "deleteComponent63.ig";
+connectAttr "deleteComponent63.og" "deleteComponent64.ig";
+connectAttr "deleteComponent64.og" "deleteComponent65.ig";
+connectAttr "deleteComponent65.og" "deleteComponent66.ig";
+connectAttr "deleteComponent66.og" "deleteComponent67.ig";
+connectAttr "deleteComponent67.og" "deleteComponent68.ig";
+connectAttr "deleteComponent68.og" "deleteComponent69.ig";
+connectAttr "deleteComponent69.og" "deleteComponent70.ig";
+connectAttr "deleteComponent70.og" "deleteComponent71.ig";
+connectAttr "deleteComponent71.og" "deleteComponent72.ig";
+connectAttr "deleteComponent72.og" "deleteComponent73.ig";
+connectAttr "deleteComponent73.og" "deleteComponent74.ig";
+connectAttr "deleteComponent74.og" "deleteComponent75.ig";
+connectAttr "deleteComponent75.og" "deleteComponent76.ig";
+connectAttr "deleteComponent76.og" "polyTweakUV21.ip";
+connectAttr "polyTweak16.out" "polyMergeVert15.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert15.mp";
+connectAttr "polyTweakUV21.out" "polyTweak16.ip";
+connectAttr "polyMergeVert15.out" "polyTweakUV22.ip";
+connectAttr "polyTweak17.out" "polyMergeVert16.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert16.mp";
+connectAttr "polyTweakUV22.out" "polyTweak17.ip";
+connectAttr "polyMergeVert16.out" "polyTweakUV23.ip";
+connectAttr "polyTweak18.out" "polyMergeVert17.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert17.mp";
+connectAttr "polyTweakUV23.out" "polyTweak18.ip";
+connectAttr "polyMergeVert17.out" "polyTweakUV24.ip";
+connectAttr "polyTweakUV24.out" "polyMergeVert18.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert18.mp";
+connectAttr "polyMergeVert18.out" "polyTweak19.ip";
+connectAttr "polyTweak19.out" "deleteComponent77.ig";
+connectAttr "deleteComponent77.og" "deleteComponent78.ig";
+connectAttr "deleteComponent78.og" "deleteComponent79.ig";
+connectAttr "deleteComponent79.og" "deleteComponent80.ig";
+connectAttr "deleteComponent80.og" "deleteComponent81.ig";
+connectAttr "polyTweak20.out" "polyAppendVertex5.ip";
+connectAttr "deleteComponent81.og" "polyTweak20.ip";
+connectAttr "polyAppendVertex5.out" "polyAppendVertex6.ip";
+connectAttr "polyTweak21.out" "polyAppendVertex7.ip";
+connectAttr "polyAppendVertex6.out" "polyTweak21.ip";
+connectAttr "polyAppendVertex7.out" "polyAppendVertex8.ip";
+connectAttr "polyTweak22.out" "polyAppendVertex9.ip";
+connectAttr "polyAppendVertex8.out" "polyTweak22.ip";
+connectAttr "polyAppendVertex9.out" "polyAppendVertex10.ip";
+connectAttr "polyAppendVertex10.out" "polyAppendVertex11.ip";
+connectAttr "polyAppendVertex11.out" "polyTweakUV25.ip";
+connectAttr "polyTweakUV25.out" "polyMergeVert19.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert19.mp";
+connectAttr "polyMergeVert19.out" "polyTweakUV26.ip";
+connectAttr "polyTweakUV26.out" "polyMergeVert20.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert20.mp";
+connectAttr "polyMergeVert20.out" "polyTweakUV27.ip";
+connectAttr "polyTweak23.out" "polyMergeVert21.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert21.mp";
+connectAttr "polyTweakUV27.out" "polyTweak23.ip";
+connectAttr "polyMergeVert21.out" "polyTweakUV28.ip";
+connectAttr "polyTweak24.out" "polyMergeVert22.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert22.mp";
+connectAttr "polyTweakUV28.out" "polyTweak24.ip";
+connectAttr "polyMergeVert22.out" "polyAppendVertex12.ip";
+connectAttr "polyAppendVertex12.out" "polyAppendVertex13.ip";
+connectAttr "polyAppendVertex13.out" "polyAppendVertex14.ip";
+connectAttr "polyAppendVertex14.out" "polyTweakUV29.ip";
+connectAttr "polyTweakUV29.out" "polyMergeVert23.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert23.mp";
+connectAttr "polyTweak25.out" "polyAppendVertex15.ip";
+connectAttr "polyMergeVert23.out" "polyTweak25.ip";
+connectAttr "polyAppendVertex15.out" "polyTweakUV30.ip";
+connectAttr "polyTweakUV30.out" "polyMergeVert24.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert24.mp";
+connectAttr "polyMergeVert24.out" "polyTweakUV31.ip";
+connectAttr "polyTweakUV31.out" "polyMergeVert25.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert25.mp";
+connectAttr "polyMergeVert25.out" "polyTweakUV32.ip";
+connectAttr "polyTweak26.out" "polyMergeVert26.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert26.mp";
+connectAttr "polyTweakUV32.out" "polyTweak26.ip";
+connectAttr "polyMergeVert26.out" "polyMergeVert27.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert27.mp";
+connectAttr "polyMergeVert27.out" "polyAppendVertex16.ip";
+connectAttr "polyAppendVertex16.out" "polyAppendVertex17.ip";
+connectAttr "polyAppendVertex17.out" "polyAppendVertex18.ip";
+connectAttr "polyAppendVertex18.out" "polyAppendVertex19.ip";
+connectAttr "polyAppendVertex19.out" "polyAppendVertex20.ip";
+connectAttr "polyAppendVertex20.out" "polyNormal2.ip";
+connectAttr "polyNormal2.out" "deleteComponent82.ig";
+connectAttr "deleteComponent82.og" "deleteComponent83.ig";
+connectAttr "deleteComponent83.og" "deleteComponent84.ig";
+connectAttr "deleteComponent84.og" "deleteComponent85.ig";
+connectAttr "deleteComponent85.og" "deleteComponent86.ig";
+connectAttr "deleteComponent86.og" "deleteComponent87.ig";
+connectAttr "deleteComponent87.og" "deleteComponent88.ig";
+connectAttr "deleteComponent88.og" "deleteComponent89.ig";
+connectAttr "deleteComponent89.og" "deleteComponent90.ig";
+connectAttr "deleteComponent90.og" "deleteComponent91.ig";
+connectAttr "deleteComponent91.og" "deleteComponent92.ig";
+connectAttr "deleteComponent92.og" "deleteComponent93.ig";
+connectAttr "deleteComponent93.og" "deleteComponent94.ig";
+connectAttr "deleteComponent94.og" "deleteComponent95.ig";
+connectAttr "deleteComponent95.og" "deleteComponent96.ig";
+connectAttr "deleteComponent96.og" "deleteComponent97.ig";
+connectAttr "deleteComponent97.og" "deleteComponent98.ig";
+connectAttr "deleteComponent98.og" "deleteComponent99.ig";
+connectAttr "deleteComponent99.og" "deleteComponent100.ig";
+connectAttr "deleteComponent100.og" "deleteComponent101.ig";
+connectAttr "deleteComponent101.og" "deleteComponent102.ig";
+connectAttr "polyTweak27.out" "polyAppendVertex21.ip";
+connectAttr "deleteComponent102.og" "polyTweak27.ip";
+connectAttr "polyAppendVertex21.out" "polyAppendVertex22.ip";
+connectAttr "polyAppendVertex22.out" "polyAppendVertex23.ip";
+connectAttr "polyAppendVertex23.out" "polyAppendVertex24.ip";
+connectAttr "polyAppendVertex24.out" "polyAppendVertex25.ip";
+connectAttr "polyAppendVertex25.out" "polyAppendVertex26.ip";
+connectAttr "polyAppendVertex26.out" "polyTweak28.ip";
+connectAttr "polyTweak28.out" "deleteComponent103.ig";
+connectAttr "deleteComponent103.og" "polyAppendVertex27.ip";
+connectAttr "Fishbowl:GreekBuilding:lambert2.oc" "Fishbowl:GreekBuilding:lambert2SG.ss"
+		;
+connectAttr "Fishbowl:GreekBuilding:lambert2SG.msg" "Fishbowl:GreekBuilding:materialInfo1.sg"
+		;
+connectAttr "Fishbowl:GreekBuilding:lambert2.msg" "Fishbowl:GreekBuilding:materialInfo1.m"
+		;
+connectAttr "polySurfaceShape1.o" "polyFlipUV1.ip";
+connectAttr "FishBowlShape.wm" "polyFlipUV1.mp";
+connectAttr "polyFlipUV1.out" "polyTweakUV1.ip";
+connectAttr "polyAppendVertex27.out" "polyTweak29.ip";
+connectAttr "polyTweak29.out" "deleteComponent104.ig";
+connectAttr "deleteComponent104.og" "polyAppendVertex28.ip";
+connectAttr "polyAppendVertex28.out" "deleteComponent105.ig";
+connectAttr "deleteComponent105.og" "deleteComponent106.ig";
+connectAttr "deleteComponent106.og" "deleteComponent107.ig";
+connectAttr "deleteComponent107.og" "deleteComponent108.ig";
+connectAttr "deleteComponent108.og" "polyAppendVertex29.ip";
+connectAttr "polyAppendVertex29.out" "polyAppendVertex30.ip";
+connectAttr "polyAppendVertex30.out" "polyAppendVertex31.ip";
+connectAttr "polyAppendVertex31.out" "polyAppendVertex32.ip";
+connectAttr "polyAppendVertex32.out" "polyTweak30.ip";
+connectAttr "polyTweak30.out" "deleteComponent109.ig";
+connectAttr "deleteComponent109.og" "deleteComponent110.ig";
+connectAttr "deleteComponent110.og" "polyTweakUV33.ip";
+connectAttr "polyTweak31.out" "polyMergeVert28.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert28.mp";
+connectAttr "polyTweakUV33.out" "polyTweak31.ip";
+connectAttr "polyMergeVert28.out" "polyTweakUV34.ip";
+connectAttr "polyTweak32.out" "polyMergeVert29.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert29.mp";
+connectAttr "polyTweakUV34.out" "polyTweak32.ip";
+connectAttr "polyMergeVert29.out" "deleteComponent111.ig";
+connectAttr "deleteComponent111.og" "deleteComponent112.ig";
+connectAttr "deleteComponent112.og" "deleteComponent113.ig";
+connectAttr "deleteComponent113.og" "polyAppendVertex33.ip";
+connectAttr "polyAppendVertex33.out" "polyAppendVertex34.ip";
+connectAttr "polyAppendVertex34.out" "polyAppendVertex35.ip";
+connectAttr "polyAppendVertex35.out" "deleteComponent114.ig";
+connectAttr "deleteComponent114.og" "deleteComponent115.ig";
+connectAttr "deleteComponent115.og" "polySplit10.ip";
+connectAttr "polySplit10.out" "polyAppendVertex36.ip";
+connectAttr "polyAppendVertex36.out" "polyAppendVertex37.ip";
+connectAttr "polyAppendVertex37.out" "polyAppendVertex38.ip";
+connectAttr "polyAppendVertex38.out" "polyAppendVertex39.ip";
+connectAttr "polyAppendVertex39.out" "polyAppendVertex40.ip";
+connectAttr "polyAppendVertex40.out" "polyAppendVertex41.ip";
+connectAttr "polyAppendVertex41.out" "polyAppendVertex42.ip";
+connectAttr "polyTweak33.out" "polyAppendVertex43.ip";
+connectAttr "polyAppendVertex42.out" "polyTweak33.ip";
+connectAttr "polyAppendVertex43.out" "polyAppendVertex44.ip";
+connectAttr "polyTweak34.out" "polyAppendVertex45.ip";
+connectAttr "polyAppendVertex44.out" "polyTweak34.ip";
+connectAttr "polyAppendVertex45.out" "polyAppendVertex46.ip";
+connectAttr "polyAppendVertex46.out" "polyAppendVertex47.ip";
+connectAttr "polyAppendVertex47.out" "polyAppendVertex48.ip";
+connectAttr "polyAppendVertex48.out" "polyTweak35.ip";
+connectAttr "polyTweak35.out" "deleteComponent116.ig";
+connectAttr "deleteComponent116.og" "polyAppendVertex49.ip";
+connectAttr "polyAppendVertex49.out" "polyTweak36.ip";
+connectAttr "polyTweak36.out" "polySplit11.ip";
+connectAttr "polySplit11.out" "polyAppendVertex50.ip";
+connectAttr "polyAppendVertex50.out" "polyTweakUV35.ip";
+connectAttr "polyTweak37.out" "polyMergeVert30.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert30.mp";
+connectAttr "polyTweakUV35.out" "polyTweak37.ip";
+connectAttr "polyMergeVert30.out" "polyTweak38.ip";
+connectAttr "polyTweak38.out" "deleteComponent117.ig";
+connectAttr "deleteComponent117.og" "deleteComponent118.ig";
+connectAttr "deleteComponent118.og" "deleteComponent119.ig";
+connectAttr "deleteComponent119.og" "deleteComponent120.ig";
+connectAttr "deleteComponent120.og" "polySplit12.ip";
+connectAttr "polySplit12.out" "polySplit13.ip";
+connectAttr "polyTweak39.out" "polyAppendVertex51.ip";
+connectAttr "polySplit13.out" "polyTweak39.ip";
+connectAttr "polyAppendVertex51.out" "polyAppendVertex52.ip";
+connectAttr "polyAppendVertex52.out" "polyAppendVertex53.ip";
+connectAttr "polyAppendVertex53.out" "polyAppendVertex54.ip";
+connectAttr "polyAppendVertex54.out" "polyAppendVertex55.ip";
+connectAttr "polyAppendVertex55.out" "polyAppendVertex56.ip";
+connectAttr "polyAppendVertex56.out" "polySoftEdge1.ip";
+connectAttr "Fish_MeshShape.wm" "polySoftEdge1.mp";
+connectAttr "polySoftEdge1.out" "polySoftEdge2.ip";
+connectAttr "Fish_MeshShape.wm" "polySoftEdge2.mp";
+connectAttr "polyTweak40.out" "polyAppendVertex57.ip";
+connectAttr "polySoftEdge2.out" "polyTweak40.ip";
+connectAttr "polyAppendVertex57.out" "polyAppendVertex58.ip";
+connectAttr "polyAppendVertex58.out" "polyTweak41.ip";
+connectAttr "polyTweak41.out" "polySplit14.ip";
+connectAttr "polySplit14.out" "polySplit15.ip";
+connectAttr "polySplit15.out" "polySplit16.ip";
+connectAttr "polySplit16.out" "polyTweakUV36.ip";
+connectAttr "polyTweak42.out" "polyMergeVert31.ip";
+connectAttr "Fish_MeshShape.wm" "polyMergeVert31.mp";
+connectAttr "polyTweakUV36.out" "polyTweak42.ip";
+connectAttr "polyMergeVert31.out" "deleteComponent121.ig";
+connectAttr "deleteComponent121.og" "polyTweak43.ip";
+connectAttr "polyTweak43.out" "deleteComponent122.ig";
+connectAttr "deleteComponent122.og" "deleteComponent123.ig";
+connectAttr "deleteComponent123.og" "deleteComponent124.ig";
+connectAttr "deleteComponent124.og" "deleteComponent125.ig";
+connectAttr "deleteComponent125.og" "deleteComponent126.ig";
+connectAttr "deleteComponent126.og" "deleteComponent127.ig";
+connectAttr "deleteComponent127.og" "deleteComponent128.ig";
+connectAttr "polyTweak44.out" "polyAppendVertex59.ip";
+connectAttr "deleteComponent128.og" "polyTweak44.ip";
+connectAttr "polyTweak45.out" "polyAppendVertex60.ip";
+connectAttr "polyAppendVertex59.out" "polyTweak45.ip";
+connectAttr "polyAppendVertex60.out" "polyAppendVertex61.ip";
+connectAttr "polyAppendVertex61.out" "polyTweak46.ip";
+connectAttr "polyTweak46.out" "polySplit17.ip";
+connectAttr "polySplit17.out" "deleteComponent129.ig";
+connectAttr "deleteComponent129.og" "polyAppendVertex62.ip";
+connectAttr "polyAppendVertex62.out" "polyAppendVertex63.ip";
+connectAttr "polyAppendVertex63.out" "polyAppendVertex64.ip";
+connectAttr "polyAppendVertex64.out" "polyAppendVertex65.ip";
+connectAttr "polyAppendVertex65.out" "polySoftEdge3.ip";
+connectAttr "Fish_MeshShape.wm" "polySoftEdge3.mp";
+connectAttr "polySoftEdge3.out" "polyMapDel5.ip";
+connectAttr "polyMapDel5.out" "polyAutoProj2.ip";
+connectAttr "Fish_MeshShape.wm" "polyAutoProj2.mp";
+connectAttr "polyAutoProj2.out" "polyNormal3.ip";
+connectAttr "polyNormal3.out" "polySplitEdge2.ip";
+connectAttr "polySplitEdge2.out" "polySplitVert3.ip";
+connectAttr "polySplitVert3.out" "polyMapCut6.ip";
+connectAttr "polyMapCut6.out" "polyTweakUV37.ip";
 connectAttr "GreekBuilding:lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "lambert2SG.pa" ":renderPartition.st" -na;
+connectAttr "Fishbowl:GreekBuilding:lambert2SG.pa" ":renderPartition.st" -na;
 connectAttr "GreekBuilding:lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "Bowl_Mat.msg" ":defaultShaderList1.s" -na;
+connectAttr "Fishbowl:GreekBuilding:lambert2.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Fish_MeshShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "GreekBuilding:groupId27.msg" ":initialShadingGroup.gn" -na;
-// End of Fishbowlwithdecoration.ma
+connectAttr "Fishbowl:GreekBuilding:groupId27.msg" ":initialShadingGroup.gn" -na
+		;
+// End of FishbowlUVMapped.ma
